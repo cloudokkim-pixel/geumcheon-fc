@@ -18,6 +18,7 @@ import {
 
 const logoSrc = "http://fs.arumnet.com/image/N1010BONSA/event/2023121540/%EA%B8%88%EC%B2%9C%20%EC%B6%95%EA%B5%AC%20%ED%81%B4%EB%9F%BD%20%EC%9D%B4%EB%AF%B8%EC%A7%80.png";
 const posterSrc = "http://fs.arumnet.com/image/N1010BONSA/event/2023121541/%EB%AA%A8%EC%A7%91%EA%B3%B5%EA%B3%A0%20%ED%8F%AC%EC%8A%A4%ED%84%B0_2.png";
+import GSSCHeader from "./GSSCHeader";
 
 type Program = {
   title: string;
@@ -48,13 +49,37 @@ const programs: Program[] = [
   },
 ];
 
-const gallery = [
-  "훈련 집중도",
-  "전술 이해 훈련",
-  "피지컬 세션",
-  "팀워크 강화",
-  "실전 감각 향상",
-  "진학 준비 지원",
+const gallerySections = [
+  {
+    title: "훈련 집중도",
+    desc: "실전 훈련 모습, 집중력과 몰입의 순간을 담은 사진 및 설명.",
+    img: "https://images.unsplash.com/photo-1517649763962-0c1c5e1b8a36?auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    title: "전술 이해 훈련",
+    desc: "전술 세션, 포지션별 움직임, 팀 전술 이해 장면.",
+    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    title: "피지컬 세션",
+    desc: "체력 강화, 피지컬 트레이닝, 스피드 및 민첩성 훈련.",
+    img: "https://images.unsplash.com/photo-1461897104016-0b3b4b7f2c6c?auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    title: "팀워크 강화",
+    desc: "팀 플레이, 협동 훈련, 단합 프로그램 장면.",
+    img: "https://images.unsplash.com/photo-1518081461904-7b8b8e7f9a4a?auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    title: "실전 감각 향상",
+    desc: "연습 경기, 실전 대응, 경기력 향상 모습.",
+    img: "https://images.unsplash.com/photo-1518081461904-7b8b8e7f9a4a?auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    title: "진학 준비 지원",
+    desc: "진학 상담, 진로 컨설팅, 지원 프로그램 장면.",
+    img: "https://images.unsplash.com/photo-1517649763962-0c1c5e1b8a36?auto=format&fit=crop&w=400&q=80"
+  }
 ];
 
 function PrimaryButton({ children }: { children: React.ReactNode }) {
@@ -80,38 +105,7 @@ export default function GeumcheonHomepage() {
       <div className="pointer-events-none fixed inset-0 opacity-[0.08] bg-[radial-gradient(circle_at_center,transparent_0_52%,rgba(239,68,68,0.35)_53%,transparent_54%)]" />
       <div className="pointer-events-none fixed inset-0 opacity-[0.06] bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:34px_34px]" />
 
-      <header className="sticky top-0 z-50 border-b border-red-500/20 bg-[#050b15]/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 sm:gap-4">
-            <div className="relative h-12 w-12 overflow-hidden rounded-2xl border border-red-500/30 bg-black sm:h-14 sm:w-14">
-              <img src={logoSrc} alt="서울금천축구클럽 로고" className="h-full w-full object-cover" />
-            </div>
-            <div>
-              <p className="text-base font-black sm:text-lg">서울금천축구클럽</p>
-              <p className="text-[10px] uppercase tracking-[0.28em] text-white/55 sm:text-xs">
-                Geumcheon Soccer Club
-              </p>
-            </div>
-          </div>
-
-          <nav className="hidden items-center gap-7 text-sm text-white/72 lg:flex">
-            <a href="#about" className="transition hover:text-red-300">클럽소개</a>
-            <a href="#program" className="transition hover:text-red-300">훈련프로그램</a>
-            <a href="#recruit" className="transition hover:text-red-300">선수모집</a>
-            <a href="#gallery" className="transition hover:text-red-300">갤러리</a>
-            <a href="#contact" className="transition hover:text-red-300">문의</a>
-          </nav>
-
-          <div className="flex items-center gap-2">
-            <div className="hidden sm:block">
-              <PrimaryButton>상담문의</PrimaryButton>
-            </div>
-            <button className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white lg:hidden">
-              <Menu className="h-5 w-5" />
-            </button>
-          </div>
-        </div>
-      </header>
+      <GSSCHeader />
 
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute left-1/2 top-8 h-[46rem] w-[46rem] -translate-x-1/2 rounded-full border border-red-500/10 sm:h-[54rem] sm:w-[54rem]" />
@@ -136,7 +130,9 @@ export default function GeumcheonHomepage() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <PrimaryButton>선수 모집 바로가기</PrimaryButton>
-              <OutlineButton>클럽 소개 보기</OutlineButton>
+                <a href="/club-introduction">
+                  <OutlineButton>클럽 소개 보기</OutlineButton>
+                </a>
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -364,7 +360,9 @@ export default function GeumcheonHomepage() {
             </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <PrimaryButton>참가 신청</PrimaryButton>
+              <a href="/application">
+                <PrimaryButton>참가 신청</PrimaryButton>
+              </a>
               <OutlineButton>모집 요강 보기</OutlineButton>
             </div>
           </div>
@@ -385,24 +383,17 @@ export default function GeumcheonHomepage() {
               <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl">훈련 갤러리</h2>
             </div>
             <p className="max-w-2xl text-sm leading-7 text-white/65 sm:text-base">
-              훈련 현장, 전술 세션, 팀워크 프로그램, 피지컬 강화 등 클럽의 실제 운영 장면이 들어가는 갤러리 영역입니다.
+              훈련집중도, 전술이해훈련, 피지컬 세션, 팀워크 강화, 실전 감각 향상, 진학 준비 지원 등 클럽의 실제 운영 장면이 들어가는 갤러리 영역입니다.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-            {gallery.map((item, idx) => (
-              <div
-                key={item}
-                className={`group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(239,68,68,0.18),rgba(255,255,255,0.03))] ${idx % 3 === 0 ? "lg:col-span-2" : ""}`}
-              >
-                <div className="flex min-h-[10rem] flex-col justify-between p-5 sm:min-h-[12rem]">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-black/25 text-red-300">
-                    <Camera className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.2em] text-white/45">Photo Block</p>
-                    <p className="mt-2 text-lg font-bold">{item}</p>
-                  </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {gallerySections.map((section) => (
+              <div key={section.title} className="rounded-2xl overflow-hidden border border-white/10 bg-black/30 shadow-lg">
+                <img src={section.img} alt={section.title} className="w-full h-48 object-cover" />
+                <div className="p-6">
+                  <p className="text-lg font-bold text-red-300 mb-2">{section.title}</p>
+                  <p className="text-sm text-white/80">{section.desc}</p>
                 </div>
               </div>
             ))}
@@ -438,12 +429,16 @@ export default function GeumcheonHomepage() {
           </div>
 
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <button className="inline-flex h-12 items-center justify-center rounded-2xl bg-[#081325] px-6 text-base font-semibold text-white transition hover:bg-black">
-              상담 신청하기
-            </button>
-            <button className="inline-flex h-12 items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-6 text-base text-white transition hover:bg-white/15">
-              클럽 문의 남기기
-            </button>
+            <a href="/application">
+              <button className="inline-flex h-12 items-center justify-center rounded-2xl bg-[#081325] px-6 text-base font-semibold text-white transition hover:bg-black">
+                참가 신청하기
+              </button>
+            </a>
+            <a href="/contact">
+              <button className="inline-flex h-12 items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-6 text-base text-white transition hover:bg-white/15">
+                클럽 문의 남기기
+              </button>
+            </a>
           </div>
         </div>
       </section>
