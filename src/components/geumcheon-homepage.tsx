@@ -129,10 +129,12 @@ export default function GeumcheonHomepage() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <PrimaryButton>선수 모집 바로가기</PrimaryButton>
-                <a href="/club-introduction">
-                  <OutlineButton>클럽 소개 보기</OutlineButton>
-                </a>
+              <a href="/application">
+                <PrimaryButton>선수 모집 바로가기</PrimaryButton>
+              </a>
+              <a href="/club-introduction">
+                <OutlineButton>클럽 소개 보기</OutlineButton>
+              </a>
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
