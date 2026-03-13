@@ -121,13 +121,13 @@ export default function GeumcheonHomepage() {
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-24">
           <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="relative z-10">
             <div className="mb-5 inline-flex rounded-full border border-red-300/25 bg-red-500/10 px-4 py-1 text-sm text-red-200">
-              Elite Youth Football Academy
+              Elite Youth Soccer Academy
             </div>
 
             <h1 className="text-4xl font-black leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.3rem]">
               GEUMCHEON
               <br />
-              <span className="text-red-500">FOOTBALL CLUB</span>
+              <span className="text-red-500">SOCCER CLUB</span>
             </h1>
 
             <p className="mt-6 max-w-2xl text-sm leading-7 text-white/72 sm:text-base lg:text-lg">
@@ -456,10 +456,10 @@ export default function GeumcheonHomepage() {
             </div>
             <div>
               <p className="font-semibold text-white/80">서울금천축구클럽</p>
-              <p className="text-xs uppercase tracking-[0.2em]">Geumcheon Football Club</p>
+              <p className="text-xs uppercase tracking-[0.2em]">Geumcheon Soccer Club</p>
             </div>
           </div>
-          <p>© 2025 Geumcheon Football Club. All rights reserved.</p>
+          <p>© 2025 Geumcheon Soccer Club. All rights reserved.</p>
         </div>
       </footer>
     </div>
