@@ -84,7 +84,7 @@ const gallerySections = [
 
 function PrimaryButton({ children }: { children: React.ReactNode }) {
   return (
-    <button className="inline-flex h-12 items-center justify-center rounded-2xl bg-red-600 px-6 text-base font-semibold text-white transition hover:bg-red-700">
+    <button className="inline-flex h-12 w-full items-center justify-center rounded-2xl bg-red-600 px-6 text-base font-semibold text-white transition hover:bg-red-700 sm:w-[220px]">
       {children}
     </button>
   );
@@ -92,7 +92,7 @@ function PrimaryButton({ children }: { children: React.ReactNode }) {
 
 function OutlineButton({ children }: { children: React.ReactNode }) {
   return (
-    <button className="inline-flex h-12 items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-6 text-base font-medium text-white transition hover:bg-white/10">
+    <button className="inline-flex h-12 w-full items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-6 text-base font-medium text-white transition hover:bg-white/10 sm:w-[220px]">
       {children}
     </button>
   );
@@ -129,10 +129,10 @@ export default function GeumcheonHomepage() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="/application">
+              <a href="/application" className="w-full sm:w-[220px]">
                 <PrimaryButton>선수 모집 바로가기</PrimaryButton>
               </a>
-              <a href="/club-introduction">
+              <a href="/club-introduction" className="w-full sm:w-[220px]">
                 <OutlineButton>클럽 소개 보기</OutlineButton>
               </a>
             </div>
