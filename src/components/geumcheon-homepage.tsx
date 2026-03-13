@@ -89,7 +89,7 @@ export default function GeumcheonHomepage() {
             <div>
               <p className="text-base font-black sm:text-lg">서울금천축구클럽</p>
               <p className="text-[10px] uppercase tracking-[0.28em] text-white/55 sm:text-xs">
-                Geumcheon Football Club
+                Geumcheon Soccer Club
               </p>
             </div>
           </div>
