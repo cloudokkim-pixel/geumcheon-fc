@@ -3,12 +3,10 @@
 import { motion } from "framer-motion";
 import {
   CalendarDays,
-  Camera,
   ChevronRight,
   Dumbbell,
   GraduationCap,
   MapPin,
-  Menu,
   Phone,
   ShieldCheck,
   Star,
@@ -52,34 +50,42 @@ const programs: Program[] = [
 const gallerySections = [
   {
     title: "훈련 집중도",
-    desc: "실전 훈련 모습, 집중력과 몰입의 순간을 담은 사진 및 설명.",
-    img: "https://images.unsplash.com/photo-1517649763962-0c1c5e1b8a36?auto=format&fit=crop&w=400&q=80"
+    desc: "반복 훈련 속에서 기술 완성도를 높이는 현장 장면입니다.",
+    img: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    title: "전술 이해 훈련",
-    desc: "전술 세션, 포지션별 움직임, 팀 전술 이해 장면.",
-    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+    title: "전술 훈련",
+    desc: "포지션 이해와 팀 밸런스를 맞추는 전술 세션을 보여줍니다.",
+    img: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=900&q=80",
   },
   {
     title: "피지컬 세션",
-    desc: "체력 강화, 피지컬 트레이닝, 스피드 및 민첩성 훈련.",
-    img: "https://images.unsplash.com/photo-1461897104016-0b3b4b7f2c6c?auto=format&fit=crop&w=400&q=80"
+    desc: "스피드와 민첩성, 체력 기반을 만드는 피지컬 프로그램입니다.",
+    img: "https://images.unsplash.com/photo-1552667466-07770ae110d0?auto=format&fit=crop&w=900&q=80",
   },
   {
-    title: "팀워크 강화",
-    desc: "팀 플레이, 협동 훈련, 단합 프로그램 장면.",
-    img: "https://images.unsplash.com/photo-1518081461904-7b8b8e7f9a4a?auto=format&fit=crop&w=400&q=80"
+    title: "팀워크",
+    desc: "선수 간 호흡과 경기 몰입도를 높이는 팀 세션을 담았습니다.",
+    img: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&q=80",
+  },
+];
+
+const sponsorSections = [
+  {
+    title: "개인 후원",
+    desc: "선수 장학 지원과 훈련 운영비 보강에 참여할 수 있습니다.",
+    icon: Star,
   },
   {
-    title: "실전 감각 향상",
-    desc: "연습 경기, 실전 대응, 경기력 향상 모습.",
-    img: "https://images.unsplash.com/photo-1518081461904-7b8b8e7f9a4a?auto=format&fit=crop&w=400&q=80"
+    title: "기업 후원",
+    desc: "지역 기업과의 파트너십으로 훈련 환경과 클럽 운영을 함께 만듭니다.",
+    icon: Users,
   },
   {
-    title: "진학 준비 지원",
-    desc: "진학 상담, 진로 컨설팅, 지원 프로그램 장면.",
-    img: "https://images.unsplash.com/photo-1517649763962-0c1c5e1b8a36?auto=format&fit=crop&w=400&q=80"
-  }
+    title: "훈련 장비 후원",
+    desc: "훈련용품, 유니폼, 회복 장비 후원으로 선수들의 현장을 직접 지원합니다.",
+    icon: Dumbbell,
+  },
 ];
 
 function PrimaryButton({ children }: { children: React.ReactNode }) {
@@ -378,69 +384,176 @@ export default function GeumcheonHomepage() {
       </section>
 
       <section id="gallery" className="relative bg-[#07101d] py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-8 flex flex-col gap-4 lg:mb-10 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <p className="text-sm uppercase tracking-[0.28em] text-red-300">Gallery Preview</p>
-              <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl">훈련 갤러리</h2>
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.08),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.04),transparent_26%)]" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 flex flex-col gap-6 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl">
+              <p className="text-sm uppercase tracking-[0.32em] text-red-300">Gallery Preview</p>
+              <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">훈련 갤러리</h2>
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-white/72 sm:text-base">
+                훈련 집중도, 전술 훈련, 피지컬 세션, 팀워크 장면을 중심으로 클럽의 실제 분위기를 보여주는 미리보기 영역입니다.
+              </p>
             </div>
-            <p className="max-w-2xl text-sm leading-7 text-white/65 sm:text-base">
-              훈련집중도, 전술이해훈련, 피지컬 세션, 팀워크 강화, 실전 감각 향상, 진학 준비 지원 등 클럽의 실제 운영 장면이 들어가는 갤러리 영역입니다.
-            </p>
+
+            <a
+              href="/gallery"
+              className="inline-flex h-12 items-center justify-center rounded-2xl border border-white/15 bg-white/[0.06] px-8 text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/[0.1] sm:h-14 sm:px-10"
+            >
+              전체 갤러리 보기
+            </a>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {gallerySections.map((section) => (
-              <div key={section.title} className="rounded-2xl overflow-hidden border border-white/10 bg-black/30 shadow-lg">
-                <img src={section.img} alt={section.title} className="w-full h-48 object-cover" />
-                <div className="p-6">
-                  <p className="text-lg font-bold text-red-300 mb-2">{section.title}</p>
-                  <p className="text-sm text-white/80">{section.desc}</p>
+              <article
+                key={section.title}
+                className="group overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b1324] shadow-[0_20px_50px_rgba(0,0,0,0.28)] transition duration-300 hover:-translate-y-1 hover:border-white/20"
+              >
+                <div className="overflow-hidden">
+                  <img
+                    src={section.img}
+                    alt={section.title}
+                    className="h-56 w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                  />
                 </div>
-              </div>
+                <div className="border-t border-white/8 bg-[linear-gradient(180deg,#091121_0%,#060c18_100%)] p-6">
+                  <h3 className="text-[1.65rem] font-black tracking-tight text-white">{section.title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-white/72">{section.desc}</p>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="contact" className="relative overflow-hidden py-16 sm:py-20">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(143,16,24,0.92)_0%,rgba(214,31,44,0.9)_38%,rgba(11,21,40,0.96)_100%)]" />
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10" />
-        <div className="relative mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-          <p className="text-sm uppercase tracking-[0.32em] text-white/80">Contact</p>
-          <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-5xl lg:text-6xl">선수 모집 상담</h2>
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/85 sm:text-base">
-            훈련 참여, 테스트, 진학 상담 등 클럽 운영 관련 문의를 안내하는 영역입니다. 전화 상담 또는 문의 접수를 통해 상세 일정을 확인하실 수 있습니다.
-          </p>
-
-          <div className="mx-auto mt-10 grid max-w-3xl gap-4 md:grid-cols-2">
-            <div className="rounded-[1.75rem] border border-white/20 bg-white/10 p-6 backdrop-blur-md sm:p-7">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15">
-                <Phone className="h-6 w-6" />
-              </div>
-              <p className="mt-4 text-sm text-white/75">참가문의</p>
-              <p className="mt-2 text-2xl font-black sm:text-3xl">010-4178-0207</p>
-            </div>
-            <div className="rounded-[1.75rem] border border-white/20 bg-white/10 p-6 backdrop-blur-md sm:p-7">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15">
-                <ChevronRight className="h-6 w-6" />
-              </div>
-              <p className="mt-4 text-sm text-white/75">담당자</p>
-              <p className="mt-2 text-2xl font-black sm:text-3xl">천경필 대표</p>
-            </div>
+      <section id="sponsor" className="relative overflow-hidden bg-[linear-gradient(135deg,#9d171c_0%,#d42024_42%,#3a202f_100%)] py-16 sm:py-20">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_25%),radial-gradient(circle_at_bottom_left,rgba(255,80,80,0.18),transparent_30%)]" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm uppercase tracking-[0.32em] text-white/70">Sponsor</p>
+            <h2 className="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">클럽 후원</h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-white/82 sm:text-base">
+              선수들의 훈련 환경 개선과 성장을 위해 후원 프로그램을 운영합니다.
+            </p>
           </div>
 
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <a href="/application">
-              <button className="inline-flex h-12 items-center justify-center rounded-2xl bg-[#081325] px-6 text-base font-semibold text-white transition hover:bg-black">
-                참가 신청하기
-              </button>
-            </a>
-            <a href="/contact">
-              <button className="inline-flex h-12 items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-6 text-base text-white transition hover:bg-white/15">
-                클럽 문의 남기기
-              </button>
-            </a>
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {sponsorSections.map((section) => {
+              const Icon = section.icon;
+
+              return (
+                <article
+                  key={section.title}
+                  className="rounded-[2rem] border border-white/20 bg-white/10 p-6 shadow-[0_20px_60px_rgba(80,0,0,0.18)] backdrop-blur-md sm:p-7"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/14 text-white">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-6 text-2xl font-black text-white">{section.title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-white/82">{section.desc}</p>
+                </article>
+              );
+            })}
+          </div>
+
+          <div className="mt-8 flex justify-center lg:justify-center">
+            <motion.a
+              href="/contact"
+              initial={{ scale: 1, boxShadow: "0 18px 40px rgba(66,10,18,0.22)" }}
+              animate={{
+                scale: [1, 1.015, 1],
+                boxShadow: [
+                  "0 18px 40px rgba(66,10,18,0.22)",
+                  "0 24px 54px rgba(66,10,18,0.34)",
+                  "0 18px 40px rgba(66,10,18,0.22)",
+                ],
+              }}
+              transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+              className="group inline-flex h-14 items-center justify-center gap-3 rounded-[1.35rem] bg-[linear-gradient(180deg,rgba(255,245,244,0.96)_0%,rgba(255,225,220,0.92)_100%)] px-10 text-base font-black tracking-[-0.02em] text-[#7d1f2d] shadow-[0_18px_40px_rgba(66,10,18,0.22)] ring-1 ring-white/30 transition duration-200 hover:-translate-y-0.5 hover:bg-[linear-gradient(180deg,rgba(255,250,248,1)_0%,rgba(255,232,227,0.96)_100%)] hover:shadow-[0_24px_50px_rgba(66,10,18,0.28)] active:translate-y-[1px] active:scale-[0.985] sm:min-w-[300px] sm:px-16"
+            >
+              <span className="relative">
+                후원 참여하기
+                <span className="pointer-events-none absolute -right-3 -top-1 h-2.5 w-2.5 rounded-full bg-[#ff7a6e] shadow-[0_0_14px_rgba(255,122,110,0.9)] animate-pulse" />
+              </span>
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#7d1f2d]/10 transition duration-200 group-hover:translate-x-1 group-hover:bg-[#7d1f2d]/15">
+                <ChevronRight className="h-4 w-4" />
+              </span>
+            </motion.a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="relative overflow-hidden bg-[#050b15] py-16 sm:py-20">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,68,68,0.08),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.03),transparent_22%)]" />
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 lg:grid-cols-[1fr_0.92fr]">
+            <div className="rounded-[2.25rem] border border-white/10 bg-[#0d1528] p-8 shadow-[0_24px_70px_rgba(0,0,0,0.32)] sm:p-10">
+              <p className="text-sm uppercase tracking-[0.32em] text-red-200">Contact</p>
+              <h2 className="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">선수 모집 상담</h2>
+              <p className="mt-5 max-w-xl text-sm leading-7 text-white/72 sm:text-base">
+                전화 문의와 상담 접수를 통해 테스트 일정과 훈련 참여 절차를 자세히 안내해드립니다.
+              </p>
+
+              <div className="mt-10 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-[1.6rem] border border-white/10 bg-[#09101f] p-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3a1922] text-red-200">
+                    <Phone className="h-5 w-5" />
+                  </div>
+                  <p className="mt-5 text-sm text-white/60">전화 문의</p>
+                  <p className="mt-3 max-w-full overflow-hidden whitespace-nowrap text-[1.05rem] font-bold leading-none tracking-[-0.04em] text-white sm:text-[1.15rem] lg:text-[1.22rem]">
+                    010-4178-0207
+                  </p>
+                </div>
+
+                <div className="rounded-[1.6rem] border border-white/10 bg-[#09101f] p-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2b1827] text-red-200">
+                    <ChevronRight className="h-5 w-5" />
+                  </div>
+                  <p className="mt-5 text-sm text-white/60">담당자</p>
+                  <p className="mt-3 max-w-full overflow-hidden whitespace-nowrap text-[1.25rem] font-bold leading-none tracking-[-0.03em] text-white sm:text-[1.4rem]">
+                    천경필 대표
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a href="/application" className="sm:flex-1">
+                  <button className="inline-flex h-12 w-full items-center justify-center rounded-2xl bg-[#ef2924] px-6 text-base font-semibold text-white shadow-[0_18px_35px_rgba(239,41,36,0.28)] transition hover:bg-[#ff3a35]">
+                    선수 모집 지원
+                  </button>
+                </a>
+                <a href="/contact" className="sm:flex-1">
+                  <button className="inline-flex h-12 w-full items-center justify-center rounded-2xl border border-white/15 bg-white/[0.04] px-6 text-base font-medium text-white transition hover:bg-white/[0.08]">
+                    문의 남기기
+                  </button>
+                </a>
+              </div>
+            </div>
+
+            <div className="flex h-full flex-col rounded-[2.25rem] border border-white/10 bg-[#0d1528] p-8 shadow-[0_24px_70px_rgba(0,0,0,0.32)] sm:p-10">
+              <p className="text-sm uppercase tracking-[0.32em] text-red-200">Club Promise</p>
+              <h3 className="mt-4 max-w-[520px] text-[2.35rem] font-black tracking-[-0.04em] leading-[1.16] text-white sm:text-[2.7rem] sm:leading-[1.14] lg:text-[3.15rem] lg:leading-[1.08]">
+                <span className="block whitespace-nowrap">훈련의 완성도와 다음</span>
+                <span className="mt-2 block whitespace-nowrap sm:mt-3">기회를 함께 준비합니다</span>
+              </h3>
+              <p className="mt-8 max-w-[520px] text-sm leading-8 text-white/72 sm:text-base">
+                기본기 훈련부터 진학 상담까지 이어지는 운영 체계를 통해 선수들이 더 안정적으로 성장할 수 있는 환경을 만들고 있습니다.
+              </p>
+
+              <div className="mt-auto pt-14">
+                <div className="rounded-[1.8rem] border border-white/10 bg-[#080d19] p-5">
+                  <div className="flex items-center gap-4">
+                    <div className="h-14 w-14 overflow-hidden rounded-2xl border border-red-500/30 bg-black">
+                      <img src={logoSrc} alt="서울금천축구클럽 로고" className="h-full w-full object-cover" />
+                    </div>
+                    <div>
+                      <p className="text-lg font-bold text-white">서울금천축구클럽</p>
+                      <p className="text-sm text-white/55">Geumcheon Soccer Club</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
