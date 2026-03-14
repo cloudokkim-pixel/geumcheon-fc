@@ -496,23 +496,31 @@ export default function GeumcheonHomepage() {
 
               <div className="mt-10 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-[1.6rem] border border-white/10 bg-[#09101f] p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3a1922] text-red-200">
-                    <Phone className="h-5 w-5" />
+                  <div className="flex items-center gap-4 sm:block">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#3a1922] text-red-200">
+                      <Phone className="h-5 w-5" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-sm text-white/60 sm:mt-5">전화 문의</p>
+                      <p className="mt-2 max-w-full overflow-hidden whitespace-nowrap text-[1.05rem] font-bold leading-none tracking-[-0.04em] text-white sm:text-[1.15rem] lg:text-[1.22rem]">
+                        010-4178-0207
+                      </p>
+                    </div>
                   </div>
-                  <p className="mt-5 text-sm text-white/60">전화 문의</p>
-                  <p className="mt-3 max-w-full overflow-hidden whitespace-nowrap text-[1.05rem] font-bold leading-none tracking-[-0.04em] text-white sm:text-[1.15rem] lg:text-[1.22rem]">
-                    010-4178-0207
-                  </p>
                 </div>
 
                 <div className="rounded-[1.6rem] border border-white/10 bg-[#09101f] p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2b1827] text-red-200">
-                    <ChevronRight className="h-5 w-5" />
+                  <div className="flex items-center gap-4 sm:block">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#2b1827] text-red-200">
+                      <ChevronRight className="h-5 w-5" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-sm text-white/60 sm:mt-5">담당자</p>
+                      <p className="mt-2 max-w-full overflow-hidden whitespace-nowrap text-[1.25rem] font-bold leading-none tracking-[-0.03em] text-white sm:text-[1.4rem]">
+                        천경필 대표
+                      </p>
+                    </div>
                   </div>
-                  <p className="mt-5 text-sm text-white/60">담당자</p>
-                  <p className="mt-3 max-w-full overflow-hidden whitespace-nowrap text-[1.25rem] font-bold leading-none tracking-[-0.03em] text-white sm:text-[1.4rem]">
-                    천경필 대표
-                  </p>
                 </div>
               </div>
 
@@ -558,18 +566,32 @@ export default function GeumcheonHomepage() {
         </div>
       </section>
 
-      <footer className="border-t border-red-500/20 bg-[#040912] py-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 text-sm text-white/45 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 overflow-hidden rounded-xl border border-red-500/25 bg-black">
-              <img src={logoSrc} alt="로고" className="h-full w-full object-cover" />
-            </div>
-            <div>
-              <p className="font-semibold text-white/80">서울금천축구클럽</p>
-              <p className="text-xs uppercase tracking-[0.2em]">Geumcheon Soccer Club</p>
-            </div>
+      <footer className="border-t border-white/10 bg-[linear-gradient(180deg,#040912_0%,#02060d_100%)]">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <a href="/" className="flex items-center gap-4">
+              <div className="h-12 w-12 overflow-hidden rounded-xl border border-red-500/25 bg-black">
+                <img src={logoSrc} alt="서울금천축구클럽 로고" className="h-full w-full object-cover" />
+              </div>
+              <div>
+                <p className="text-lg font-black text-white">서울금천축구클럽</p>
+                <p className="text-xs uppercase tracking-[0.28em] text-white/45">Geumcheon Soccer Club</p>
+              </div>
+            </a>
+
+            <nav className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/70 sm:gap-x-8">
+              <a href="/club-introduction" className="transition hover:text-white">클럽소개</a>
+              <a href="/program" className="transition hover:text-white">훈련프로그램</a>
+              <a href="/application" className="transition hover:text-white">선수모집</a>
+              <a href="/gallery" className="transition hover:text-white">갤러리</a>
+              <a href="/contact" className="transition hover:text-white">후원</a>
+              <a href="/contact" className="transition hover:text-white">문의</a>
+            </nav>
           </div>
-          <p>© 2025 Geumcheon Soccer Club. All rights reserved.</p>
+
+          <div className="mt-6 border-t border-white/10 pt-4 text-xs text-white/38">
+            © 2025 Geumcheon Soccer Club. All rights reserved.
+          </div>
         </div>
       </footer>
     </div>
