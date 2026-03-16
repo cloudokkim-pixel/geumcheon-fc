@@ -487,7 +487,7 @@ export default function GeumcheonHomepage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,68,68,0.08),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.03),transparent_22%)]" />
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-[1fr_0.92fr]">
-            <div className="rounded-[2.25rem] border border-white/10 bg-[#0d1528] p-8 shadow-[0_24px_70px_rgba(0,0,0,0.32)] sm:p-10">
+            <div className="min-w-0 rounded-[2.25rem] border border-white/10 bg-[#0d1528] p-8 shadow-[0_24px_70px_rgba(0,0,0,0.32)] sm:p-10">
               <p className="text-sm uppercase tracking-[0.32em] text-red-200">Contact</p>
               <h2 className="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">선수 모집 상담</h2>
               <p className="mt-5 max-w-xl text-sm leading-7 text-white/72 sm:text-base">
@@ -502,7 +502,7 @@ export default function GeumcheonHomepage() {
                     </div>
                     <div className="min-w-0">
                       <p className="text-sm text-white/60 sm:mt-5">전화 문의</p>
-                      <p className="mt-2 max-w-full overflow-hidden whitespace-nowrap text-[1.05rem] font-bold leading-none tracking-[-0.04em] text-white sm:text-[1.15rem] lg:text-[1.22rem]">
+                      <p className="mt-2 max-w-full text-[1.05rem] font-bold leading-none tracking-[-0.04em] text-white sm:text-[1.15rem] lg:text-[1.22rem]">
                         010-4178-0207
                       </p>
                     </div>
@@ -516,7 +516,7 @@ export default function GeumcheonHomepage() {
                     </div>
                     <div className="min-w-0">
                       <p className="text-sm text-white/60 sm:mt-5">담당자</p>
-                      <p className="mt-2 max-w-full overflow-hidden whitespace-nowrap text-[1.25rem] font-bold leading-none tracking-[-0.03em] text-white sm:text-[1.4rem]">
+                      <p className="mt-2 max-w-full break-keep text-[1.25rem] font-bold leading-none tracking-[-0.03em] text-white sm:text-[1.4rem]">
                         천경필 대표
                       </p>
                     </div>
@@ -538,11 +538,11 @@ export default function GeumcheonHomepage() {
               </div>
             </div>
 
-            <div className="flex h-full flex-col rounded-[2.25rem] border border-white/10 bg-[#0d1528] p-8 shadow-[0_24px_70px_rgba(0,0,0,0.32)] sm:p-10">
+            <div className="min-w-0 flex h-full flex-col rounded-[2.25rem] border border-white/10 bg-[#0d1528] p-8 shadow-[0_24px_70px_rgba(0,0,0,0.32)] sm:p-10">
               <p className="text-sm uppercase tracking-[0.32em] text-red-200">Club Promise</p>
-              <h3 className="mt-4 max-w-[520px] text-[2.35rem] font-black tracking-[-0.04em] leading-[1.16] text-white sm:text-[2.7rem] sm:leading-[1.14] lg:text-[3.15rem] lg:leading-[1.08]">
-                <span className="block whitespace-nowrap">훈련의 완성도와 다음</span>
-                <span className="mt-2 block whitespace-nowrap sm:mt-3">기회를 함께 준비합니다</span>
+              <h3 className="mt-4 max-w-[560px] text-[1.95rem] font-black tracking-[-0.05em] leading-[1.14] text-white sm:text-[2.2rem] sm:leading-[1.12] md:text-[2.35rem] lg:text-[2.15rem] lg:leading-[1.08] xl:max-w-[600px] xl:text-[2.55rem]">
+                <span className="block break-keep">훈련의 완성도와 다음</span>
+                <span className="mt-1 block break-keep sm:mt-2">기회를 함께 준비합니다</span>
               </h3>
               <p className="mt-8 max-w-[520px] text-sm leading-8 text-white/72 sm:text-base">
                 기본기 훈련부터 진학 상담까지 이어지는 운영 체계를 통해 선수들이 더 안정적으로 성장할 수 있는 환경을 만들고 있습니다.
