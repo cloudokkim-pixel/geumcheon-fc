@@ -8,11 +8,11 @@ export async function POST(request: Request) {
   const password = typeof body.password === "string" ? body.password : "";
 
   if (!username || !password) {
-    return jsonError("Username and password are required.");
+    return jsonError("아이디와 비밀번호를 모두 입력해 주세요.");
   }
 
   if (!isValidAdminLogin(username, password)) {
-    return jsonError("Invalid credentials.", 401);
+    return jsonError("아이디 또는 비밀번호가 올바르지 않습니다.", 401);
   }
 
   cookies().set({

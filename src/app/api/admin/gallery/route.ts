@@ -16,7 +16,7 @@ export async function GET() {
     });
   } catch (error) {
     return jsonError(
-      error instanceof Error && error.message === "UNAUTHORIZED" ? "Unauthorized." : "Failed to load admin gallery list.",
+      error instanceof Error && error.message === "UNAUTHORIZED" ? "로그인이 필요합니다." : "관리자 갤러리 목록을 불러오지 못했습니다.",
       error instanceof Error && error.message === "UNAUTHORIZED" ? 401 : 500,
     );
   }
@@ -34,15 +34,15 @@ export async function POST(request: Request) {
     const images = Array.isArray(body.images) ? body.images : [];
 
     if (!title) {
-      return jsonError("Title is required.");
+      return jsonError("제목은 필수입니다.");
     }
 
     if (!isGalleryCategory(category)) {
-      return jsonError("Valid category is required.");
+      return jsonError("올바른 카테고리를 선택해 주세요.");
     }
 
     if (!status) {
-      return jsonError("Valid status is required.");
+      return jsonError("올바른 공개 상태를 선택해 주세요.");
     }
 
     const created = await createGallery({
@@ -56,7 +56,7 @@ export async function POST(request: Request) {
     return Response.json(created, { status: 201 });
   } catch (error) {
     return jsonError(
-      error instanceof Error && error.message === "UNAUTHORIZED" ? "Unauthorized." : "Failed to create gallery.",
+      error instanceof Error && error.message === "UNAUTHORIZED" ? "로그인이 필요합니다." : "갤러리 생성에 실패했습니다.",
       error instanceof Error && error.message === "UNAUTHORIZED" ? 401 : 500,
     );
   }

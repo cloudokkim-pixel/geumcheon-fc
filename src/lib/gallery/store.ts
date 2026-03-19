@@ -450,7 +450,7 @@ export async function listAdminGalleries() {
       },
     });
   } catch (error) {
-    if (isMissingGallerySchemaError(error)) {
+    if (isMissingGallerySchemaError(error) || isMissingSupabaseEnvError(error)) {
       return [] as GalleryAdminListItem[];
     }
 
@@ -470,7 +470,7 @@ export async function getAdminGalleryById(id: string) {
       },
     });
   } catch (error) {
-    if (isMissingGallerySchemaError(error)) {
+    if (isMissingGallerySchemaError(error) || isMissingSupabaseEnvError(error)) {
       return null;
     }
 
@@ -488,7 +488,7 @@ export async function getAdminGalleryById(id: string) {
   try {
     images = await fetchGalleryImages([id]);
   } catch (error) {
-    if (isMissingGallerySchemaError(error)) {
+    if (isMissingGallerySchemaError(error) || isMissingSupabaseEnvError(error)) {
       return mapDetail(row, []);
     }
 

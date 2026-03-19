@@ -27,13 +27,13 @@ export async function GET(_: Request, { params }: RouteProps) {
     const item = await getAdminGalleryById(params.id);
 
     if (!item) {
-      return jsonError("Gallery not found.", 404);
+      return jsonError("갤러리를 찾을 수 없습니다.", 404);
     }
 
     return Response.json(item);
   } catch (error) {
     return jsonError(
-      error instanceof Error && error.message === "UNAUTHORIZED" ? "Unauthorized." : "Failed to load gallery.",
+      error instanceof Error && error.message === "UNAUTHORIZED" ? "로그인이 필요합니다." : "갤러리 정보를 불러오지 못했습니다.",
       error instanceof Error && error.message === "UNAUTHORIZED" ? 401 : 500,
     );
   }
@@ -56,7 +56,7 @@ export async function PUT(request: Request, { params }: RouteProps) {
       const title = typeof body.title === "string" ? body.title.trim() : "";
 
       if (!title) {
-        return jsonError("Title must not be empty.");
+        return jsonError("제목은 비워둘 수 없습니다.");
       }
 
       payload.title = title;
@@ -68,7 +68,7 @@ export async function PUT(request: Request, { params }: RouteProps) {
 
     if (body.category !== undefined) {
       if (!isGalleryCategory(body.category)) {
-        return jsonError("Valid category is required.");
+        return jsonError("올바른 카테고리를 선택해 주세요.");
       }
 
       payload.category = body.category;
@@ -78,7 +78,7 @@ export async function PUT(request: Request, { params }: RouteProps) {
       const status = parseStatus(body.status);
 
       if (!status) {
-        return jsonError("Valid status is required.");
+        return jsonError("올바른 공개 상태를 선택해 주세요.");
       }
 
       payload.status = status;
@@ -91,13 +91,13 @@ export async function PUT(request: Request, { params }: RouteProps) {
     const updated = await updateGallery(params.id, payload);
 
     if (!updated) {
-      return jsonError("Gallery not found.", 404);
+      return jsonError("갤러리를 찾을 수 없습니다.", 404);
     }
 
     return Response.json(updated);
   } catch (error) {
     return jsonError(
-      error instanceof Error && error.message === "UNAUTHORIZED" ? "Unauthorized." : "Failed to update gallery.",
+      error instanceof Error && error.message === "UNAUTHORIZED" ? "로그인이 필요합니다." : "갤러리 수정에 실패했습니다.",
       error instanceof Error && error.message === "UNAUTHORIZED" ? 401 : 500,
     );
   }
@@ -112,7 +112,7 @@ export async function DELETE(request: Request, { params }: RouteProps) {
     const deleted = await deleteGallery(params.id, permanent);
 
     if (!deleted) {
-      return jsonError("Gallery not found.", 404);
+      return jsonError("갤러리를 찾을 수 없습니다.", 404);
     }
 
     return Response.json({
@@ -121,7 +121,7 @@ export async function DELETE(request: Request, { params }: RouteProps) {
     });
   } catch (error) {
     return jsonError(
-      error instanceof Error && error.message === "UNAUTHORIZED" ? "Unauthorized." : "Failed to delete gallery.",
+      error instanceof Error && error.message === "UNAUTHORIZED" ? "로그인이 필요합니다." : "갤러리 삭제에 실패했습니다.",
       error instanceof Error && error.message === "UNAUTHORIZED" ? 401 : 500,
     );
   }

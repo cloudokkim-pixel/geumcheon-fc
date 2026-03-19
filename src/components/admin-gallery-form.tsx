@@ -141,11 +141,6 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
       return;
     }
 
-    if (!category) {
-      setError("카테고리는 필수입니다.");
-      return;
-    }
-
     const targetStatus = nextStatus || status;
     const payload = {
       title: title.trim(),
@@ -266,7 +261,7 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-sm font-medium text-white">이미지 업로드</p>
-              <p className="mt-2 text-sm leading-6 text-white/60">다중 업로드를 지원합니다. 대표 이미지 지정과 순서 변경도 처리합니다.</p>
+              <p className="mt-2 text-sm leading-6 text-white/60">여러 장 업로드를 지원합니다. 대표 이미지 지정과 순서 변경도 가능합니다.</p>
             </div>
             <label className="inline-flex cursor-pointer items-center justify-center rounded-2xl bg-red-500 px-5 py-3 text-sm font-semibold text-white">
               이미지 선택
@@ -292,7 +287,7 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
                         아래로
                       </button>
                       <button type="button" onClick={() => removeImage(image.id)} className="rounded-xl border border-red-400/20 px-3 py-2 text-red-200">
-                        제거
+                        삭제
                       </button>
                     </div>
                   </div>
@@ -309,13 +304,13 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
 
         <div className="flex flex-wrap gap-3">
           <button type="button" disabled={isPending} onClick={() => void submitForm("draft")} className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm">
-            저장 (draft)
+            임시저장
           </button>
           <button type="button" disabled={isPending} onClick={() => void submitForm("published")} className="rounded-2xl bg-red-500 px-5 py-3 text-sm font-semibold">
-            공개 (published)
+            공개
           </button>
           <button type="button" disabled={isPending} onClick={() => void submitForm("private")} className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm">
-            비공개 (private)
+            비공개
           </button>
           {mode === "edit" ? (
             <button type="button" disabled={isPending} onClick={() => void handleDelete()} className="rounded-2xl border border-red-400/30 bg-red-500/10 px-5 py-3 text-sm text-red-200">

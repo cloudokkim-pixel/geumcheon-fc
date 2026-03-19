@@ -20,7 +20,7 @@ export async function GET(request: Request) {
   } catch (error) {
     return Response.json(
       {
-        error: error instanceof Error ? error.message : "Failed to load gallery list.",
+        error: error instanceof Error ? error.message : "갤러리 목록을 불러오지 못했습니다.",
       },
       { status: 500 },
     );

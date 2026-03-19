@@ -33,19 +33,23 @@ export default async function AdminGalleryPage() {
             <span>수정일</span>
           </div>
 
-          {items.map((item) => (
-            <Link
-              key={item.id}
-              href={`/admin/gallery/${item.id}/edit`}
-              className="grid grid-cols-[1.8fr_0.8fr_0.8fr_0.9fr_0.9fr] gap-4 border-b border-white/5 px-6 py-5 text-sm text-white/80 transition hover:bg-white/5"
-            >
-              <span className="font-medium text-white">{item.title}</span>
-              <span>{item.status}</span>
-              <span>{getGalleryCategoryLabel("ko", item.category)}</span>
-              <span>{item.createdAt.slice(0, 10)}</span>
-              <span>{item.updatedAt.slice(0, 10)}</span>
-            </Link>
-          ))}
+          {items.length === 0 ? (
+            <div className="px-6 py-10 text-sm text-white/50">등록된 게시글이 없습니다.</div>
+          ) : (
+            items.map((item) => (
+              <Link
+                key={item.id}
+                href={`/admin/gallery/${item.id}/edit`}
+                className="grid grid-cols-[1.8fr_0.8fr_0.8fr_0.9fr_0.9fr] gap-4 border-b border-white/5 px-6 py-5 text-sm text-white/80 transition hover:bg-white/5"
+              >
+                <span className="font-medium text-white">{item.title}</span>
+                <span>{item.status}</span>
+                <span>{getGalleryCategoryLabel("ko", item.category)}</span>
+                <span>{item.createdAt.slice(0, 10)}</span>
+                <span>{item.updatedAt.slice(0, 10)}</span>
+              </Link>
+            ))
+          )}
         </div>
       </main>
     </div>

@@ -7,7 +7,7 @@ export async function POST(request: Request) {
   try {
     requireAdminSession(request.headers.get("cookie"));
   } catch {
-    return jsonError("Unauthorized.", 401);
+    return jsonError("로그인이 필요합니다.", 401);
   }
 
   try {
@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     const image = formData.get("image");
 
     if (!(image instanceof File)) {
-      return jsonError("Image file is required.");
+      return jsonError("이미지 파일을 선택해 주세요.");
     }
 
     const extension = image.name.split(".").pop()?.toLowerCase() || "jpg";
@@ -29,6 +29,6 @@ export async function POST(request: Request) {
       type: image.type,
     });
   } catch (error) {
-    return jsonError(error instanceof Error ? error.message : "Failed to upload image.", 500);
+    return jsonError(error instanceof Error ? error.message : "이미지 업로드에 실패했습니다.", 500);
   }
 }

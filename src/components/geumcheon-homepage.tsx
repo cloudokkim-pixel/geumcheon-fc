@@ -371,7 +371,7 @@ export default function GeumcheonHomepage() {
 
           <div className="mt-8 flex justify-center lg:justify-center">
             <motion.a
-              href="/contact"
+              href="/support/apply"
               initial={{ scale: 1, boxShadow: "0 18px 40px rgba(66,10,18,0.22)" }}
               animate={{
                 scale: [1, 1.015, 1],
