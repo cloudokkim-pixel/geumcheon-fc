@@ -427,7 +427,7 @@ export const getPublicGalleryBySlug = cache(async (slug: string) => {
     rows = await supabaseRestRequest<GalleryRow[]>("/rest/v1/galleries", {
       query: {
         select:
-          "id,title,slug,description,content,body,category,thumbnail_image_id,status,is_public,is_deleted,published_at,created_at,updated_at",
+          "id,title,slug,description,category,thumbnail_image_id,status,is_public,is_deleted,published_at,created_at,updated_at",
         slug: `eq.${slug}`,
         status: "eq.published",
         is_public: "eq.true",
