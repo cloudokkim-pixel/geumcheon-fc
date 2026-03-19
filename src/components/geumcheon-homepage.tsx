@@ -499,8 +499,16 @@ export default function GeumcheonHomepage() {
             </nav>
           </div>
 
-          <div className="mt-6 border-t border-white/10 pt-4 text-xs text-white/38">
-            {t.footerCopyright}
+          <div className="mt-6 flex items-center justify-between gap-4 border-t border-white/10 pt-4 text-xs text-white/38">
+            <span>{t.footerCopyright}</span>
+            <a
+              href="/admin/login"
+              aria-label="관리자 페이지"
+              title="관리자 페이지"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full text-white/18 transition hover:bg-white/5 hover:text-white/42"
+            >
+              <ShieldCheck className="h-3.5 w-3.5" />
+            </a>
           </div>
         </div>
       </footer>
