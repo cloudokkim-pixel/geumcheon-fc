@@ -1,4 +1,10 @@
-import { isMissingGallerySchemaError, supabaseRestRequest, toGallerySetupError } from "@/lib/supabase/rest";
+import { cache } from "react";
+import {
+  isMissingGallerySchemaError,
+  supabaseRestRequest,
+  supabaseRestRequestWithMeta,
+  toGallerySetupError,
+} from "@/lib/supabase/rest";
 import { isMissingSupabaseEnvError } from "@/lib/supabase/env";
 import type {
   GalleryAdminListItem,
@@ -191,6 +197,21 @@ function matchesSearch(row: GalleryRow, search?: string | null) {
   return String(row.title ?? "").toLowerCase().includes(keyword);
 }
 
+function escapeLikeValue(value: string) {
+  return value.replace(/[%_,]/g, (char) => `\\${char}`);
+}
+
+function getExactCount(headers: Headers) {
+  const contentRange = headers.get("content-range");
+
+  if (!contentRange) {
+    return 0;
+  }
+
+  const total = Number(contentRange.split("/")[1]);
+  return Number.isFinite(total) ? total : 0;
+}
+
 function mapDetail(row: GalleryRow, images: GalleryImageRow[]): GalleryDetail {
   return {
     id: row.id,
@@ -258,6 +279,30 @@ function groupImagesByGallery(images: GalleryImageRow[]) {
   }, {});
 }
 
+async function fetchPublicGalleryNeighbor(
+  publishedAt: string,
+  direction: "older" | "newer",
+) {
+  const query: Record<string, string | number | boolean | null | undefined> = {
+    select: "id,title,slug,category,thumbnail_image_id,published_at,created_at,status,is_public,is_deleted",
+    status: "eq.published",
+    is_public: "eq.true",
+    is_deleted: "not.is.true",
+    limit: 1,
+  };
+
+  if (direction === "older") {
+    query.published_at = `lt.${publishedAt}`;
+    query.order = "published_at.desc";
+  } else {
+    query.published_at = `gt.${publishedAt}`;
+    query.order = "published_at.asc";
+  }
+
+  const rows = await supabaseRestRequest<GalleryRow[]>("/rest/v1/galleries", { query });
+  return rows[0] ?? null;
+}
+
 async function replaceGalleryImages(galleryId: string, images: GalleryImageInput[]) {
   await supabaseRestRequest("/rest/v1/gallery_images", {
     method: "DELETE",
@@ -313,16 +358,36 @@ export async function listPublicGalleries(params: GalleryListParams = {}) {
   const pageSize = Math.min(50, Math.max(1, params.pageSize || 9));
   const from = (page - 1) * pageSize;
 
+  const keyword = params.search?.trim();
+  const galleryQuery: Record<string, string | number | boolean | null | undefined> = {
+    select: "id,title,slug,category,thumbnail_image_id,published_at,created_at,status,is_public,is_deleted",
+    status: "eq.published",
+    is_public: "eq.true",
+    is_deleted: "not.is.true",
+    order: "published_at.desc.nullslast",
+    offset: from,
+    limit: pageSize,
+  };
+
+  if (params.category) {
+    galleryQuery.category = `eq.${params.category}`;
+  }
+
+  if (keyword) {
+    galleryQuery.title = `ilike.*${escapeLikeValue(keyword)}*`;
+  }
+
   let items: GalleryRow[];
   let images: GalleryImageRow[];
+  let total = 0;
 
   try {
-    items = await supabaseRestRequest<GalleryRow[]>("/rest/v1/galleries", {
-      query: {
-        select: "*",
-        order: "published_at.desc.nullslast",
-      },
+    const galleryResponse = await supabaseRestRequestWithMeta<GalleryRow[]>("/rest/v1/galleries", {
+      query: galleryQuery,
+      prefer: "count=exact",
     });
+    items = galleryResponse.data;
+    total = getExactCount(galleryResponse.headers);
     images = await fetchGalleryImages(items.map((item) => item.id));
   } catch (error) {
     if (isMissingGallerySchemaError(error) || isMissingSupabaseEnvError(error)) {
@@ -341,30 +406,33 @@ export async function listPublicGalleries(params: GalleryListParams = {}) {
   }
 
   const groupedImages = groupImagesByGallery(images);
-  const filteredItems = items
-    .filter(isPubliclyVisible)
-    .filter((item) => matchesCategory(item, params.category))
-    .filter((item) => matchesSearch(item, params.search));
-  const paginatedItems = filteredItems.slice(from, from + pageSize);
 
   return {
-    items: paginatedItems.map((item) => mapListItem(item, groupedImages[item.id] || [])),
+    items: items.map((item) => mapListItem(item, groupedImages[item.id] || [])),
     pagination: {
       page,
       pageSize,
-      total: filteredItems.length,
-      totalPages: Math.max(1, Math.ceil(filteredItems.length / pageSize)),
+      total,
+      totalPages: Math.max(1, Math.ceil(total / pageSize)),
     },
   };
 }
 
-export async function getPublicGalleryBySlug(slug: string) {
+export const getPublicGalleryBySlug = cache(async (slug: string) => {
+  let row: GalleryRow | null = null;
+
   let rows: GalleryRow[];
 
   try {
     rows = await supabaseRestRequest<GalleryRow[]>("/rest/v1/galleries", {
       query: {
-        select: "*",
+        select:
+          "id,title,slug,description,content,body,category,thumbnail_image_id,status,is_public,is_deleted,published_at,created_at,updated_at",
+        slug: `eq.${slug}`,
+        status: "eq.published",
+        is_public: "eq.true",
+        is_deleted: "not.is.true",
+        limit: 1,
       },
     });
   } catch (error) {
@@ -375,24 +443,21 @@ export async function getPublicGalleryBySlug(slug: string) {
     throw error;
   }
 
-  const row = rows.find((item) => String(item.slug ?? item.id) === slug && isPubliclyVisible(item));
+  row = rows[0] ?? null;
 
   if (!row) {
     return null;
   }
 
   let images: GalleryImageRow[];
-  let visibleRows: GalleryRow[];
+  let previousRow: GalleryRow | null = null;
+  let nextRow: GalleryRow | null = null;
 
   try {
-    [images, visibleRows] = await Promise.all([
+    [images, previousRow, nextRow] = await Promise.all([
       fetchGalleryImages([row.id]),
-      supabaseRestRequest<GalleryRow[]>("/rest/v1/galleries", {
-        query: {
-          select: "*",
-          order: "published_at.desc.nullslast",
-        },
-      }),
+      row.published_at ? fetchPublicGalleryNeighbor(row.published_at, "older") : Promise.resolve(null),
+      row.published_at ? fetchPublicGalleryNeighbor(row.published_at, "newer") : Promise.resolve(null),
     ]);
   } catch (error) {
     if (isMissingGallerySchemaError(error) || isMissingSupabaseEnvError(error)) {
@@ -406,38 +471,33 @@ export async function getPublicGalleryBySlug(slug: string) {
     throw error;
   }
 
-  let visibleImages: GalleryImageRow[];
+  let neighborImages: GalleryImageRow[] = [];
+  const neighborIds = [previousRow?.id, nextRow?.id].filter((value): value is string => Boolean(value));
 
-  try {
-    visibleImages = await fetchGalleryImages(visibleRows.map((item) => item.id));
-  } catch (error) {
-    if (isMissingGallerySchemaError(error) || isMissingSupabaseEnvError(error)) {
-      return {
-        item: mapDetail(row, images),
-        previous: null,
-        next: null,
-      };
+  if (neighborIds.length > 0) {
+    try {
+      neighborImages = await fetchGalleryImages(neighborIds);
+    } catch (error) {
+      if (isMissingGallerySchemaError(error) || isMissingSupabaseEnvError(error)) {
+        return {
+          item: mapDetail(row, images),
+          previous: previousRow ? mapListItem(previousRow, []) : null,
+          next: nextRow ? mapListItem(nextRow, []) : null,
+        };
+      }
+
+      throw error;
     }
-
-    throw error;
   }
 
-  const visibleImageMap = groupImagesByGallery(visibleImages);
-  const publicVisibleRows = visibleRows.filter(isPubliclyVisible);
-  const currentIndex = publicVisibleRows.findIndex((item) => item.id === row.id);
+  const neighborImageMap = groupImagesByGallery(neighborImages);
 
   return {
     item: mapDetail(row, images),
-    previous:
-      currentIndex < publicVisibleRows.length - 1
-        ? mapListItem(publicVisibleRows[currentIndex + 1], visibleImageMap[publicVisibleRows[currentIndex + 1].id] || [])
-        : null,
-    next:
-      currentIndex > 0
-        ? mapListItem(publicVisibleRows[currentIndex - 1], visibleImageMap[publicVisibleRows[currentIndex - 1].id] || [])
-        : null,
+    previous: previousRow ? mapListItem(previousRow, neighborImageMap[previousRow.id] || []) : null,
+    next: nextRow ? mapListItem(nextRow, neighborImageMap[nextRow.id] || []) : null,
   };
-}
+});
 
 export async function listAdminGalleries() {
   let rows: GalleryRow[];

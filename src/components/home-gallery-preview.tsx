@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { ImageOff } from "lucide-react";
 import { useSiteLanguage } from "@/components/site-language";
 import { getGalleryCategoryLabel } from "@/lib/gallery/mock-data";
@@ -64,7 +64,7 @@ export default function HomeGalleryPreview() {
           </div>
           <p className="mt-5 text-lg font-semibold text-white">아직 공개된 갤러리가 없습니다</p>
           <p className="mt-2 max-w-md text-sm leading-6 text-white/50">
-            훈련, 경기, 행사, 기타 기록이 등록되면 이 공간에 최신 갤러리가 표시됩니다.
+            훈련, 경기, 행사, 기타 기록이 등록되면 이곳에서 최신 갤러리를 바로 볼 수 있습니다.
           </p>
         </div>
       </div>
@@ -90,10 +90,7 @@ export default function HomeGalleryPreview() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
               />
             ) : (
-              <EmptyGalleryCard
-                title="이미지가 없습니다"
-                description="텍스트만 등록된 갤러리입니다"
-              />
+              <EmptyGalleryCard title="이미지가 없습니다" description="텍스트만 등록된 갤러리입니다" />
             )}
           </div>
           <div className="border-t border-white/8 bg-[linear-gradient(180deg,#091121_0%,#060c18_100%)] p-6">

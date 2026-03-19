@@ -9,6 +9,12 @@ type RequestOptions = {
   useServiceRole?: boolean;
 };
 
+type SupabaseRestResponse<T> = {
+  data: T;
+  headers: Headers;
+  status: number;
+};
+
 export class SupabaseRequestError extends Error {
   status: number;
   errorText: string;
@@ -53,6 +59,14 @@ function getAuthHeaders(useServiceRole = true) {
 }
 
 export async function supabaseRestRequest<T>(pathname: string, options: RequestOptions = {}) {
+  const result = await supabaseRestRequestWithMeta<T>(pathname, options);
+  return result.data;
+}
+
+export async function supabaseRestRequestWithMeta<T>(
+  pathname: string,
+  options: RequestOptions = {},
+): Promise<SupabaseRestResponse<T>> {
   const response = await fetch(buildUrl(pathname, options.query), {
     method: options.method || "GET",
     headers: {
@@ -71,10 +85,18 @@ export async function supabaseRestRequest<T>(pathname: string, options: RequestO
   }
 
   if (response.status === 204) {
-    return null as T;
+    return {
+      data: null as T,
+      headers: response.headers,
+      status: response.status,
+    };
   }
 
-  return (await response.json()) as T;
+  return {
+    data: (await response.json()) as T,
+    headers: response.headers,
+    status: response.status,
+  };
 }
 
 export function isMissingGallerySchemaError(error: unknown) {

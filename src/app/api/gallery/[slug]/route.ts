@@ -1,5 +1,5 @@
-import { getPublicGalleryBySlug } from "@/lib/gallery/store";
 import { jsonError } from "@/lib/gallery/api";
+import { getPublicGalleryBySlug } from "@/lib/gallery/store";
 
 type RouteProps = {
   params: {
