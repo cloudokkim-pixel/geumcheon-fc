@@ -1,30 +1,36 @@
-import React from "react";
+"use client";
+
 import GSSCHeader from "../../components/GSSCHeader";
+import { useSiteLanguage } from "@/components/site-language";
+import { contactPageCopy } from "@/lib/page-copy";
 
 export default function ContactPage() {
+  const { locale } = useSiteLanguage();
+  const t = contactPageCopy[locale];
+
   return (
     <div className="min-h-screen bg-black text-white">
       <GSSCHeader />
-      <div className="flex flex-col items-center justify-center mt-6">
-        <h1 className="text-3xl font-bold mb-8">클럽 문의</h1>
-        <form className="w-full max-w-md bg-white/5 rounded-2xl p-8 shadow-lg backdrop-blur">
+      <div className="mt-6 flex flex-col items-center justify-center px-4">
+        <h1 className="mb-8 text-3xl font-bold">{t.title}</h1>
+        <form className="w-full max-w-md rounded-2xl bg-white/5 p-8 shadow-lg backdrop-blur">
           <div className="mb-6">
-            <label className="block mb-2 text-sm font-semibold text-white" htmlFor="title">문의 제목</label>
-            <input className="w-full rounded-xl border border-white/20 bg-black/40 px-4 py-3 text-white focus:border-red-500 focus:outline-none" id="title" name="title" type="text" placeholder="문의 제목을 입력하세요" />
+            <label className="mb-2 block text-sm font-semibold text-white" htmlFor="title">{t.fields[0]}</label>
+            <input className="w-full rounded-xl border border-white/20 bg-black/40 px-4 py-3 text-white focus:border-red-500 focus:outline-none" id="title" name="title" type="text" placeholder={t.placeholders[0]} />
           </div>
           <div className="mb-6">
-            <label className="block mb-2 text-sm font-semibold text-white" htmlFor="name">이름</label>
-            <input className="w-full rounded-xl border border-white/20 bg-black/40 px-4 py-3 text-white focus:border-red-500 focus:outline-none" id="name" name="name" type="text" placeholder="이름을 입력하세요" />
+            <label className="mb-2 block text-sm font-semibold text-white" htmlFor="name">{t.fields[1]}</label>
+            <input className="w-full rounded-xl border border-white/20 bg-black/40 px-4 py-3 text-white focus:border-red-500 focus:outline-none" id="name" name="name" type="text" placeholder={t.placeholders[1]} />
           </div>
           <div className="mb-6">
-            <label className="block mb-2 text-sm font-semibold text-white" htmlFor="contact">연락처</label>
-            <input className="w-full rounded-xl border border-white/20 bg-black/40 px-4 py-3 text-white focus:border-red-500 focus:outline-none" id="contact" name="contact" type="text" placeholder="연락처를 입력하세요" />
+            <label className="mb-2 block text-sm font-semibold text-white" htmlFor="contact">{t.fields[2]}</label>
+            <input className="w-full rounded-xl border border-white/20 bg-black/40 px-4 py-3 text-white focus:border-red-500 focus:outline-none" id="contact" name="contact" type="text" placeholder={t.placeholders[2]} />
           </div>
           <div className="mb-8">
-            <label className="block mb-2 text-sm font-semibold text-white" htmlFor="detail">상세 내용</label>
-            <textarea className="w-full rounded-xl border border-white/20 bg-black/40 px-4 py-3 text-white focus:border-red-500 focus:outline-none" id="detail" name="detail" rows={4} placeholder="문의 내용을 입력하세요" />
+            <label className="mb-2 block text-sm font-semibold text-white" htmlFor="detail">{t.fields[3]}</label>
+            <textarea className="w-full rounded-xl border border-white/20 bg-black/40 px-4 py-3 text-white focus:border-red-500 focus:outline-none" id="detail" name="detail" rows={4} placeholder={t.placeholders[3]} />
           </div>
-          <button type="submit" className="w-full rounded-xl bg-red-600 py-3 text-base font-semibold text-white transition hover:bg-red-700">문의하기</button>
+          <button type="submit" className="w-full rounded-xl bg-red-600 py-3 text-base font-semibold text-white transition hover:bg-red-700">{t.submit}</button>
         </form>
       </div>
     </div>

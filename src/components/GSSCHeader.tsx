@@ -7,12 +7,20 @@ import { useSiteLanguage } from "./site-language";
 const logoSrc =
   "http://fs.arumnet.com/image/N1010BONSA/event/2023121540/%EA%B8%88%EC%B2%9C%20%EC%B6%95%EA%B5%AC%20%ED%81%B4%EB%9F%BD%20%EC%9D%B4%EB%AF%B8%EC%A7%80.png";
 
+const localeFlags = {
+  ko: { src: "https://flagcdn.com/w40/kr.png", alt: "Korea flag" },
+  en: { src: "https://flagcdn.com/w40/us.png", alt: "United States flag" },
+  ja: { src: "https://flagcdn.com/w40/jp.png", alt: "Japan flag" },
+  zh: { src: "https://flagcdn.com/w40/cn.png", alt: "China flag" },
+} as const;
+
 export default function GSSCHeader() {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [localeOpen, setLocaleOpen] = React.useState(false);
   const { locale, setLocale, locales, dictionary } = useSiteLanguage();
   const header = dictionary.header;
   const currentLocale = locales.find((item) => item.code === locale) ?? locales[0];
+  const currentFlag = localeFlags[currentLocale.code];
 
   React.useEffect(() => {
     const onResize = () => {
@@ -74,6 +82,7 @@ export default function GSSCHeader() {
               aria-label={header.languageLabel}
               aria-expanded={localeOpen}
             >
+              <img src={currentFlag.src} alt={currentFlag.alt} className="h-4 w-6 rounded-[2px] object-cover shadow-sm" loading="lazy" decoding="async" />
               <span className="text-white/70">{currentLocale.shortLabel}</span>
               <ChevronDown className={`h-4 w-4 transition ${localeOpen ? "rotate-180" : ""}`} />
             </button>
@@ -92,7 +101,16 @@ export default function GSSCHeader() {
                       option.code === locale ? "bg-white/10 text-white" : "text-white/72 hover:bg-white/6 hover:text-white"
                     }`}
                   >
-                    <span>{option.label}</span>
+                    <span className="flex items-center gap-3">
+                      <img
+                        src={localeFlags[option.code].src}
+                        alt={localeFlags[option.code].alt}
+                        className="h-4 w-6 rounded-[2px] object-cover shadow-sm"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span>{option.label}</span>
+                    </span>
                     <span className="text-xs uppercase tracking-[0.18em] text-white/45">{option.shortLabel}</span>
                   </button>
                 ))}

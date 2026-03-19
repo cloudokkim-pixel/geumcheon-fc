@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   CalendarDays,
@@ -13,7 +14,9 @@ import {
   Trophy,
   Users,
 } from "lucide-react";
+import { homepageGalleryCopy } from "@/lib/page-copy";
 import { useSiteLanguage } from "./site-language";
+import HomeGalleryPreview from "./home-gallery-preview";
 
 const logoSrc = "http://fs.arumnet.com/image/N1010BONSA/event/2023121540/%EA%B8%88%EC%B2%9C%20%EC%B6%95%EA%B5%AC%20%ED%81%B4%EB%9F%BD%20%EC%9D%B4%EB%AF%B8%EC%A7%80.png";
 const posterSrc = "http://fs.arumnet.com/image/N1010BONSA/event/2023121541/%EB%AA%A8%EC%A7%91%EA%B3%B5%EA%B3%A0%20%ED%8F%AC%EC%8A%A4%ED%84%B0_2.png";
@@ -35,21 +38,6 @@ const programs: Program[] = [
   },
   {
     icon: GraduationCap,
-  },
-];
-
-const gallerySections = [
-  {
-    img: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1552667466-07770ae110d0?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&q=80",
   },
 ];
 
@@ -82,8 +70,9 @@ function OutlineButton({ children }: { children: React.ReactNode }) {
 }
 
 export default function GeumcheonHomepage() {
-  const { dictionary } = useSiteLanguage();
+  const { dictionary, locale } = useSiteLanguage();
   const t = dictionary.home;
+  const pageGalleryCopy = homepageGalleryCopy[locale];
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#050b15] text-white">
@@ -140,8 +129,8 @@ export default function GeumcheonHomepage() {
             <div className="overflow-hidden rounded-[2rem] border border-red-500/20 bg-white/5 p-2 shadow-[0_30px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:p-3">
               <div className="grid gap-3 lg:grid-cols-[0.42fr_0.58fr]">
                 <div className="rounded-[1.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-5">
-                  <div className="mx-auto h-20 w-20 overflow-hidden rounded-2xl border border-red-500/25 bg-black">
-                    <img src={logoSrc} alt={dictionary.header.clubName} className="h-full w-full object-cover" />
+                  <div className="relative mx-auto h-20 w-20 overflow-hidden rounded-2xl border border-red-500/25 bg-black">
+                    <Image src={logoSrc} alt={dictionary.header.clubName} fill className="object-cover" sizes="80px" />
                   </div>
                   <p className="mt-5 text-center text-xs uppercase tracking-[0.32em] text-red-300">{t.clubIdentityLabel}</p>
                   <p className="mt-3 text-center text-sm leading-6 text-white/68">
@@ -153,8 +142,8 @@ export default function GeumcheonHomepage() {
                   </div>
                 </div>
 
-                <div className="relative overflow-hidden rounded-[1.5rem] border border-red-500/15">
-                  <img src={posterSrc} alt={t.recruitTitle} className="h-full min-h-[24rem] w-full object-cover object-top" />
+                <div className="relative min-h-[24rem] overflow-hidden rounded-[1.5rem] border border-red-500/15">
+                  <Image src={posterSrc} alt={t.recruitTitle} fill className="object-cover object-top" sizes="(max-width: 1024px) 100vw, 50vw" />
                 </div>
               </div>
             </div>
@@ -318,8 +307,8 @@ export default function GeumcheonHomepage() {
           </div>
 
           <div className="overflow-hidden rounded-[2rem] border border-red-500/20 bg-white/5 p-2 shadow-[0_28px_70px_rgba(0,0,0,0.4)] sm:p-3">
-            <div className="overflow-hidden rounded-[1.5rem] border border-white/10">
-              <img src={posterSrc} alt={t.recruitTitle} className="h-full w-full object-cover object-top" />
+            <div className="relative aspect-[4/5] min-h-[24rem] overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0a0f19]">
+              <Image src={posterSrc} alt={t.recruitTitle} fill className="object-contain object-center" sizes="(max-width: 1024px) 100vw, 50vw" />
             </div>
           </div>
         </div>
@@ -330,10 +319,10 @@ export default function GeumcheonHomepage() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 flex flex-col gap-6 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <p className="text-sm uppercase tracking-[0.32em] text-red-300">{t.galleryLabel}</p>
-              <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">{t.galleryTitle}</h2>
+              <p className="text-sm uppercase tracking-[0.32em] text-red-300">{pageGalleryCopy.label}</p>
+              <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">{pageGalleryCopy.title}</h2>
               <p className="mt-5 max-w-2xl text-sm leading-7 text-white/72 sm:text-base">
-                {t.galleryDesc}
+                {pageGalleryCopy.desc}
               </p>
             </div>
 
@@ -341,30 +330,11 @@ export default function GeumcheonHomepage() {
               href="/gallery"
               className="inline-flex h-12 items-center justify-center rounded-2xl border border-white/15 bg-white/[0.06] px-8 text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/[0.1] sm:h-14 sm:px-10"
             >
-              {t.galleryCta}
+              {pageGalleryCopy.cta}
             </a>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {gallerySections.map((section, index) => (
-              <article
-                key={t.gallerySections[index].title}
-                className="group overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b1324] shadow-[0_20px_50px_rgba(0,0,0,0.28)] transition duration-300 hover:-translate-y-1 hover:border-white/20"
-              >
-                <div className="overflow-hidden">
-                  <img
-                    src={section.img}
-                    alt={t.gallerySections[index].title}
-                    className="h-56 w-full object-cover transition duration-500 group-hover:scale-[1.04]"
-                  />
-                </div>
-                <div className="border-t border-white/8 bg-[linear-gradient(180deg,#091121_0%,#060c18_100%)] p-6">
-                  <h3 className="text-[1.65rem] font-black tracking-tight text-white">{t.gallerySections[index].title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-white/72">{t.gallerySections[index].desc}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+          <HomeGalleryPreview />
         </div>
       </section>
 
@@ -494,8 +464,8 @@ export default function GeumcheonHomepage() {
               <div className="mt-auto pt-14">
                 <div className="rounded-[1.8rem] border border-white/10 bg-[#080d19] p-5">
                   <div className="flex items-center gap-4">
-                    <div className="h-14 w-14 overflow-hidden rounded-2xl border border-red-500/30 bg-black">
-                      <img src={logoSrc} alt={dictionary.header.clubName} className="h-full w-full object-cover" />
+                    <div className="relative h-14 w-14 overflow-hidden rounded-2xl border border-red-500/30 bg-black">
+                      <Image src={logoSrc} alt={dictionary.header.clubName} fill className="object-cover" sizes="56px" />
                     </div>
                     <div>
                       <p className="text-lg font-bold text-white">{dictionary.header.clubName}</p>
@@ -513,8 +483,8 @@ export default function GeumcheonHomepage() {
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <a href="/" className="flex items-center gap-4">
-              <div className="h-12 w-12 overflow-hidden rounded-xl border border-red-500/25 bg-black">
-                <img src={logoSrc} alt={dictionary.header.clubName} className="h-full w-full object-cover" />
+              <div className="relative h-12 w-12 overflow-hidden rounded-xl border border-red-500/25 bg-black">
+                <Image src={logoSrc} alt={dictionary.header.clubName} fill className="object-cover" sizes="48px" />
               </div>
               <div>
                 <p className="text-lg font-black text-white">{dictionary.header.clubName}</p>
