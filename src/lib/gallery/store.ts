@@ -1,4 +1,5 @@
 import { isMissingGallerySchemaError, supabaseRestRequest, toGallerySetupError } from "@/lib/supabase/rest";
+import { isMissingSupabaseEnvError } from "@/lib/supabase/env";
 import type {
   GalleryAdminListItem,
   GalleryCategory,
@@ -324,7 +325,7 @@ export async function listPublicGalleries(params: GalleryListParams = {}) {
     });
     images = await fetchGalleryImages(items.map((item) => item.id));
   } catch (error) {
-    if (isMissingGallerySchemaError(error)) {
+    if (isMissingGallerySchemaError(error) || isMissingSupabaseEnvError(error)) {
       return {
         items: [] as GalleryListItem[],
         pagination: {
@@ -367,7 +368,7 @@ export async function getPublicGalleryBySlug(slug: string) {
       },
     });
   } catch (error) {
-    if (isMissingGallerySchemaError(error)) {
+    if (isMissingGallerySchemaError(error) || isMissingSupabaseEnvError(error)) {
       return null;
     }
 
@@ -394,7 +395,7 @@ export async function getPublicGalleryBySlug(slug: string) {
       }),
     ]);
   } catch (error) {
-    if (isMissingGallerySchemaError(error)) {
+    if (isMissingGallerySchemaError(error) || isMissingSupabaseEnvError(error)) {
       return {
         item: mapDetail(row, []),
         previous: null,
@@ -410,7 +411,7 @@ export async function getPublicGalleryBySlug(slug: string) {
   try {
     visibleImages = await fetchGalleryImages(visibleRows.map((item) => item.id));
   } catch (error) {
-    if (isMissingGallerySchemaError(error)) {
+    if (isMissingGallerySchemaError(error) || isMissingSupabaseEnvError(error)) {
       return {
         item: mapDetail(row, images),
         previous: null,

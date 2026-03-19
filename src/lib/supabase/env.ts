@@ -13,6 +13,17 @@ export function getSupabasePublicEnv() {
   return requiredPublicEnv;
 }
 
+export function isMissingSupabaseEnvError(error: unknown) {
+  if (!(error instanceof Error)) {
+    return false;
+  }
+
+  return (
+    error.message.includes("Supabase environment variables are missing") ||
+    error.message.includes("Supabase server environment variables are missing")
+  );
+}
+
 export function getSupabaseServiceEnv() {
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
