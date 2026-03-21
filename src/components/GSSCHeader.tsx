@@ -49,15 +49,15 @@ export default function GSSCHeader() {
   }, [localeOpen]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#050b15]/82 backdrop-blur-2xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-[#222] bg-[rgba(0,0,0,0.92)] backdrop-blur-xl">
+      <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <a href="/" className="flex items-center gap-3 sm:gap-4">
-          <div className="relative h-12 w-12 overflow-hidden rounded-2xl border border-red-500/30 bg-black shadow-[0_10px_25px_rgba(0,0,0,0.22)] sm:h-14 sm:w-14">
+          <div className="relative h-10 w-10 overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_10px_25px_rgba(0,0,0,0.22)] sm:h-12 sm:w-12">
             <img src={logoSrc} alt={header.clubName} className="h-full w-full object-cover" />
           </div>
           <div>
-            <p className="text-base font-black text-white sm:text-lg">{header.clubName}</p>
-            <p className="text-[10px] uppercase tracking-[0.32em] text-white/50 sm:text-xs">{header.clubNameEn}</p>
+            <p className="text-base font-black text-[#f5f5f7] sm:text-lg">{header.clubName}</p>
+            <p className="text-[10px] uppercase tracking-[0.32em] text-[#6e6e73] sm:text-xs">{header.clubNameEn}</p>
           </div>
         </a>
 
@@ -66,7 +66,7 @@ export default function GSSCHeader() {
             <a
               key={`${item.href}-${item.label}`}
               href={item.href}
-              className="text-sm font-medium text-white/72 transition hover:text-white"
+              className="text-sm font-medium text-[#a1a1a6] transition hover:text-[#f5f5f7]"
             >
               {item.label}
             </a>
@@ -78,17 +78,17 @@ export default function GSSCHeader() {
             <button
               type="button"
               onClick={() => setLocaleOpen((prev) => !prev)}
-              className="inline-flex h-11 items-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-4 text-sm font-semibold text-white transition hover:bg-white/10"
+              className="inline-flex h-11 items-center gap-2 rounded-[2px] border border-[#424245] bg-transparent px-4 text-sm font-semibold text-[#f5f5f7] transition hover:bg-white/5"
               aria-label={header.languageLabel}
               aria-expanded={localeOpen}
             >
               <img src={currentFlag.src} alt={currentFlag.alt} className="h-4 w-6 rounded-[2px] object-cover shadow-sm" loading="lazy" decoding="async" />
-              <span className="text-white/70">{currentLocale.shortLabel}</span>
+              <span className="text-[#a1a1a6]">{currentLocale.shortLabel}</span>
               <ChevronDown className={`h-4 w-4 transition ${localeOpen ? "rotate-180" : ""}`} />
             </button>
 
             {localeOpen && (
-              <div className="absolute right-0 top-[calc(100%+0.6rem)] w-44 overflow-hidden rounded-2xl border border-white/10 bg-[#0f1728]/95 p-2 shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+              <div className="absolute right-0 top-[calc(100%+0.6rem)] w-44 overflow-hidden rounded-[6px] border border-[#222] bg-[#1c1c1e] p-2 shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-xl">
                 {locales.map((option) => (
                   <button
                     key={option.code}
@@ -97,8 +97,8 @@ export default function GSSCHeader() {
                       setLocale(option.code);
                       setLocaleOpen(false);
                     }}
-                    className={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-sm transition ${
-                      option.code === locale ? "bg-white/10 text-white" : "text-white/72 hover:bg-white/6 hover:text-white"
+                    className={`flex w-full items-center justify-between rounded-[4px] px-3 py-2.5 text-sm transition ${
+                      option.code === locale ? "bg-white/10 text-[#f5f5f7]" : "text-[#a1a1a6] hover:bg-white/5 hover:text-[#f5f5f7]"
                     }`}
                   >
                     <span className="flex items-center gap-3">
@@ -111,7 +111,7 @@ export default function GSSCHeader() {
                       />
                       <span>{option.label}</span>
                     </span>
-                    <span className="text-xs uppercase tracking-[0.18em] text-white/45">{option.shortLabel}</span>
+                    <span className="text-xs uppercase tracking-[0.18em] text-[#6e6e73]">{option.shortLabel}</span>
                   </button>
                 ))}
               </div>
@@ -120,13 +120,13 @@ export default function GSSCHeader() {
 
           <a
             href="/application"
-            className="hidden h-11 items-center justify-center rounded-2xl bg-white px-5 text-sm font-bold text-[#08111f] transition hover:bg-red-50 lg:inline-flex"
+            className="hidden h-11 items-center justify-center rounded-[2px] bg-[#cc2222] px-5 text-sm font-bold text-white transition hover:bg-[#cc2222]/90 lg:inline-flex"
           >
             {header.apply}
           </a>
 
           <button
-            className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/15 bg-white/5 text-white transition hover:bg-white/10 lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-[2px] border border-[#424245] bg-transparent text-[#f5f5f7] transition hover:bg-white/5 lg:hidden"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label={menuOpen ? header.closeMenu : header.openMenu}
             aria-expanded={menuOpen}
@@ -144,12 +144,12 @@ export default function GSSCHeader() {
             aria-label={header.closeMobileMenu}
           />
 
-          <div className="fixed right-0 top-0 h-screen w-[330px] max-w-[82vw] overflow-y-auto bg-[#293145] shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
+          <div className="fixed right-0 top-0 h-screen w-[330px] max-w-[82vw] overflow-y-auto bg-[#1c1c1e] shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
             <div className="flex items-center justify-between px-7 pb-6 pt-10">
-              <h2 className="text-2xl font-black tracking-[-0.03em] text-white">{header.menu}</h2>
+              <h2 className="text-2xl font-black tracking-[-0.03em] text-[#f5f5f7]">{header.menu}</h2>
               <button
                 onClick={() => setMenuOpen(false)}
-                className="inline-flex h-11 w-11 items-center justify-center text-white transition hover:text-white/80"
+                className="inline-flex h-11 w-11 items-center justify-center text-[#f5f5f7] transition hover:text-[#a1a1a6]"
                 aria-label={header.closeMenu}
               >
                 <X className="h-7 w-7" />
@@ -162,7 +162,7 @@ export default function GSSCHeader() {
                   key={`${item.href}-${item.label}-mobile`}
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="py-4 text-base font-medium tracking-[-0.01em] text-white transition hover:text-red-100"
+                  className="py-4 text-base font-medium tracking-[-0.01em] text-[#a1a1a6] transition hover:text-[#f5f5f7]"
                 >
                   {item.label}
                 </a>

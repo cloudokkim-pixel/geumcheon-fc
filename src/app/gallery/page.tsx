@@ -29,7 +29,7 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
   });
 
   return (
-    <div className="min-h-screen bg-[#050b15] text-white">
+    <div className="min-h-screen bg-transparent text-[#f5f5f7]">
       <GSSCHeader />
       <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <GalleryPageContent items={data.items} pagination={data.pagination} category={category} search={search} />

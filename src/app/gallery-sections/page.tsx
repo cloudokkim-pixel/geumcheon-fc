@@ -36,17 +36,17 @@ const gallerySections = [
 
 export default function GallerySectionsPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-transparent text-[#f5f5f7]">
       <GSSCHeader />
       <div className="mt-6 flex flex-col items-center justify-center px-6">
-        <h1 className="mb-8 text-3xl font-bold">훈련 갤러리 섹션</h1>
+        <h1 className="mb-8 text-3xl font-bold text-[#f5f5f7]">훈련 갤러리 섹션</h1>
         <div className="grid w-full max-w-5xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {gallerySections.map((section) => (
-            <div key={section.title} className="overflow-hidden rounded-2xl border border-white/10 bg-black/30 shadow-lg">
+            <div key={section.title} className="overflow-hidden rounded-[14px] bg-[#1c1c1e] shadow-lg">
               <img src={section.img} alt={section.title} className="h-48 w-full object-cover" />
               <div className="p-6">
-                <p className="mb-2 text-lg font-bold text-red-300">{section.title}</p>
-                <p className="text-sm text-white/80">{section.desc}</p>
+                <p className="mb-2 text-lg font-bold text-[#f5f5f7]">{section.title}</p>
+                <p className="text-sm text-[#a1a1a6]">{section.desc}</p>
               </div>
             </div>
           ))}

@@ -58,17 +58,17 @@ function AdminLoginContent() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#050b15] px-4 text-white">
-      <div className="w-full max-w-md rounded-[2rem] border border-white/10 bg-[#0b1324] p-8 shadow-[0_24px_70px_rgba(0,0,0,0.32)]">
-        <p className="text-sm uppercase tracking-[0.3em] text-red-300">Admin Login</p>
-        <h1 className="mt-3 text-3xl font-black tracking-tight">관리자 로그인</h1>
-        <p className="mt-3 text-sm leading-6 text-white/65">
+    <main className="flex min-h-screen items-center justify-center bg-transparent px-4 text-[#f5f5f7]">
+      <div className="w-full max-w-md rounded-[14px] bg-[#1c1c1e] p-8">
+        <p className="text-sm uppercase tracking-[0.3em] text-[#cc2222]">Admin Login</p>
+        <h1 className="mt-3 text-3xl font-black tracking-tight text-[#f5f5f7]">관리자 로그인</h1>
+        <p className="mt-3 text-sm leading-6 text-[#a1a1a6]">
           관리자 페이지와 업로드 기능에 접근하기 위한 로그인입니다.
         </p>
 
         <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="admin-username" className="mb-2 block text-sm text-white/60">
+            <label htmlFor="admin-username" className="mb-2 block text-sm text-[#6e6e73]">
               아이디
             </label>
             <input
@@ -76,12 +76,12 @@ function AdminLoginContent() {
               value={username}
               onChange={(event) => setUsername(event.target.value)}
               autoComplete="username"
-              className="h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4"
+              className="h-12 w-full rounded-[6px] border border-[#424245] bg-[#000]/30 px-4 text-[#f5f5f7] focus:border-[#cc2222] focus:outline-none"
             />
           </div>
 
           <div>
-            <label htmlFor="admin-password" className="mb-2 block text-sm text-white/60">
+            <label htmlFor="admin-password" className="mb-2 block text-sm text-[#6e6e73]">
               비밀번호
             </label>
             <input
@@ -90,26 +90,26 @@ function AdminLoginContent() {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               autoComplete="current-password"
-              className="h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4"
+              className="h-12 w-full rounded-[6px] border border-[#424245] bg-[#000]/30 px-4 text-[#f5f5f7] focus:border-[#cc2222] focus:outline-none"
             />
           </div>
 
-          <label className="flex items-center gap-3 text-sm text-white/65">
+          <label className="flex items-center gap-3 text-sm text-[#a1a1a6]">
             <input
               type="checkbox"
               checked={rememberUsername}
               onChange={(event) => setRememberUsername(event.target.checked)}
-              className="h-4 w-4 rounded border-white/20 bg-white/5 accent-red-500"
+              className="h-4 w-4 rounded border-[#424245] bg-[#000]/30 accent-[#cc2222]"
             />
             <span>아이디 기억하기</span>
           </label>
 
-          {error ? <p className="text-sm text-red-300">{error}</p> : null}
+          {error ? <p className="text-sm text-[#cc2222]">{error}</p> : null}
 
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex h-12 w-full items-center justify-center rounded-2xl bg-red-500 px-6 text-sm font-semibold text-white disabled:opacity-60"
+            className="inline-flex h-12 w-full items-center justify-center rounded-[2px] bg-[#cc2222] px-6 text-sm font-bold text-white disabled:opacity-60"
           >
             {loading ? "로그인 중..." : "로그인"}
           </button>
@@ -123,7 +123,7 @@ export default function AdminLoginPage() {
   return (
     <Suspense
       fallback={
-        <main className="flex min-h-screen items-center justify-center bg-[#050b15] px-4 text-white">
+        <main className="flex min-h-screen items-center justify-center bg-transparent px-4 text-[#f5f5f7]">
           Loading...
         </main>
       }

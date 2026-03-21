@@ -18,7 +18,7 @@ export default async function GalleryDetailPage({ params }: GalleryDetailPagePro
   }
 
   return (
-    <div className="min-h-screen bg-[#050b15] text-white">
+    <div className="min-h-screen bg-transparent text-[#f5f5f7]">
       <GSSCHeader />
       <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
         <GalleryDetailContent item={data.item} previous={data.previous} next={data.next} />

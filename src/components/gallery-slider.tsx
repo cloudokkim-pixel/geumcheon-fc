@@ -35,7 +35,7 @@ export default function GallerySlider({ images, title }: GallerySliderProps) {
 
   if (!activeImage) {
     return (
-      <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 text-sm text-white/60">
+      <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 text-sm text-[#a1a1a6]">
         등록된 이미지가 없습니다.
       </div>
     );
@@ -43,7 +43,7 @@ export default function GallerySlider({ images, title }: GallerySliderProps) {
 
   return (
     <div className="space-y-4">
-      <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b1324]">
+      <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#1c1c1e]">
         <div className="relative h-[22rem] w-full sm:h-[32rem]">
           <Image src={activeImage.imageUrl} alt={title} fill className="object-cover" priority sizes="(max-width: 1024px) 100vw, 70vw" />
         </div>
@@ -56,7 +56,7 @@ export default function GallerySlider({ images, title }: GallerySliderProps) {
             type="button"
             onClick={() => setActiveIndex(index)}
             className={`overflow-hidden rounded-2xl border transition ${
-              index === activeIndex ? "border-red-400" : "border-white/10"
+              index === activeIndex ? "border-[#cc2222]" : "border-white/10"
             }`}
           >
             <div className="relative h-24 w-full">

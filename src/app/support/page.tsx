@@ -246,22 +246,21 @@ export default function SupportPage() {
   const t = supportPageCopy[locale];
 
   return (
-    <div className="min-h-screen bg-[#050b15] text-white">
+    <div className="min-h-screen bg-transparent text-[#f5f5f7]">
       <GSSCHeader />
 
       <main>
-        <section className="relative overflow-hidden border-b border-white/10 bg-[linear-gradient(180deg,#08111f_0%,#0d1528_45%,#2d1117_100%)]">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(239,68,68,0.14),transparent_32%)]" />
+        <section className="relative overflow-hidden border-b border-[#222]">
           <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
             <div className="max-w-4xl">
-              <p className="inline-flex rounded-full border border-red-300/20 bg-red-500/10 px-4 py-1 text-sm text-red-200">{t.badge}</p>
-              <h1 className="mt-6 text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">{t.title}</h1>
-              <p className="mt-6 max-w-3xl text-sm leading-8 text-white/75 sm:text-base">{t.desc}</p>
+              <p className="inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1 text-sm text-[#a1a1a6]">{t.badge}</p>
+              <h1 className="mt-6 text-4xl font-black leading-tight tracking-tight text-[#f5f5f7] sm:text-5xl lg:text-6xl">{t.title}</h1>
+              <p className="mt-6 max-w-3xl text-sm leading-8 text-[#a1a1a6] sm:text-base">{t.desc}</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/support/apply" className="inline-flex h-12 items-center justify-center rounded-2xl bg-red-600 px-6 text-base font-semibold text-white transition hover:bg-red-700">
+                <Link href="/support/apply" className="inline-flex h-12 items-center justify-center rounded-[2px] bg-[#cc2222] px-6 text-base font-bold text-white transition hover:bg-[#cc2222]/90">
                   {t.primary}
                 </Link>
-                <Link href="/contact" className="inline-flex h-12 items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-6 text-base font-medium text-white transition hover:bg-white/10">
+                <Link href="/contact" className="inline-flex h-12 items-center justify-center rounded-[2px] border border-[#424245] bg-transparent px-6 text-base font-medium text-[#f5f5f7] transition hover:bg-white/5">
                   {t.secondary}
                 </Link>
               </div>
@@ -271,13 +270,13 @@ export default function SupportPage() {
 
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8">
-              <p className="text-sm uppercase tracking-[0.28em] text-red-300">{t.needTitle}</p>
-              <p className="mt-5 text-sm leading-8 text-white/72 sm:text-base">{t.needDesc}</p>
+            <div className="rounded-[14px] bg-[#1c1c1e] p-8">
+              <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.needTitle}</p>
+              <p className="mt-5 text-sm leading-8 text-[#a1a1a6] sm:text-base">{t.needDesc}</p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {t.needItems.map((item) => (
-                <div key={item} className="rounded-[1.6rem] border border-white/10 bg-[#0d1528] p-6 text-sm leading-7 text-white/82">
+                <div key={item} className="rounded-[14px] bg-[#1c1c1e] p-6 text-sm leading-7 text-[#a1a1a6]">
                   {item}
                 </div>
               ))}
@@ -285,22 +284,22 @@ export default function SupportPage() {
           </div>
         </section>
 
-        <section className="bg-[#07101d] py-16 sm:py-20">
+        <section className="border-t border-[#222] py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-10">
-              <p className="text-sm uppercase tracking-[0.28em] text-red-300">{t.supportTypesLabel}</p>
-              <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">{t.supportTypesTitle}</h2>
+              <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.supportTypesLabel}</p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight text-[#f5f5f7] sm:text-4xl">{t.supportTypesTitle}</h2>
             </div>
             <div className="grid gap-5 lg:grid-cols-3">
               {t.supportTypes.map((item, index) => {
                 const Icon = supportIcons[index];
                 return (
-                  <article key={item.title} className="rounded-[2rem] border border-white/10 bg-white/5 p-7 shadow-lg">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-500/15 text-red-300">
+                  <article key={item.title} className="rounded-[14px] bg-[#1c1c1e] p-7">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-[#f5f5f7]">
                       <Icon className="h-5 w-5" />
                     </div>
-                    <h3 className="mt-5 text-2xl font-black">{item.title}</h3>
-                    <p className="mt-4 text-sm leading-7 text-white/72">{item.desc}</p>
+                    <h3 className="mt-5 text-2xl font-black text-[#f5f5f7]">{item.title}</h3>
+                    <p className="mt-4 text-sm leading-7 text-[#a1a1a6]">{item.desc}</p>
                   </article>
                 );
               })}
@@ -310,49 +309,49 @@ export default function SupportPage() {
 
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <p className="text-sm uppercase tracking-[0.28em] text-red-300">{t.usageLabel}</p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">{t.usageTitle}</h2>
-            <p className="mt-5 max-w-3xl text-sm leading-7 text-white/72 sm:text-base">{t.usageDesc}</p>
+            <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.usageLabel}</p>
+            <h2 className="mt-3 text-3xl font-black tracking-tight text-[#f5f5f7] sm:text-4xl">{t.usageTitle}</h2>
+            <p className="mt-5 max-w-3xl text-sm leading-7 text-[#a1a1a6] sm:text-base">{t.usageDesc}</p>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {t.usageItems.map((item, index) => {
               const Icon = useIcons[index];
               return (
-                <div key={item.title} className="rounded-[1.8rem] border border-white/10 bg-[linear-gradient(180deg,#111a2b_0%,#0a1220_100%)] p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-red-400/20 bg-red-500/15 text-red-300">
+                <div key={item.title} className="rounded-[14px] bg-[#1c1c1e] p-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/10 text-[#f5f5f7]">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-5 text-xl font-bold">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-white/72">{item.desc}</p>
+                  <h3 className="mt-5 text-xl font-bold text-[#f5f5f7]">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#a1a1a6]">{item.desc}</p>
                 </div>
               );
             })}
           </div>
         </section>
 
-        <section className="border-y border-white/10 bg-[linear-gradient(180deg,#090f1a_0%,#070d17_100%)] py-16 sm:py-20">
+        <section className="border-t border-[#222] py-16 sm:py-20">
           <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8">
-              <p className="text-sm uppercase tracking-[0.28em] text-red-300">{t.trustLabel}</p>
-              <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">{t.trustTitle}</h2>
+            <div className="rounded-[14px] bg-[#1c1c1e] p-8">
+              <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.trustLabel}</p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight text-[#f5f5f7] sm:text-4xl">{t.trustTitle}</h2>
               <div className="mt-8 space-y-3">
                 {t.trustItems.map((item) => (
-                  <div key={item} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-4 text-sm leading-7 text-white/80">
-                    <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-red-300" />
+                  <div key={item} className="flex items-start gap-3 rounded-[8px] border border-white/10 bg-black/20 px-4 py-4 text-sm leading-7 text-[#a1a1a6]">
+                    <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#a1a1a6]" />
                     <span>{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8">
-              <p className="text-sm uppercase tracking-[0.28em] text-red-300">{t.faqLabel}</p>
-              <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">{t.faqTitle}</h2>
+            <div className="rounded-[14px] bg-[#1c1c1e] p-8">
+              <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.faqLabel}</p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight text-[#f5f5f7] sm:text-4xl">{t.faqTitle}</h2>
               <div className="mt-8 space-y-4">
                 {t.faqs.map((item) => (
-                  <div key={item.q} className="rounded-2xl border border-white/10 bg-black/20 p-5">
-                    <p className="text-base font-bold text-white">{item.q}</p>
-                    <p className="mt-3 text-sm leading-7 text-white/72">{item.a}</p>
+                  <div key={item.q} className="rounded-[8px] border border-white/10 bg-black/20 p-5">
+                    <p className="text-base font-bold text-[#f5f5f7]">{item.q}</p>
+                    <p className="mt-3 text-sm leading-7 text-[#a1a1a6]">{item.a}</p>
                   </div>
                 ))}
               </div>
@@ -361,11 +360,11 @@ export default function SupportPage() {
         </section>
 
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <div className="rounded-[2.2rem] border border-red-500/20 bg-[linear-gradient(135deg,#94181c_0%,#ca2327_45%,#301521_100%)] p-8 shadow-[0_24px_70px_rgba(0,0,0,0.24)] sm:p-10">
-            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">{t.finalTitle}</h2>
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-white/82 sm:text-base">{t.finalDesc}</p>
+          <div className="rounded-[14px] border border-white/10 bg-[#1c1c1e] p-8 sm:p-10">
+            <h2 className="text-3xl font-black tracking-tight text-[#f5f5f7] sm:text-4xl">{t.finalTitle}</h2>
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-[#a1a1a6] sm:text-base">{t.finalDesc}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/support/apply" className="inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-white px-6 text-base font-semibold text-[#7d1f2d] transition hover:bg-red-50">
+              <Link href="/support/apply" className="inline-flex h-12 items-center justify-center gap-2 rounded-[2px] bg-[#cc2222] px-6 text-base font-bold text-white transition hover:bg-[#cc2222]/90">
                 {t.finalPrimary}
                 <ArrowRight className="h-4 w-4" />
               </Link>

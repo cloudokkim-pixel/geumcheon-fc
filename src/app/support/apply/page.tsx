@@ -108,19 +108,19 @@ export default function SupportApplyPage() {
   const t = supportApplyCopy[locale];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-transparent text-[#f5f5f7]">
       <GSSCHeader />
       <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-lg backdrop-blur">
-          <h1 className="text-3xl font-black tracking-tight sm:text-4xl">{t.title}</h1>
-          <p className="mt-4 text-sm leading-7 text-white/72 sm:text-base">{t.desc}</p>
+        <div className="rounded-[14px] bg-[#1c1c1e] p-8">
+          <h1 className="text-3xl font-black tracking-tight text-[#f5f5f7] sm:text-4xl">{t.title}</h1>
+          <p className="mt-4 text-sm leading-7 text-[#a1a1a6] sm:text-base">{t.desc}</p>
 
           <form className="mt-10 space-y-6">
             <div>
-              <label className="mb-2 block text-sm font-semibold text-white" htmlFor="supportType">
+              <label className="mb-2 block text-sm font-semibold text-[#f5f5f7]" htmlFor="supportType">
                 {t.typeLabel}
               </label>
-              <select id="supportType" name="supportType" className="h-12 w-full rounded-2xl border border-white/15 bg-black/40 px-4 text-white focus:border-red-500 focus:outline-none">
+              <select id="supportType" name="supportType" className="h-12 w-full rounded-[6px] border border-[#424245] bg-[#000]/30 px-4 text-[#f5f5f7] focus:border-[#cc2222] focus:outline-none">
                 {t.typeOptions.map((option) => (
                   <option key={option} value={option}>
                     {option}
@@ -131,39 +131,39 @@ export default function SupportApplyPage() {
 
             <div className="grid gap-6 sm:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm font-semibold text-white" htmlFor="name">
+                <label className="mb-2 block text-sm font-semibold text-[#f5f5f7]" htmlFor="name">
                   {t.nameLabel}
                 </label>
-                <input id="name" name="name" type="text" className="h-12 w-full rounded-2xl border border-white/15 bg-black/40 px-4 text-white focus:border-red-500 focus:outline-none" />
+                <input id="name" name="name" type="text" className="h-12 w-full rounded-[6px] border border-[#424245] bg-[#000]/30 px-4 text-[#f5f5f7] focus:border-[#cc2222] focus:outline-none" />
               </div>
               <div>
-                <label className="mb-2 block text-sm font-semibold text-white" htmlFor="organization">
+                <label className="mb-2 block text-sm font-semibold text-[#f5f5f7]" htmlFor="organization">
                   {t.organizationLabel}
                 </label>
-                <input id="organization" name="organization" type="text" className="h-12 w-full rounded-2xl border border-white/15 bg-black/40 px-4 text-white focus:border-red-500 focus:outline-none" />
+                <input id="organization" name="organization" type="text" className="h-12 w-full rounded-[6px] border border-[#424245] bg-[#000]/30 px-4 text-[#f5f5f7] focus:border-[#cc2222] focus:outline-none" />
               </div>
             </div>
 
             <div className="grid gap-6 sm:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm font-semibold text-white" htmlFor="contact">
+                <label className="mb-2 block text-sm font-semibold text-[#f5f5f7]" htmlFor="contact">
                   {t.contactLabel}
                 </label>
-                <input id="contact" name="contact" type="text" className="h-12 w-full rounded-2xl border border-white/15 bg-black/40 px-4 text-white focus:border-red-500 focus:outline-none" />
+                <input id="contact" name="contact" type="text" className="h-12 w-full rounded-[6px] border border-[#424245] bg-[#000]/30 px-4 text-[#f5f5f7] focus:border-[#cc2222] focus:outline-none" />
               </div>
               <div>
-                <label className="mb-2 block text-sm font-semibold text-white" htmlFor="email">
+                <label className="mb-2 block text-sm font-semibold text-[#f5f5f7]" htmlFor="email">
                   {t.emailLabel}
                 </label>
-                <input id="email" name="email" type="email" className="h-12 w-full rounded-2xl border border-white/15 bg-black/40 px-4 text-white focus:border-red-500 focus:outline-none" />
+                <input id="email" name="email" type="email" className="h-12 w-full rounded-[6px] border border-[#424245] bg-[#000]/30 px-4 text-[#f5f5f7] focus:border-[#cc2222] focus:outline-none" />
               </div>
             </div>
 
             <div>
-              <label className="mb-3 block text-sm font-semibold text-white">{t.supportModeLabel}</label>
+              <label className="mb-3 block text-sm font-semibold text-[#f5f5f7]">{t.supportModeLabel}</label>
               <div className="grid gap-3 sm:grid-cols-2">
                 {t.supportModeOptions.map((option) => (
-                  <label key={option} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-sm text-white/80">
+                  <label key={option} className="flex items-center gap-3 rounded-[6px] border border-[#424245] bg-[#000]/20 px-4 py-4 text-sm text-[#a1a1a6]">
                     <input type="radio" name="supportMode" value={option} />
                     <span>{option}</span>
                   </label>
@@ -172,7 +172,7 @@ export default function SupportApplyPage() {
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-white" htmlFor="amount">
+              <label className="mb-2 block text-sm font-semibold text-[#f5f5f7]" htmlFor="amount">
                 {t.amountLabel}
               </label>
               <input
@@ -180,12 +180,12 @@ export default function SupportApplyPage() {
                 name="amount"
                 type="text"
                 placeholder={t.amountPlaceholder}
-                className="h-12 w-full rounded-2xl border border-white/15 bg-black/40 px-4 text-white placeholder:text-white/35 focus:border-red-500 focus:outline-none"
+                className="h-12 w-full rounded-[6px] border border-[#424245] bg-[#000]/30 px-4 text-[#f5f5f7] placeholder:text-[#6e6e73] focus:border-[#cc2222] focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-white" htmlFor="message">
+              <label className="mb-2 block text-sm font-semibold text-[#f5f5f7]" htmlFor="message">
                 {t.messageLabel}
               </label>
               <textarea
@@ -193,18 +193,18 @@ export default function SupportApplyPage() {
                 name="message"
                 rows={5}
                 placeholder={t.messagePlaceholder}
-                className="w-full rounded-2xl border border-white/15 bg-black/40 px-4 py-3 text-white placeholder:text-white/35 focus:border-red-500 focus:outline-none"
+                className="w-full rounded-[6px] border border-[#424245] bg-[#000]/30 px-4 py-3 text-[#f5f5f7] placeholder:text-[#6e6e73] focus:border-[#cc2222] focus:outline-none"
               />
             </div>
 
-            <label className="flex items-start gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-4 text-sm text-white/75">
+            <label className="flex items-start gap-3 rounded-[6px] border border-[#424245] bg-[#000]/20 px-4 py-4 text-sm text-[#a1a1a6]">
               <input type="checkbox" className="mt-1" />
               <span>{t.agreement}</span>
             </label>
 
-            <p className="text-sm text-white/50">{t.helper}</p>
+            <p className="text-sm text-[#6e6e73]">{t.helper}</p>
 
-            <button type="submit" className="w-full rounded-2xl bg-red-600 py-3 text-base font-semibold text-white transition hover:bg-red-700">
+            <button type="submit" className="w-full rounded-[2px] bg-[#cc2222] py-3 text-base font-bold text-white transition hover:bg-[#cc2222]/90">
               {t.submit}
             </button>
           </form>

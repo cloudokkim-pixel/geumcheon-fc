@@ -20,12 +20,12 @@ function EmptyGalleryCard({
   description: string;
 }) {
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center bg-[radial-gradient(circle_at_top,rgba(239,68,68,0.18),transparent_38%),linear-gradient(180deg,#10192b_0%,#09101d_100%)] px-6 text-center">
-      <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white/75">
+    <div className="flex h-full w-full flex-col items-center justify-center bg-[#1c1c1e] px-6 text-center">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-[#a1a1a6]">
         <ImageOff className="h-6 w-6" />
       </div>
-      <p className="mt-4 text-sm font-semibold text-white">{title}</p>
-      <p className="mt-1 text-xs leading-5 text-white/45">{description}</p>
+      <p className="mt-4 text-sm font-semibold text-[#f5f5f7]">{title}</p>
+      <p className="mt-1 text-xs leading-5 text-[#6e6e73]">{description}</p>
     </div>
   );
 }
@@ -57,13 +57,13 @@ export default function HomeGalleryPreview() {
 
   if (!items.length) {
     return (
-      <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,#0b1324_0%,#09101d_100%)] p-8">
-        <div className="flex flex-col items-center justify-center rounded-[1.6rem] border border-dashed border-white/10 bg-white/[0.03] px-6 py-12 text-center">
-          <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-white/5 text-white/70">
+      <div className="rounded-[14px] bg-[#1c1c1e] p-8">
+        <div className="flex flex-col items-center justify-center rounded-[10px] border border-dashed border-white/10 bg-white/[0.03] px-6 py-12 text-center">
+          <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-white/5 text-[#a1a1a6]">
             <ImageOff className="h-7 w-7" />
           </div>
-          <p className="mt-5 text-lg font-semibold text-white">아직 공개된 갤러리가 없습니다</p>
-          <p className="mt-2 max-w-md text-sm leading-6 text-white/50">
+          <p className="mt-5 text-lg font-semibold text-[#f5f5f7]">아직 공개된 갤러리가 없습니다</p>
+          <p className="mt-2 max-w-md text-sm leading-6 text-[#a1a1a6]">
             훈련, 경기, 행사, 기타 기록이 등록되면 이곳에서 최신 갤러리를 바로 볼 수 있습니다.
           </p>
         </div>
@@ -77,7 +77,7 @@ export default function HomeGalleryPreview() {
         <Link
           key={item.id}
           href={`/gallery/${item.slug}`}
-          className="group overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b1324] shadow-[0_20px_50px_rgba(0,0,0,0.28)] transition duration-300 hover:-translate-y-1 hover:border-white/20"
+          className="group overflow-hidden rounded-[14px] border border-white/10 bg-[#1c1c1e] shadow-[0_20px_50px_rgba(0,0,0,0.28)] transition duration-300 hover:-translate-y-1 hover:border-white/20"
         >
           <div className="relative h-56 overflow-hidden">
             {item.thumbnailUrl ? (
@@ -93,12 +93,12 @@ export default function HomeGalleryPreview() {
               <EmptyGalleryCard title="이미지가 없습니다" description="텍스트만 등록된 갤러리입니다" />
             )}
           </div>
-          <div className="border-t border-white/8 bg-[linear-gradient(180deg,#091121_0%,#060c18_100%)] p-6">
-            <p className="text-xs uppercase tracking-[0.22em] text-red-300">
+          <div className="border-t border-[#222] bg-[#1c1c1e] p-6">
+            <p className="text-xs uppercase tracking-[0.22em] text-[#cc2222]">
               {getGalleryCategoryLabel(locale, item.category)}
             </p>
-            <h3 className="mt-3 text-2xl font-black tracking-tight text-white">{item.title}</h3>
-            <p className="mt-3 text-sm text-white/55">{item.publishedAt?.slice(0, 10)}</p>
+            <h3 className="mt-3 text-2xl font-black tracking-tight text-[#f5f5f7]">{item.title}</h3>
+            <p className="mt-3 text-sm text-[#6e6e73]">{item.publishedAt?.slice(0, 10)}</p>
           </div>
         </Link>
       ))}

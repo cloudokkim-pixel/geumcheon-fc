@@ -11,7 +11,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ko">
       <body>
-        <SiteLanguageProvider>{children}</SiteLanguageProvider>
+        <SiteLanguageProvider>
+          <div className="relative z-[1]">{children}</div>
+        </SiteLanguageProvider>
       </body>
     </html>
   );

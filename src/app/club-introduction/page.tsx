@@ -252,20 +252,16 @@ export default function GSSCIntroPage() {
   const copy = clubIntroCopy[locale];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-transparent text-[#f5f5f7]">
       <GSSCHeader />
 
-      <section className="relative overflow-hidden border-b border-white/10 bg-gradient-to-b from-black via-zinc-950 to-red-950/40">
-        <div className="absolute inset-0 opacity-20">
-          <div className="h-full w-full bg-[linear-gradient(90deg,transparent_0%,transparent_44%,rgba(255,255,255,0.08)_44%,rgba(255,255,255,0.08)_56%,transparent_56%,transparent_100%)] bg-[length:220px_220px]" />
-        </div>
-
+      <section className="relative overflow-hidden border-b border-[#222]">
         <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-[420px_1fr] md:px-10 md:py-24">
           <div className="flex items-center justify-center">
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur">
-              <div className="flex h-[420px] w-[320px] items-center justify-center rounded-[1.5rem] border border-white/10 bg-zinc-950 text-center">
+            <div className="rounded-[14px] border border-white/10 bg-[#1c1c1e] p-4 shadow-2xl">
+              <div className="flex h-[420px] w-[320px] items-center justify-center rounded-[10px] border border-white/10 bg-[#000] text-center">
                 <div>
-                  <div className="mb-3 text-xs uppercase tracking-[0.5em] text-yellow-400">G.S.S.C</div>
+                  <div className="mb-3 text-xs uppercase tracking-[0.5em] text-[#cc2222]">G.S.S.C</div>
                   <div className="text-2xl font-black tracking-wide">{dictionary.header.clubName}</div>
                   <div className="mt-6 flex justify-center">
                     <div className="relative h-[240px] w-[240px]">
@@ -278,7 +274,7 @@ export default function GSSCIntroPage() {
           </div>
 
           <div className="flex flex-col justify-center">
-            <div className="mb-4 inline-flex w-fit items-center rounded-full border border-yellow-400/30 bg-yellow-400/10 px-4 py-1 text-sm text-yellow-300">
+            <div className="mb-4 inline-flex w-fit items-center rounded-full border border-white/15 bg-white/5 px-4 py-1 text-sm text-[#a1a1a6]">
               {copy.badge}
             </div>
             <h1 className="max-w-3xl text-4xl font-black leading-tight md:text-6xl">
@@ -286,12 +282,12 @@ export default function GSSCIntroPage() {
               <br />
               {copy.heroTitle[1]}
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-300 md:text-lg">{copy.heroDesc}</p>
+            <p className="mt-6 max-w-2xl text-base leading-7 text-[#a1a1a6] md:text-lg">{copy.heroDesc}</p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#about" className="rounded-2xl bg-red-600 px-6 py-3 font-semibold shadow-lg shadow-red-950/50 transition hover:-translate-y-0.5">
+              <a href="#about" className="rounded-[2px] bg-[#cc2222] px-6 py-3 font-bold text-white transition hover:bg-[#cc2222]/90">
                 {copy.primary}
               </a>
-              <a href="#contact" className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 font-semibold text-zinc-100 transition hover:bg-white/10">
+              <a href="#contact" className="rounded-[2px] border border-[#424245] bg-transparent px-6 py-3 font-semibold text-[#f5f5f7] transition hover:bg-white/5">
                 {copy.secondary}
               </a>
             </div>
@@ -302,50 +298,50 @@ export default function GSSCIntroPage() {
       <section id="about" className="mx-auto max-w-7xl px-6 py-16 md:px-10">
         <div className="mb-10 flex items-end justify-between gap-6">
           <div>
-            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-yellow-400">{copy.aboutLabel}</div>
-            <h2 className="text-3xl font-black md:text-4xl">{copy.aboutTitle}</h2>
+            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#cc2222]">{copy.aboutLabel}</div>
+            <h2 className="text-3xl font-black text-[#f5f5f7] md:text-4xl">{copy.aboutTitle}</h2>
           </div>
-          <div className="hidden text-sm text-zinc-500 md:block">Since 2015 • G.S.S.C</div>
+          <div className="hidden text-sm text-[#6e6e73] md:block">Since 2015 • G.S.S.C</div>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
           {copy.sections.map((item) => (
-            <div key={item.title} className="rounded-[2rem] border border-white/10 bg-zinc-950 p-7 shadow-xl shadow-black/30">
-              <h3 className="mb-4 text-xl font-bold text-white">{item.title}</h3>
-              <p className="text-sm leading-7 text-zinc-300">{item.text}</p>
+            <div key={item.title} className="rounded-[14px] bg-[#1c1c1e] p-7">
+              <h3 className="mb-4 text-xl font-bold text-[#f5f5f7]">{item.title}</h3>
+              <p className="text-sm leading-7 text-[#a1a1a6]">{item.text}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="border-y border-white/10 bg-zinc-950/80">
+      <section className="border-t border-[#222]">
         <div className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-[1.05fr_0.95fr] md:px-10">
-          <div className="rounded-[2rem] border border-red-500/20 bg-gradient-to-br from-red-950/50 to-black p-8">
-            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-yellow-400">{copy.programLabel}</div>
-            <h2 className="text-3xl font-black md:text-4xl">{copy.programTitle}</h2>
+          <div className="rounded-[14px] bg-[#1c1c1e] p-8">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#cc2222]">{copy.programLabel}</div>
+            <h2 className="text-3xl font-black text-[#f5f5f7] md:text-4xl">{copy.programTitle}</h2>
             <div className="mt-8 space-y-4">
               {copy.programs.map((program, index) => (
-                <div key={program} className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-yellow-400 font-black text-black">
-                    {index + 1}
+                <div key={program} className="flex gap-4 rounded-[8px] border border-white/10 bg-[#111] p-4">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center font-black text-[#cc2222]">
+                    {String(index + 1).padStart(2, '0')}
                   </div>
-                  <div className="leading-7 text-zinc-200">{program}</div>
+                  <div className="leading-7 text-[#a1a1a6]">{program}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-black p-8">
-            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-yellow-400">{copy.reasonsLabel}</div>
-            <h2 className="text-3xl font-black md:text-4xl">{copy.reasonsTitle}</h2>
+          <div className="rounded-[14px] bg-[#1c1c1e] p-8">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#cc2222]">{copy.reasonsLabel}</div>
+            <h2 className="text-3xl font-black text-[#f5f5f7] md:text-4xl">{copy.reasonsTitle}</h2>
             <div className="mt-8 space-y-4">
               {copy.reasons.map((reason) => (
-                <div key={reason} className="rounded-2xl border border-white/10 px-5 py-4 text-zinc-200">
+                <div key={reason} className="rounded-[8px] border border-white/10 bg-[#111] px-5 py-4 text-[#a1a1a6]">
                   {reason}
                 </div>
               ))}
             </div>
-            <div className="mt-8 rounded-[1.5rem] border border-yellow-400/20 bg-yellow-400/10 p-6 text-sm leading-7 text-yellow-100">
+            <div className="mt-8 rounded-[8px] border border-white/10 bg-[#222] p-6 text-sm leading-7 text-[#a1a1a6]">
               {copy.highlight}
             </div>
           </div>
@@ -355,32 +351,32 @@ export default function GSSCIntroPage() {
       <section className="mx-auto max-w-7xl px-6 py-16 md:px-10">
         <div className="grid gap-6 md:grid-cols-3">
           {[1, 2, 3].map((item) => (
-            <div key={item} className="group overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950">
-              <div className="flex h-60 items-center justify-center bg-gradient-to-br from-red-700/20 via-black to-yellow-500/10 text-zinc-500">
+            <div key={item} className="group overflow-hidden rounded-[14px] border border-white/10 bg-[#1c1c1e]">
+              <div className="flex h-60 items-center justify-center bg-[#000]/30 text-[#6e6e73]">
                 {copy.showcaseTitle} {item}
               </div>
               <div className="p-6">
-                <div className="text-lg font-bold">
+                <div className="text-lg font-bold text-[#f5f5f7]">
                   {copy.showcaseTitle} {item}
                 </div>
-                <p className="mt-2 text-sm leading-7 text-zinc-400">{copy.showcaseDesc}</p>
+                <p className="mt-2 text-sm leading-7 text-[#a1a1a6]">{copy.showcaseDesc}</p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="contact" className="border-t border-white/10 bg-gradient-to-b from-black to-zinc-950">
+      <section id="contact" className="border-t border-[#222]">
         <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10">
-            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-yellow-400">{copy.contactLabel}</div>
-            <h2 className="text-3xl font-black md:text-4xl">{copy.contactTitle}</h2>
-            <p className="mt-4 max-w-2xl text-zinc-300 leading-7">{copy.contactDesc}</p>
+          <div className="rounded-[14px] bg-[#1c1c1e] p-8 md:p-10">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#cc2222]">{copy.contactLabel}</div>
+            <h2 className="text-3xl font-black text-[#f5f5f7] md:text-4xl">{copy.contactTitle}</h2>
+            <p className="mt-4 max-w-2xl text-[#a1a1a6] leading-7">{copy.contactDesc}</p>
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               {copy.contactCards.map(([label, value]) => (
-                <div key={label} className="rounded-2xl border border-white/10 bg-black/40 p-5">
-                  <div className="text-sm text-zinc-500">{label}</div>
-                  <div className="mt-2 text-lg font-bold">{value}</div>
+                <div key={label} className="rounded-[8px] border border-white/10 bg-[#111] p-5">
+                  <div className="text-sm text-[#6e6e73]">{label}</div>
+                  <div className="mt-2 text-lg font-bold text-[#f5f5f7]">{value}</div>
                 </div>
               ))}
             </div>

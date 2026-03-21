@@ -208,9 +208,9 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
   }
 
   return (
-    <section className="rounded-[2rem] border border-white/10 bg-[#0b1324] p-6 sm:p-8">
+    <section className="rounded-[2rem] border border-white/10 bg-[#1c1c1e] p-6 sm:p-8">
       {initialValue ? (
-        <div className="mb-6 grid gap-4 rounded-[1.6rem] border border-white/10 bg-white/5 p-5 text-sm text-white/65 sm:grid-cols-2">
+        <div className="mb-6 grid gap-4 rounded-[1.6rem] border border-white/10 bg-white/5 p-5 text-sm text-[#a1a1a6] sm:grid-cols-2">
           <p>현재 상태: {statusLabels[initialValue.status]}</p>
           <p>현재 카테고리: {getGalleryCategoryLabel(locale, initialValue.category)}</p>
         </div>
@@ -224,19 +224,19 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
         }}
       >
         <div>
-          <label className="mb-2 block text-sm text-white/60">제목</label>
+          <label className="mb-2 block text-sm text-[#6e6e73]">제목</label>
           <input value={title} onChange={(event) => setTitle(event.target.value)} className="h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4" />
         </div>
 
         <div>
-          <label className="mb-2 block text-sm text-white/60">설명</label>
+          <label className="mb-2 block text-sm text-[#6e6e73]">설명</label>
           <textarea value={description} onChange={(event) => setDescription(event.target.value)} className="min-h-32 w-full rounded-2xl border border-white/10 bg-white/5 p-4" />
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2">
           <div>
-            <label className="mb-2 block text-sm text-white/60">카테고리</label>
-            <select value={category} onChange={(event) => setCategory(event.target.value as GalleryCategory)} className="h-12 w-full rounded-2xl border border-white/10 bg-[#10192b] px-4">
+            <label className="mb-2 block text-sm text-[#6e6e73]">카테고리</label>
+            <select value={category} onChange={(event) => setCategory(event.target.value as GalleryCategory)} className="h-12 w-full rounded-2xl border border-white/10 bg-[#000]/30 px-4">
               {categories.map((item) => (
                 <option key={item} value={item}>
                   {getGalleryCategoryLabel(locale, item)}
@@ -246,8 +246,8 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
           </div>
 
           <div>
-            <label className="mb-2 block text-sm text-white/60">상태</label>
-            <select value={status} onChange={(event) => setStatus(event.target.value as GalleryPostStatus)} className="h-12 w-full rounded-2xl border border-white/10 bg-[#10192b] px-4">
+            <label className="mb-2 block text-sm text-[#6e6e73]">상태</label>
+            <select value={status} onChange={(event) => setStatus(event.target.value as GalleryPostStatus)} className="h-12 w-full rounded-2xl border border-white/10 bg-[#000]/30 px-4">
               {Object.entries(statusLabels).map(([value, label]) => (
                 <option key={value} value={value}>
                   {label}
@@ -260,10 +260,10 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
         <div className="rounded-[1.6rem] border border-dashed border-white/15 bg-white/5 p-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-sm font-medium text-white">이미지 업로드</p>
-              <p className="mt-2 text-sm leading-6 text-white/60">여러 장 업로드를 지원합니다. 대표 이미지 지정과 순서 변경도 가능합니다.</p>
+              <p className="text-sm font-medium text-[#f5f5f7]">이미지 업로드</p>
+              <p className="mt-2 text-sm leading-6 text-[#a1a1a6]">여러 장 업로드를 지원합니다. 대표 이미지 지정과 순서 변경도 가능합니다.</p>
             </div>
-            <label className="inline-flex cursor-pointer items-center justify-center rounded-2xl bg-red-500 px-5 py-3 text-sm font-semibold text-white">
+            <label className="inline-flex cursor-pointer items-center justify-center rounded-[2px] bg-[#cc2222] px-5 py-3 text-sm font-bold text-white">
               이미지 선택
               <input type="file" accept="image/*" multiple className="hidden" onChange={(event) => void uploadFiles(event.target.files)} />
             </label>
@@ -272,9 +272,9 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
           {sortedImages.length ? (
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {sortedImages.map((image) => (
-                <div key={image.id} className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#091121]">
+                <div key={image.id} className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#1c1c1e]">
                   <img src={image.imageUrl} alt="gallery" className="h-44 w-full object-cover" loading="lazy" decoding="async" />
-                  <div className="space-y-3 p-4 text-sm text-white/70">
+                  <div className="space-y-3 p-4 text-sm text-[#a1a1a6]">
                     <label className="flex items-center gap-2">
                       <input type="radio" checked={image.isThumbnail} onChange={() => setThumbnail(image.id)} />
                       대표 이미지
@@ -286,7 +286,7 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
                       <button type="button" onClick={() => moveImage(image.id, 1)} className="rounded-xl border border-white/10 px-3 py-2">
                         아래로
                       </button>
-                      <button type="button" onClick={() => removeImage(image.id)} className="rounded-xl border border-red-400/20 px-3 py-2 text-red-200">
+                      <button type="button" onClick={() => removeImage(image.id)} className="rounded-[4px] border border-[#424245] px-3 py-2 text-[#a1a1a6]">
                         삭제
                       </button>
                     </div>
@@ -295,25 +295,25 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
               ))}
             </div>
           ) : (
-            <p className="mt-5 text-sm text-white/45">이미지는 최소 1장 이상 등록하는 것을 권장합니다.</p>
+            <p className="mt-5 text-sm text-[#6e6e73]">이미지는 최소 1장 이상 등록하는 것을 권장합니다.</p>
           )}
         </div>
 
-        {error ? <p className="text-sm text-red-300">{error}</p> : null}
+        {error ? <p className="text-sm text-[#cc2222]">{error}</p> : null}
         {message ? <p className="text-sm text-emerald-300">{message}</p> : null}
 
         <div className="flex flex-wrap gap-3">
-          <button type="button" disabled={isPending} onClick={() => void submitForm("draft")} className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm">
+          <button type="button" disabled={isPending} onClick={() => void submitForm("draft")} className="rounded-[2px] border border-[#424245] bg-transparent px-5 py-3 text-sm text-[#f5f5f7]">
             임시저장
           </button>
-          <button type="button" disabled={isPending} onClick={() => void submitForm("published")} className="rounded-2xl bg-red-500 px-5 py-3 text-sm font-semibold">
+          <button type="button" disabled={isPending} onClick={() => void submitForm("published")} className="rounded-[2px] bg-[#cc2222] px-5 py-3 text-sm font-bold text-white">
             공개
           </button>
-          <button type="button" disabled={isPending} onClick={() => void submitForm("private")} className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm">
+          <button type="button" disabled={isPending} onClick={() => void submitForm("private")} className="rounded-[2px] border border-[#424245] bg-transparent px-5 py-3 text-sm text-[#f5f5f7]">
             비공개
           </button>
           {mode === "edit" ? (
-            <button type="button" disabled={isPending} onClick={() => void handleDelete()} className="rounded-2xl border border-red-400/30 bg-red-500/10 px-5 py-3 text-sm text-red-200">
+            <button type="button" disabled={isPending} onClick={() => void handleDelete()} className="rounded-[2px] border border-[#424245] bg-transparent px-5 py-3 text-sm text-[#a1a1a6]">
               삭제
             </button>
           ) : null}
