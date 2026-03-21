@@ -89,13 +89,13 @@ export default function GeumcheonHomepage() {
               {t.heroBadge}
             </div>
 
-            <h1 className="text-4xl font-black leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.3rem]">
+            <h1 className="text-4xl font-black leading-[1.02] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[5.3rem]">
               {t.heroTitleTop}
               <br />
               <span className="text-[#f5f5f7]">{t.heroTitleBottom}</span>
             </h1>
 
-            <p className="mt-6 max-w-2xl text-sm leading-7 text-[#a1a1a6] sm:text-base lg:text-lg">
+            <p className="mt-6 max-w-2xl text-base leading-[1.8] text-[#a1a1a6] lg:text-lg">
               {t.heroDesc}
             </p>
 
@@ -111,8 +111,8 @@ export default function GeumcheonHomepage() {
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {t.heroStats.map((item) => (
                 <div key={item.title} className="rounded-[14px] bg-[#1c1c1e] p-4">
-                  <p className="text-lg font-black text-[#f5f5f7] sm:text-xl">{item.title}</p>
-                  <p className="mt-1 text-xs text-[#6e6e73] sm:text-sm">{item.sub}</p>
+                  <p className="text-xl font-black tracking-[-0.02em] text-[#f5f5f7] sm:text-2xl">{item.title}</p>
+                  <p className="mt-1 text-xs text-[#6e6e73]">{item.sub}</p>
                 </div>
               ))}
             </div>
@@ -159,8 +159,8 @@ export default function GeumcheonHomepage() {
                     <Icon className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-sm text-[#6e6e73]">{item.label}</p>
-                    <p className="mt-1 text-sm font-semibold leading-6 text-[#f5f5f7]">{item.value}</p>
+                    <p className="text-xs text-[#6e6e73]">{item.label}</p>
+                    <p className="mt-1 text-base font-bold leading-6 text-[#f5f5f7]">{item.value}</p>
                   </div>
                 </div>
               </div>
@@ -173,7 +173,7 @@ export default function GeumcheonHomepage() {
         <div className="mb-8 flex flex-col gap-4 lg:mb-10 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.aboutLabel}</p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight text-[#f5f5f7] sm:text-4xl lg:text-5xl">{t.aboutTitle}</h2>
+            <h2 className="mt-3 text-3xl font-black tracking-[-0.03em] text-[#f5f5f7] sm:text-4xl lg:text-5xl">{t.aboutTitle}</h2>
           </div>
           <p className="max-w-2xl text-sm leading-7 text-[#a1a1a6] sm:text-base">
             {t.aboutDesc}
@@ -224,7 +224,7 @@ export default function GeumcheonHomepage() {
           <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.programLabel}</p>
-              <h2 className="mt-3 text-3xl font-black tracking-tight text-[#f5f5f7] sm:text-4xl lg:text-5xl">{t.programTitle}</h2>
+              <h2 className="mt-3 text-3xl font-black tracking-[-0.03em] text-[#f5f5f7] sm:text-4xl lg:text-5xl">{t.programTitle}</h2>
             </div>
             <p className="max-w-2xl text-sm leading-7 text-[#a1a1a6] sm:text-base">
               {t.programDesc}
@@ -279,7 +279,7 @@ export default function GeumcheonHomepage() {
         <div className="grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-10">
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-[#cc2222]">{t.recruitLabel}</p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight text-[#f5f5f7] sm:text-4xl lg:text-5xl">{t.recruitTitle}</h2>
+            <h2 className="mt-3 text-3xl font-black tracking-[-0.03em] text-[#f5f5f7] sm:text-4xl lg:text-5xl">{t.recruitTitle}</h2>
             <p className="mt-5 max-w-xl text-sm leading-7 text-[#a1a1a6] sm:text-base">
               {t.recruitDesc}
             </p>
