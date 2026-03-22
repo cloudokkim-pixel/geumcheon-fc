@@ -113,7 +113,7 @@ export default function SupportApplyPage() {
       <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="rounded-[14px] bg-[#1c1c1e] p-8">
           <h1 className="text-3xl font-black tracking-tight text-[#f5f5f7] sm:text-4xl">{t.title}</h1>
-          <p className="mt-4 text-sm leading-7 text-[#a1a1a6] sm:text-base">{t.desc}</p>
+          <p className="mt-4 text-sm leading-7 text-[#c0c0c5] sm:text-base">{t.desc}</p>
 
           <form className="mt-10 space-y-6">
             <div>
@@ -163,7 +163,7 @@ export default function SupportApplyPage() {
               <label className="mb-3 block text-sm font-semibold text-[#f5f5f7]">{t.supportModeLabel}</label>
               <div className="grid gap-3 sm:grid-cols-2">
                 {t.supportModeOptions.map((option) => (
-                  <label key={option} className="flex items-center gap-3 rounded-[6px] border border-[#424245] bg-[#000]/20 px-4 py-4 text-sm text-[#a1a1a6]">
+                  <label key={option} className="flex items-center gap-3 rounded-[6px] border border-[#424245] bg-[#000]/20 px-4 py-4 text-sm text-[#c0c0c5]">
                     <input type="radio" name="supportMode" value={option} />
                     <span>{option}</span>
                   </label>
@@ -180,7 +180,7 @@ export default function SupportApplyPage() {
                 name="amount"
                 type="text"
                 placeholder={t.amountPlaceholder}
-                className="h-12 w-full rounded-[6px] border border-[#424245] bg-[#000]/30 px-4 text-[#f5f5f7] placeholder:text-[#6e6e73] focus:border-[#cc2222] focus:outline-none"
+                className="h-12 w-full rounded-[6px] border border-[#424245] bg-[#000]/30 px-4 text-[#f5f5f7] placeholder:text-[#888890] focus:border-[#cc2222] focus:outline-none"
               />
             </div>
 
@@ -193,16 +193,16 @@ export default function SupportApplyPage() {
                 name="message"
                 rows={5}
                 placeholder={t.messagePlaceholder}
-                className="w-full rounded-[6px] border border-[#424245] bg-[#000]/30 px-4 py-3 text-[#f5f5f7] placeholder:text-[#6e6e73] focus:border-[#cc2222] focus:outline-none"
+                className="w-full rounded-[6px] border border-[#424245] bg-[#000]/30 px-4 py-3 text-[#f5f5f7] placeholder:text-[#888890] focus:border-[#cc2222] focus:outline-none"
               />
             </div>
 
-            <label className="flex items-start gap-3 rounded-[6px] border border-[#424245] bg-[#000]/20 px-4 py-4 text-sm text-[#a1a1a6]">
+            <label className="flex items-start gap-3 rounded-[6px] border border-[#424245] bg-[#000]/20 px-4 py-4 text-sm text-[#c0c0c5]">
               <input type="checkbox" className="mt-1" />
               <span>{t.agreement}</span>
             </label>
 
-            <p className="text-sm text-[#6e6e73]">{t.helper}</p>
+            <p className="text-sm text-[#888890]">{t.helper}</p>
 
             <button type="submit" className="w-full rounded-[2px] bg-[#cc2222] py-3 text-base font-bold text-white transition hover:bg-[#cc2222]/90">
               {t.submit}

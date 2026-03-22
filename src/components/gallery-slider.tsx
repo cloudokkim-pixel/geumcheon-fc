@@ -35,7 +35,7 @@ export default function GallerySlider({ images, title }: GallerySliderProps) {
 
   if (!activeImage) {
     return (
-      <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 text-sm text-[#a1a1a6]">
+      <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 text-sm text-[#c0c0c5]">
         등록된 이미지가 없습니다.
       </div>
     );

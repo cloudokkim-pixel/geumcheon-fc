@@ -18,7 +18,7 @@ export default function ProgramPage() {
             {t.items.map((item, index) => (
               <li key={item.title} className={index === t.items.length - 1 ? "" : "border-b border-[#222] pb-6"}>
                 <h2 className="mb-2 text-xl font-bold text-[#f5f5f7]">{item.title}</h2>
-                <p className="text-[#a1a1a6]">{item.desc}</p>
+                <p className="text-[#c0c0c5]">{item.desc}</p>
               </li>
             ))}
           </ul>

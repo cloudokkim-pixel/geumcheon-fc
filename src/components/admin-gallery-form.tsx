@@ -210,7 +210,7 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
   return (
     <section className="rounded-[2rem] border border-white/10 bg-[#1c1c1e] p-6 sm:p-8">
       {initialValue ? (
-        <div className="mb-6 grid gap-4 rounded-[1.6rem] border border-white/10 bg-white/5 p-5 text-sm text-[#a1a1a6] sm:grid-cols-2">
+        <div className="mb-6 grid gap-4 rounded-[1.6rem] border border-white/10 bg-white/5 p-5 text-sm text-[#c0c0c5] sm:grid-cols-2">
           <p>현재 상태: {statusLabels[initialValue.status]}</p>
           <p>현재 카테고리: {getGalleryCategoryLabel(locale, initialValue.category)}</p>
         </div>
@@ -224,18 +224,18 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
         }}
       >
         <div>
-          <label className="mb-2 block text-sm text-[#6e6e73]">제목</label>
+          <label className="mb-2 block text-sm text-[#888890]">제목</label>
           <input value={title} onChange={(event) => setTitle(event.target.value)} className="h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4" />
         </div>
 
         <div>
-          <label className="mb-2 block text-sm text-[#6e6e73]">설명</label>
+          <label className="mb-2 block text-sm text-[#888890]">설명</label>
           <textarea value={description} onChange={(event) => setDescription(event.target.value)} className="min-h-32 w-full rounded-2xl border border-white/10 bg-white/5 p-4" />
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2">
           <div>
-            <label className="mb-2 block text-sm text-[#6e6e73]">카테고리</label>
+            <label className="mb-2 block text-sm text-[#888890]">카테고리</label>
             <select value={category} onChange={(event) => setCategory(event.target.value as GalleryCategory)} className="h-12 w-full rounded-2xl border border-white/10 bg-[#000]/30 px-4">
               {categories.map((item) => (
                 <option key={item} value={item}>
@@ -246,7 +246,7 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
           </div>
 
           <div>
-            <label className="mb-2 block text-sm text-[#6e6e73]">상태</label>
+            <label className="mb-2 block text-sm text-[#888890]">상태</label>
             <select value={status} onChange={(event) => setStatus(event.target.value as GalleryPostStatus)} className="h-12 w-full rounded-2xl border border-white/10 bg-[#000]/30 px-4">
               {Object.entries(statusLabels).map(([value, label]) => (
                 <option key={value} value={value}>
@@ -261,7 +261,7 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-sm font-medium text-[#f5f5f7]">이미지 업로드</p>
-              <p className="mt-2 text-sm leading-6 text-[#a1a1a6]">여러 장 업로드를 지원합니다. 대표 이미지 지정과 순서 변경도 가능합니다.</p>
+              <p className="mt-2 text-sm leading-6 text-[#c0c0c5]">여러 장 업로드를 지원합니다. 대표 이미지 지정과 순서 변경도 가능합니다.</p>
             </div>
             <label className="inline-flex cursor-pointer items-center justify-center rounded-[2px] bg-[#cc2222] px-5 py-3 text-sm font-bold text-white">
               이미지 선택
@@ -274,7 +274,7 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
               {sortedImages.map((image) => (
                 <div key={image.id} className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#1c1c1e]">
                   <img src={image.imageUrl} alt="gallery" className="h-44 w-full object-cover" loading="lazy" decoding="async" />
-                  <div className="space-y-3 p-4 text-sm text-[#a1a1a6]">
+                  <div className="space-y-3 p-4 text-sm text-[#c0c0c5]">
                     <label className="flex items-center gap-2">
                       <input type="radio" checked={image.isThumbnail} onChange={() => setThumbnail(image.id)} />
                       대표 이미지
@@ -286,7 +286,7 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
                       <button type="button" onClick={() => moveImage(image.id, 1)} className="rounded-xl border border-white/10 px-3 py-2">
                         아래로
                       </button>
-                      <button type="button" onClick={() => removeImage(image.id)} className="rounded-[4px] border border-[#424245] px-3 py-2 text-[#a1a1a6]">
+                      <button type="button" onClick={() => removeImage(image.id)} className="rounded-[4px] border border-[#424245] px-3 py-2 text-[#c0c0c5]">
                         삭제
                       </button>
                     </div>
@@ -295,7 +295,7 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
               ))}
             </div>
           ) : (
-            <p className="mt-5 text-sm text-[#6e6e73]">이미지는 최소 1장 이상 등록하는 것을 권장합니다.</p>
+            <p className="mt-5 text-sm text-[#888890]">이미지는 최소 1장 이상 등록하는 것을 권장합니다.</p>
           )}
         </div>
 
@@ -313,7 +313,7 @@ export default function AdminGalleryForm({ mode, initialValue }: AdminGalleryFor
             비공개
           </button>
           {mode === "edit" ? (
-            <button type="button" disabled={isPending} onClick={() => void handleDelete()} className="rounded-[2px] border border-[#424245] bg-transparent px-5 py-3 text-sm text-[#a1a1a6]">
+            <button type="button" disabled={isPending} onClick={() => void handleDelete()} className="rounded-[2px] border border-[#424245] bg-transparent px-5 py-3 text-sm text-[#c0c0c5]">
               삭제
             </button>
           ) : null}

@@ -253,9 +253,9 @@ export default function SupportPage() {
         <section className="relative overflow-hidden border-b border-[#222]">
           <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
             <div className="max-w-4xl">
-              <p className="inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1 text-sm text-[#a1a1a6]">{t.badge}</p>
+              <p className="inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1 text-sm text-[#c0c0c5]">{t.badge}</p>
               <h1 className="mt-6 text-4xl font-black leading-tight tracking-tight text-[#f5f5f7] sm:text-5xl lg:text-6xl">{t.title}</h1>
-              <p className="mt-6 max-w-3xl text-sm leading-8 text-[#a1a1a6] sm:text-base">{t.desc}</p>
+              <p className="mt-6 max-w-3xl text-sm leading-8 text-[#c0c0c5] sm:text-base">{t.desc}</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link href="/support/apply" className="inline-flex h-12 items-center justify-center rounded-[2px] bg-[#cc2222] px-6 text-base font-bold text-white transition hover:bg-[#cc2222]/90">
                   {t.primary}
@@ -272,11 +272,11 @@ export default function SupportPage() {
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="rounded-[14px] bg-[#1c1c1e] p-8">
               <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.needTitle}</p>
-              <p className="mt-5 text-sm leading-8 text-[#a1a1a6] sm:text-base">{t.needDesc}</p>
+              <p className="mt-5 text-sm leading-8 text-[#c0c0c5] sm:text-base">{t.needDesc}</p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {t.needItems.map((item) => (
-                <div key={item} className="rounded-[14px] bg-[#1c1c1e] p-6 text-sm leading-7 text-[#a1a1a6]">
+                <div key={item} className="rounded-[14px] bg-[#1c1c1e] p-6 text-sm leading-7 text-[#c0c0c5]">
                   {item}
                 </div>
               ))}
@@ -299,7 +299,7 @@ export default function SupportPage() {
                       <Icon className="h-5 w-5" />
                     </div>
                     <h3 className="mt-5 text-2xl font-black text-[#f5f5f7]">{item.title}</h3>
-                    <p className="mt-4 text-sm leading-7 text-[#a1a1a6]">{item.desc}</p>
+                    <p className="mt-4 text-sm leading-7 text-[#c0c0c5]">{item.desc}</p>
                   </article>
                 );
               })}
@@ -311,7 +311,7 @@ export default function SupportPage() {
           <div className="mb-10">
             <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.usageLabel}</p>
             <h2 className="mt-3 text-3xl font-black tracking-tight text-[#f5f5f7] sm:text-4xl">{t.usageTitle}</h2>
-            <p className="mt-5 max-w-3xl text-sm leading-7 text-[#a1a1a6] sm:text-base">{t.usageDesc}</p>
+            <p className="mt-5 max-w-3xl text-sm leading-7 text-[#c0c0c5] sm:text-base">{t.usageDesc}</p>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {t.usageItems.map((item, index) => {
@@ -322,7 +322,7 @@ export default function SupportPage() {
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="mt-5 text-xl font-bold text-[#f5f5f7]">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#a1a1a6]">{item.desc}</p>
+                  <p className="mt-3 text-sm leading-7 text-[#c0c0c5]">{item.desc}</p>
                 </div>
               );
             })}
@@ -336,8 +336,8 @@ export default function SupportPage() {
               <h2 className="mt-3 text-3xl font-black tracking-tight text-[#f5f5f7] sm:text-4xl">{t.trustTitle}</h2>
               <div className="mt-8 space-y-3">
                 {t.trustItems.map((item) => (
-                  <div key={item} className="flex items-start gap-3 rounded-[8px] border border-white/10 bg-black/20 px-4 py-4 text-sm leading-7 text-[#a1a1a6]">
-                    <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#a1a1a6]" />
+                  <div key={item} className="flex items-start gap-3 rounded-[8px] border border-white/10 bg-black/20 px-4 py-4 text-sm leading-7 text-[#c0c0c5]">
+                    <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#c0c0c5]" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -351,7 +351,7 @@ export default function SupportPage() {
                 {t.faqs.map((item) => (
                   <div key={item.q} className="rounded-[8px] border border-white/10 bg-black/20 p-5">
                     <p className="text-base font-bold text-[#f5f5f7]">{item.q}</p>
-                    <p className="mt-3 text-sm leading-7 text-[#a1a1a6]">{item.a}</p>
+                    <p className="mt-3 text-sm leading-7 text-[#c0c0c5]">{item.a}</p>
                   </div>
                 ))}
               </div>
@@ -362,7 +362,7 @@ export default function SupportPage() {
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
           <div className="rounded-[14px] border border-white/10 bg-[#1c1c1e] p-8 sm:p-10">
             <h2 className="text-3xl font-black tracking-tight text-[#f5f5f7] sm:text-4xl">{t.finalTitle}</h2>
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-[#a1a1a6] sm:text-base">{t.finalDesc}</p>
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-[#c0c0c5] sm:text-base">{t.finalDesc}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/support/apply" className="inline-flex h-12 items-center justify-center gap-2 rounded-[2px] bg-[#cc2222] px-6 text-base font-bold text-white transition hover:bg-[#cc2222]/90">
                 {t.finalPrimary}

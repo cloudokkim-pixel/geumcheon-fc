@@ -85,7 +85,7 @@ export default function GeumcheonHomepage() {
 
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-24">
           <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="relative z-10">
-            <div className="mb-5 inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1 text-sm text-[#a1a1a6]">
+            <div className="mb-5 inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1 text-sm text-[#c0c0c5]">
               {t.heroBadge}
             </div>
 
@@ -95,7 +95,7 @@ export default function GeumcheonHomepage() {
               <span className="text-[#f5f5f7]">{t.heroTitleBottom}</span>
             </h1>
 
-            <p className="mt-6 max-w-2xl text-base leading-[1.8] text-[#a1a1a6] lg:text-lg">
+            <p className="mt-6 max-w-2xl text-base leading-[1.8] text-[#c0c0c5] lg:text-lg">
               {t.heroDesc}
             </p>
 
@@ -112,7 +112,7 @@ export default function GeumcheonHomepage() {
               {t.heroStats.map((item) => (
                 <div key={item.title} className="rounded-[14px] bg-[#1c1c1e] p-4">
                   <p className="text-xl font-black tracking-[-0.02em] text-[#f5f5f7] sm:text-2xl">{item.title}</p>
-                  <p className="mt-1 text-xs text-[#6e6e73]">{item.sub}</p>
+                  <p className="mt-1 text-xs text-[#888890]">{item.sub}</p>
                 </div>
               ))}
             </div>
@@ -129,12 +129,12 @@ export default function GeumcheonHomepage() {
                     <Image src={logoSrc} alt={dictionary.header.clubName} fill className="object-cover" sizes="80px" />
                   </div>
                   <p className="mt-5 text-center text-xs uppercase tracking-[0.32em] text-[#cc2222]">{t.clubIdentityLabel}</p>
-                  <p className="mt-3 text-center text-sm leading-6 text-[#a1a1a6]">
+                  <p className="mt-3 text-center text-sm leading-6 text-[#c0c0c5]">
                     {t.clubIdentityDesc}
                   </p>
                   <div className="mt-5 rounded-[8px] border border-white/10 bg-black/30 p-4 text-center">
                     <p className="text-2xl font-black text-[#f5f5f7]">2015</p>
-                    <p className="mt-1 text-xs text-[#6e6e73]">{t.clubStarted}</p>
+                    <p className="mt-1 text-xs text-[#888890]">{t.clubStarted}</p>
                   </div>
                 </div>
 
@@ -159,7 +159,7 @@ export default function GeumcheonHomepage() {
                     <Icon className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xs text-[#6e6e73]">{item.label}</p>
+                    <p className="text-xs text-[#888890]">{item.label}</p>
                     <p className="mt-1 text-base font-bold leading-6 text-[#f5f5f7]">{item.value}</p>
                   </div>
                 </div>
@@ -175,7 +175,7 @@ export default function GeumcheonHomepage() {
             <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.aboutLabel}</p>
             <h2 className="mt-3 text-3xl font-black tracking-[-0.03em] text-[#f5f5f7] sm:text-4xl lg:text-5xl">{t.aboutTitle}</h2>
           </div>
-          <p className="max-w-2xl text-sm leading-7 text-[#a1a1a6] sm:text-base">
+          <p className="max-w-2xl text-sm leading-7 text-[#c0c0c5] sm:text-base">
             {t.aboutDesc}
           </p>
         </div>
@@ -185,13 +185,13 @@ export default function GeumcheonHomepage() {
             <div className="p-6 sm:p-8">
               <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.clubIdentityLabel}</p>
               <h3 className="mt-3 text-2xl font-black text-[#f5f5f7] sm:text-3xl">{t.aboutIdentityTitle}</h3>
-              <p className="mt-4 text-sm leading-7 text-[#a1a1a6] sm:text-base">
+              <p className="mt-4 text-sm leading-7 text-[#c0c0c5] sm:text-base">
                 {t.aboutIdentityDesc}
               </p>
               <div className="mt-6 grid grid-cols-2 gap-4">
                 {t.aboutFacts.map((fact) => (
                   <div key={fact.key} className="rounded-[8px] border border-white/10 bg-[#111] p-4">
-                    <p className="text-xs text-[#6e6e73]">{fact.key}</p>
+                    <p className="text-xs text-[#888890]">{fact.key}</p>
                     <p className="mt-1 text-lg font-black text-[#f5f5f7]">{fact.value}</p>
                   </div>
                 ))}
@@ -210,7 +210,7 @@ export default function GeumcheonHomepage() {
                       <Icon className="h-5 w-5" />
                     </div>
                     <h3 className="mt-5 text-xl font-bold text-[#f5f5f7]">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-[#a1a1a6]">{item.desc}</p>
+                    <p className="mt-3 text-sm leading-6 text-[#c0c0c5]">{item.desc}</p>
                   </div>
                 </div>
               );
@@ -226,7 +226,7 @@ export default function GeumcheonHomepage() {
               <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.programLabel}</p>
               <h2 className="mt-3 text-3xl font-black tracking-[-0.03em] text-[#f5f5f7] sm:text-4xl lg:text-5xl">{t.programTitle}</h2>
             </div>
-            <p className="max-w-2xl text-sm leading-7 text-[#a1a1a6] sm:text-base">
+            <p className="max-w-2xl text-sm leading-7 text-[#c0c0c5] sm:text-base">
               {t.programDesc}
             </p>
           </div>
@@ -237,15 +237,15 @@ export default function GeumcheonHomepage() {
                 <div>
                   <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.programOverviewLabel}</p>
                   <h3 className="mt-3 text-2xl font-black text-[#f5f5f7] sm:text-3xl">{t.programOverviewTitle}</h3>
-                  <p className="mt-4 text-sm leading-7 text-[#a1a1a6] sm:text-base">
+                  <p className="mt-4 text-sm leading-7 text-[#c0c0c5] sm:text-base">
                     {t.programOverviewDesc}
                   </p>
                 </div>
                 <div className="mt-8 rounded-[8px] border border-white/10 bg-black/25 p-5">
                   <p className="flex items-center gap-2 text-sm font-semibold text-[#f5f5f7]">
-                    <Star className="h-4 w-4 text-[#6e6e73]" /> {t.programPointsTitle}
+                    <Star className="h-4 w-4 text-[#888890]" /> {t.programPointsTitle}
                   </p>
-                  <ul className="mt-3 space-y-2 text-sm leading-6 text-[#a1a1a6]">
+                  <ul className="mt-3 space-y-2 text-sm leading-6 text-[#c0c0c5]">
                     {t.programPoints.map((point) => (
                       <li key={point}>{point}</li>
                     ))}
@@ -265,7 +265,7 @@ export default function GeumcheonHomepage() {
                         <Icon className="h-5 w-5" />
                       </div>
                       <h3 className="mt-5 text-xl font-bold text-[#f5f5f7]">{program.title}</h3>
-                      <p className="mt-3 text-sm leading-6 text-[#a1a1a6]">{program.desc}</p>
+                      <p className="mt-3 text-sm leading-6 text-[#c0c0c5]">{program.desc}</p>
                     </div>
                   </div>
                 );
@@ -280,14 +280,14 @@ export default function GeumcheonHomepage() {
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-[#cc2222]">{t.recruitLabel}</p>
             <h2 className="mt-3 text-3xl font-black tracking-[-0.03em] text-[#f5f5f7] sm:text-4xl lg:text-5xl">{t.recruitTitle}</h2>
-            <p className="mt-5 max-w-xl text-sm leading-7 text-[#a1a1a6] sm:text-base">
+            <p className="mt-5 max-w-xl text-sm leading-7 text-[#c0c0c5] sm:text-base">
               {t.recruitDesc}
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {t.recruitInfo.map((item) => (
                 <div key={item.label} className="rounded-[14px] bg-[#1c1c1e] p-5">
-                  <p className="text-sm text-[#6e6e73]">{item.label}</p>
+                  <p className="text-sm text-[#888890]">{item.label}</p>
                   <p className="mt-2 text-sm font-semibold leading-6 text-[#f5f5f7]">{item.value}</p>
                 </div>
               ))}
@@ -315,7 +315,7 @@ export default function GeumcheonHomepage() {
             <div className="max-w-3xl">
               <p className="text-sm uppercase tracking-[0.32em] text-[#cc2222]">{pageGalleryCopy.label}</p>
               <h2 className="mt-3 text-4xl font-black tracking-tight text-[#f5f5f7] sm:text-5xl lg:text-6xl">{pageGalleryCopy.title}</h2>
-              <p className="mt-5 max-w-2xl text-sm leading-7 text-[#a1a1a6] sm:text-base">
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-[#c0c0c5] sm:text-base">
                 {pageGalleryCopy.desc}
               </p>
             </div>
@@ -337,7 +337,7 @@ export default function GeumcheonHomepage() {
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-[0.32em] text-[#cc2222]">{t.sponsorLabel}</p>
             <h2 className="mt-3 text-4xl font-black tracking-tight text-[#f5f5f7] sm:text-5xl lg:text-6xl">{t.sponsorTitle}</h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#a1a1a6] sm:text-base">
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#c0c0c5] sm:text-base">
               {t.sponsorDesc}
             </p>
           </div>
@@ -356,7 +356,7 @@ export default function GeumcheonHomepage() {
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="mt-6 text-2xl font-black text-[#f5f5f7]">{sponsor.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-[#a1a1a6]">{sponsor.desc}</p>
+                  <p className="mt-4 text-sm leading-7 text-[#c0c0c5]">{sponsor.desc}</p>
                 </article>
               );
             })}
@@ -383,7 +383,7 @@ export default function GeumcheonHomepage() {
             <div className="min-w-0 rounded-[14px] bg-[#1c1c1e] p-8 sm:p-10">
               <p className="text-sm uppercase tracking-[0.32em] text-[#cc2222]">{t.contactLabel}</p>
               <h2 className="mt-4 text-4xl font-black tracking-tight text-[#f5f5f7] sm:text-5xl">{t.contactTitle}</h2>
-              <p className="mt-5 max-w-xl text-sm leading-7 text-[#a1a1a6] sm:text-base">
+              <p className="mt-5 max-w-xl text-sm leading-7 text-[#c0c0c5] sm:text-base">
                 {t.contactDesc}
               </p>
 
@@ -394,7 +394,7 @@ export default function GeumcheonHomepage() {
                       <Phone className="h-5 w-5" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-sm text-[#6e6e73] sm:mt-5">{t.contactCards[0].label}</p>
+                      <p className="text-sm text-[#888890] sm:mt-5">{t.contactCards[0].label}</p>
                       <p className="mt-2 max-w-full text-[1.05rem] font-bold leading-none tracking-[-0.04em] text-[#f5f5f7] sm:text-[1.15rem] lg:text-[1.22rem]">
                         {t.contactCards[0].value}
                       </p>
@@ -408,7 +408,7 @@ export default function GeumcheonHomepage() {
                       <ChevronRight className="h-5 w-5" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-sm text-[#6e6e73] sm:mt-5">{t.contactCards[1].label}</p>
+                      <p className="text-sm text-[#888890] sm:mt-5">{t.contactCards[1].label}</p>
                       <p className="mt-2 max-w-full break-keep text-[1.25rem] font-bold leading-none tracking-[-0.03em] text-[#f5f5f7] sm:text-[1.4rem]">
                         {t.contactCards[1].value}
                       </p>
@@ -437,7 +437,7 @@ export default function GeumcheonHomepage() {
                 <span className="block break-keep">{t.promiseTitleLines[0]}</span>
                 <span className="mt-1 block break-keep sm:mt-2">{t.promiseTitleLines[1]}</span>
               </h3>
-              <p className="mt-8 max-w-[520px] text-sm leading-8 text-[#a1a1a6] sm:text-base">
+              <p className="mt-8 max-w-[520px] text-sm leading-8 text-[#c0c0c5] sm:text-base">
                 {t.promiseDesc}
               </p>
 
@@ -449,7 +449,7 @@ export default function GeumcheonHomepage() {
                     </div>
                     <div>
                       <p className="text-lg font-bold text-[#f5f5f7]">{dictionary.header.clubName}</p>
-                      <p className="text-sm text-[#6e6e73]">{dictionary.header.clubNameEn}</p>
+                      <p className="text-sm text-[#888890]">{dictionary.header.clubNameEn}</p>
                     </div>
                   </div>
                 </div>
@@ -468,18 +468,18 @@ export default function GeumcheonHomepage() {
               </div>
               <div>
                 <p className="text-lg font-black text-[#f5f5f7]">{dictionary.header.clubName}</p>
-                <p className="text-xs uppercase tracking-[0.28em] text-[#6e6e73]">{dictionary.header.clubNameEn}</p>
+                <p className="text-xs uppercase tracking-[0.28em] text-[#888890]">{dictionary.header.clubNameEn}</p>
               </div>
             </a>
 
-            <nav className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-[#a1a1a6] sm:gap-x-8">
+            <nav className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-[#c0c0c5] sm:gap-x-8">
               {t.footerNav.map((item) => (
                 <a key={`${item.href}-${item.label}-footer`} href={item.href} className="transition hover:text-[#f5f5f7]">{item.label}</a>
               ))}
             </nav>
           </div>
 
-          <div className="mt-6 flex items-center justify-between gap-4 border-t border-[#222] pt-4 text-xs text-[#6e6e73]">
+          <div className="mt-6 flex items-center justify-between gap-4 border-t border-[#222] pt-4 text-xs text-[#888890]">
             <span>{t.footerCopyright}</span>
             <a
               href="/admin/login"

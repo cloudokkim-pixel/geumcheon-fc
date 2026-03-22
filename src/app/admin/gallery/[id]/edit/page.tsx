@@ -27,7 +27,7 @@ export default async function AdminGalleryEditPage({ params }: AdminGalleryEditP
             <p className="text-sm uppercase tracking-[0.3em] text-[#cc2222]">Admin Gallery</p>
             <h1 className="mt-3 text-4xl font-black tracking-tight text-[#f5f5f7]">갤러리 수정</h1>
           </div>
-          <Link href="/admin/gallery" className="text-sm text-[#a1a1a6] underline-offset-4 hover:underline">
+          <Link href="/admin/gallery" className="text-sm text-[#c0c0c5] underline-offset-4 hover:underline">
             목록으로
           </Link>
         </div>

@@ -57,7 +57,7 @@ export default function GSSCHeader() {
           </div>
           <div>
             <p className="text-base font-black text-[#f5f5f7] sm:text-lg">{header.clubName}</p>
-            <p className="text-[10px] uppercase tracking-[0.32em] text-[#6e6e73] sm:text-xs">{header.clubNameEn}</p>
+            <p className="text-[10px] uppercase tracking-[0.32em] text-[#888890] sm:text-xs">{header.clubNameEn}</p>
           </div>
         </a>
 
@@ -66,7 +66,7 @@ export default function GSSCHeader() {
             <a
               key={`${item.href}-${item.label}`}
               href={item.href}
-              className="text-sm font-medium text-[#a1a1a6] transition hover:text-[#f5f5f7]"
+              className="text-sm font-medium text-[#c0c0c5] transition hover:text-[#f5f5f7]"
             >
               {item.label}
             </a>
@@ -83,7 +83,7 @@ export default function GSSCHeader() {
               aria-expanded={localeOpen}
             >
               <img src={currentFlag.src} alt={currentFlag.alt} className="h-4 w-6 rounded-[2px] object-cover shadow-sm" loading="lazy" decoding="async" />
-              <span className="text-[#a1a1a6]">{currentLocale.shortLabel}</span>
+              <span className="text-[#c0c0c5]">{currentLocale.shortLabel}</span>
               <ChevronDown className={`h-4 w-4 transition ${localeOpen ? "rotate-180" : ""}`} />
             </button>
 
@@ -98,7 +98,7 @@ export default function GSSCHeader() {
                       setLocaleOpen(false);
                     }}
                     className={`flex w-full items-center justify-between rounded-[4px] px-3 py-2.5 text-sm transition ${
-                      option.code === locale ? "bg-white/10 text-[#f5f5f7]" : "text-[#a1a1a6] hover:bg-white/5 hover:text-[#f5f5f7]"
+                      option.code === locale ? "bg-white/10 text-[#f5f5f7]" : "text-[#c0c0c5] hover:bg-white/5 hover:text-[#f5f5f7]"
                     }`}
                   >
                     <span className="flex items-center gap-3">
@@ -111,7 +111,7 @@ export default function GSSCHeader() {
                       />
                       <span>{option.label}</span>
                     </span>
-                    <span className="text-xs uppercase tracking-[0.18em] text-[#6e6e73]">{option.shortLabel}</span>
+                    <span className="text-xs uppercase tracking-[0.18em] text-[#888890]">{option.shortLabel}</span>
                   </button>
                 ))}
               </div>
@@ -149,7 +149,7 @@ export default function GSSCHeader() {
               <h2 className="text-2xl font-black tracking-[-0.03em] text-[#f5f5f7]">{header.menu}</h2>
               <button
                 onClick={() => setMenuOpen(false)}
-                className="inline-flex h-11 w-11 items-center justify-center text-[#f5f5f7] transition hover:text-[#a1a1a6]"
+                className="inline-flex h-11 w-11 items-center justify-center text-[#f5f5f7] transition hover:text-[#c0c0c5]"
                 aria-label={header.closeMenu}
               >
                 <X className="h-7 w-7" />
@@ -162,7 +162,7 @@ export default function GSSCHeader() {
                   key={`${item.href}-${item.label}-mobile`}
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="py-4 text-base font-medium tracking-[-0.01em] text-[#a1a1a6] transition hover:text-[#f5f5f7]"
+                  className="py-4 text-base font-medium tracking-[-0.01em] text-[#c0c0c5] transition hover:text-[#f5f5f7]"
                 >
                   {item.label}
                 </a>

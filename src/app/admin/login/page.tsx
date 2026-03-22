@@ -62,13 +62,13 @@ function AdminLoginContent() {
       <div className="w-full max-w-md rounded-[14px] bg-[#1c1c1e] p-8">
         <p className="text-sm uppercase tracking-[0.3em] text-[#cc2222]">Admin Login</p>
         <h1 className="mt-3 text-3xl font-black tracking-tight text-[#f5f5f7]">관리자 로그인</h1>
-        <p className="mt-3 text-sm leading-6 text-[#a1a1a6]">
+        <p className="mt-3 text-sm leading-6 text-[#c0c0c5]">
           관리자 페이지와 업로드 기능에 접근하기 위한 로그인입니다.
         </p>
 
         <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="admin-username" className="mb-2 block text-sm text-[#6e6e73]">
+            <label htmlFor="admin-username" className="mb-2 block text-sm text-[#888890]">
               아이디
             </label>
             <input
@@ -81,7 +81,7 @@ function AdminLoginContent() {
           </div>
 
           <div>
-            <label htmlFor="admin-password" className="mb-2 block text-sm text-[#6e6e73]">
+            <label htmlFor="admin-password" className="mb-2 block text-sm text-[#888890]">
               비밀번호
             </label>
             <input
@@ -94,7 +94,7 @@ function AdminLoginContent() {
             />
           </div>
 
-          <label className="flex items-center gap-3 text-sm text-[#a1a1a6]">
+          <label className="flex items-center gap-3 text-sm text-[#c0c0c5]">
             <input
               type="checkbox"
               checked={rememberUsername}

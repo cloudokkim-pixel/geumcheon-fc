@@ -274,7 +274,7 @@ export default function GSSCIntroPage() {
           </div>
 
           <div className="flex flex-col justify-center">
-            <div className="mb-4 inline-flex w-fit items-center rounded-full border border-white/15 bg-white/5 px-4 py-1 text-sm text-[#a1a1a6]">
+            <div className="mb-4 inline-flex w-fit items-center rounded-full border border-white/15 bg-white/5 px-4 py-1 text-sm text-[#c0c0c5]">
               {copy.badge}
             </div>
             <h1 className="max-w-3xl text-4xl font-black leading-tight md:text-6xl">
@@ -282,7 +282,7 @@ export default function GSSCIntroPage() {
               <br />
               {copy.heroTitle[1]}
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-7 text-[#a1a1a6] md:text-lg">{copy.heroDesc}</p>
+            <p className="mt-6 max-w-2xl text-base leading-7 text-[#c0c0c5] md:text-lg">{copy.heroDesc}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a href="#about" className="rounded-[2px] bg-[#cc2222] px-6 py-3 font-bold text-white transition hover:bg-[#cc2222]/90">
                 {copy.primary}
@@ -301,14 +301,14 @@ export default function GSSCIntroPage() {
             <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#cc2222]">{copy.aboutLabel}</div>
             <h2 className="text-3xl font-black text-[#f5f5f7] md:text-4xl">{copy.aboutTitle}</h2>
           </div>
-          <div className="hidden text-sm text-[#6e6e73] md:block">Since 2015 • G.S.S.C</div>
+          <div className="hidden text-sm text-[#888890] md:block">Since 2015 • G.S.S.C</div>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
           {copy.sections.map((item) => (
             <div key={item.title} className="rounded-[14px] bg-[#1c1c1e] p-7">
               <h3 className="mb-4 text-xl font-bold text-[#f5f5f7]">{item.title}</h3>
-              <p className="text-sm leading-7 text-[#a1a1a6]">{item.text}</p>
+              <p className="text-sm leading-7 text-[#c0c0c5]">{item.text}</p>
             </div>
           ))}
         </div>
@@ -325,7 +325,7 @@ export default function GSSCIntroPage() {
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center font-black text-[#cc2222]">
                     {String(index + 1).padStart(2, '0')}
                   </div>
-                  <div className="leading-7 text-[#a1a1a6]">{program}</div>
+                  <div className="leading-7 text-[#c0c0c5]">{program}</div>
                 </div>
               ))}
             </div>
@@ -336,12 +336,12 @@ export default function GSSCIntroPage() {
             <h2 className="text-3xl font-black text-[#f5f5f7] md:text-4xl">{copy.reasonsTitle}</h2>
             <div className="mt-8 space-y-4">
               {copy.reasons.map((reason) => (
-                <div key={reason} className="rounded-[8px] border border-white/10 bg-[#111] px-5 py-4 text-[#a1a1a6]">
+                <div key={reason} className="rounded-[8px] border border-white/10 bg-[#111] px-5 py-4 text-[#c0c0c5]">
                   {reason}
                 </div>
               ))}
             </div>
-            <div className="mt-8 rounded-[8px] border border-white/10 bg-[#222] p-6 text-sm leading-7 text-[#a1a1a6]">
+            <div className="mt-8 rounded-[8px] border border-white/10 bg-[#222] p-6 text-sm leading-7 text-[#c0c0c5]">
               {copy.highlight}
             </div>
           </div>
@@ -352,14 +352,14 @@ export default function GSSCIntroPage() {
         <div className="grid gap-6 md:grid-cols-3">
           {[1, 2, 3].map((item) => (
             <div key={item} className="group overflow-hidden rounded-[14px] border border-white/10 bg-[#1c1c1e]">
-              <div className="flex h-60 items-center justify-center bg-[#000]/30 text-[#6e6e73]">
+              <div className="flex h-60 items-center justify-center bg-[#000]/30 text-[#888890]">
                 {copy.showcaseTitle} {item}
               </div>
               <div className="p-6">
                 <div className="text-lg font-bold text-[#f5f5f7]">
                   {copy.showcaseTitle} {item}
                 </div>
-                <p className="mt-2 text-sm leading-7 text-[#a1a1a6]">{copy.showcaseDesc}</p>
+                <p className="mt-2 text-sm leading-7 text-[#c0c0c5]">{copy.showcaseDesc}</p>
               </div>
             </div>
           ))}
@@ -371,11 +371,11 @@ export default function GSSCIntroPage() {
           <div className="rounded-[14px] bg-[#1c1c1e] p-8 md:p-10">
             <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#cc2222]">{copy.contactLabel}</div>
             <h2 className="text-3xl font-black text-[#f5f5f7] md:text-4xl">{copy.contactTitle}</h2>
-            <p className="mt-4 max-w-2xl text-[#a1a1a6] leading-7">{copy.contactDesc}</p>
+            <p className="mt-4 max-w-2xl text-[#c0c0c5] leading-7">{copy.contactDesc}</p>
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               {copy.contactCards.map(([label, value]) => (
                 <div key={label} className="rounded-[8px] border border-white/10 bg-[#111] p-5">
-                  <div className="text-sm text-[#6e6e73]">{label}</div>
+                  <div className="text-sm text-[#888890]">{label}</div>
                   <div className="mt-2 text-lg font-bold text-[#f5f5f7]">{value}</div>
                 </div>
               ))}

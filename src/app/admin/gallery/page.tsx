@@ -25,7 +25,7 @@ export default async function AdminGalleryPage() {
         </div>
 
         <div className="overflow-hidden rounded-[14px] border border-[#222] bg-[#1c1c1e]">
-          <div className="grid grid-cols-[1.8fr_0.8fr_0.8fr_0.9fr_0.9fr] gap-4 border-b border-[#222] px-6 py-4 text-sm text-[#6e6e73]">
+          <div className="grid grid-cols-[1.8fr_0.8fr_0.8fr_0.9fr_0.9fr] gap-4 border-b border-[#222] px-6 py-4 text-sm text-[#888890]">
             <span>제목</span>
             <span>상태</span>
             <span>카테고리</span>
@@ -34,13 +34,13 @@ export default async function AdminGalleryPage() {
           </div>
 
           {items.length === 0 ? (
-            <div className="px-6 py-10 text-sm text-[#6e6e73]">등록된 게시글이 없습니다.</div>
+            <div className="px-6 py-10 text-sm text-[#888890]">등록된 게시글이 없습니다.</div>
           ) : (
             items.map((item) => (
               <Link
                 key={item.id}
                 href={`/admin/gallery/${item.id}/edit`}
-                className="grid grid-cols-[1.8fr_0.8fr_0.8fr_0.9fr_0.9fr] gap-4 border-b border-[#222] px-6 py-5 text-sm text-[#a1a1a6] transition hover:bg-white/5"
+                className="grid grid-cols-[1.8fr_0.8fr_0.8fr_0.9fr_0.9fr] gap-4 border-b border-[#222] px-6 py-5 text-sm text-[#c0c0c5] transition hover:bg-white/5"
               >
                 <span className="font-medium text-[#f5f5f7]">{item.title}</span>
                 <span>{item.status}</span>

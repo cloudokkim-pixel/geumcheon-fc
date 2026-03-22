@@ -21,6 +21,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  word-break: keep-all;
+  font-variant-numeric: tabular-nums;
 }
 
 body::before {
@@ -30,7 +32,7 @@ body::before {
   background-image: url('http://fs.arumnet.com/image/N1010BONSA/event/2023121540/%EA%B8%88%EC%B2%9C%20%EC%B6%95%EA%B5%AC%20%ED%81%B4%EB%9F%BD%20%EC%9D%B4%EB%AF%B8%EC%A7%80.png');
   background-size: cover;
   background-position: center;
-  opacity: 0.07;
+  opacity: 0.05;
   pointer-events: none;
   z-index: 0;
 }

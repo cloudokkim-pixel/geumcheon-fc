@@ -46,7 +46,7 @@ export default function GallerySectionsPage() {
               <img src={section.img} alt={section.title} className="h-48 w-full object-cover" />
               <div className="p-6">
                 <p className="mb-2 text-lg font-bold text-[#f5f5f7]">{section.title}</p>
-                <p className="text-sm text-[#a1a1a6]">{section.desc}</p>
+                <p className="text-sm text-[#c0c0c5]">{section.desc}</p>
               </div>
             </div>
           ))}

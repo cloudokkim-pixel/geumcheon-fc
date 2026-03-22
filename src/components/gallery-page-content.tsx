@@ -20,11 +20,11 @@ type Props = {
 function EmptyThumbnailCard({ title, description }: { title: string; description: string }) {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center bg-[#000]/30 text-center">
-      <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-[#a1a1a6]">
+      <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-[#c0c0c5]">
         <ImageOff className="h-6 w-6" />
       </div>
       <p className="mt-4 text-sm font-semibold text-[#f5f5f7]">{title}</p>
-      <p className="mt-1 text-xs text-[#6e6e73]">{description}</p>
+      <p className="mt-1 text-xs text-[#888890]">{description}</p>
     </div>
   );
 }
@@ -39,9 +39,9 @@ export default function GalleryPageContent({ items, pagination, category, search
         <div>
           <p className="text-sm uppercase tracking-[0.3em] text-[#cc2222]">Gallery</p>
           <h1 className="mt-3 text-4xl font-black tracking-tight text-[#f5f5f7] sm:text-5xl">{t.title}</h1>
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-[#a1a1a6] sm:text-base">{t.desc}</p>
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-[#c0c0c5] sm:text-base">{t.desc}</p>
         </div>
-        <div className="rounded-[8px] border border-[#222] bg-[#1c1c1e] p-4 text-sm text-[#6e6e73]">{t.helper}</div>
+        <div className="rounded-[8px] border border-[#222] bg-[#1c1c1e] p-4 text-sm text-[#888890]">{t.helper}</div>
       </div>
 
       <div className="mb-6 flex flex-col gap-4 rounded-[14px] border border-[#222] bg-[#1c1c1e] p-5 lg:flex-row lg:items-center lg:justify-between">
@@ -53,7 +53,7 @@ export default function GalleryPageContent({ items, pagination, category, search
               className={`rounded-[2px] px-4 py-2 text-sm transition ${
                 (filter === "all" && !category) || filter === category
                   ? "bg-[#cc2222] text-white"
-                  : "border border-[#424245] bg-transparent text-[#a1a1a6] hover:bg-white/5"
+                  : "border border-[#424245] bg-transparent text-[#c0c0c5] hover:bg-white/5"
               }`}
             >
               {filter === "all" ? t.all : getGalleryCategoryLabel(locale, filter)}
@@ -63,7 +63,7 @@ export default function GalleryPageContent({ items, pagination, category, search
 
         <form action="/gallery" className="flex gap-2">
           {category ? <input type="hidden" name="category" value={category} /> : null}
-          <input type="search" name="search" defaultValue={search} placeholder={t.searchPlaceholder} className="h-11 rounded-[6px] border border-[#424245] bg-[#000]/30 px-4 text-sm text-[#f5f5f7] outline-none placeholder:text-[#6e6e73]" />
+          <input type="search" name="search" defaultValue={search} placeholder={t.searchPlaceholder} className="h-11 rounded-[6px] border border-[#424245] bg-[#000]/30 px-4 text-sm text-[#f5f5f7] outline-none placeholder:text-[#888890]" />
           <button type="submit" className="rounded-[2px] bg-[#cc2222] px-4 text-sm font-bold text-white">{t.search}</button>
         </form>
       </div>
@@ -80,7 +80,7 @@ export default function GalleryPageContent({ items, pagination, category, search
                 )}
               </div>
               <div className="space-y-3 p-6">
-                <div className="flex items-center justify-between gap-4 text-xs text-[#6e6e73]">
+                <div className="flex items-center justify-between gap-4 text-xs text-[#888890]">
                   <span className="text-[#cc2222]">{getGalleryCategoryLabel(locale, item.category)}</span>
                   <span>{item.publishedAt?.slice(0, 10)}</span>
                 </div>
@@ -90,7 +90,7 @@ export default function GalleryPageContent({ items, pagination, category, search
           ))}
         </div>
       ) : (
-        <div className="rounded-[14px] border border-[#222] bg-[#1c1c1e] p-10 text-center text-[#6e6e73]">{t.empty}</div>
+        <div className="rounded-[14px] border border-[#222] bg-[#1c1c1e] p-10 text-center text-[#888890]">{t.empty}</div>
       )}
 
       <div className="mt-10 flex items-center justify-center gap-2">
@@ -99,7 +99,7 @@ export default function GalleryPageContent({ items, pagination, category, search
             key={pageNumber}
             href={{ pathname: "/gallery", query: { page: pageNumber, ...(category ? { category } : {}), ...(search ? { search } : {}) } }}
             className={`h-11 min-w-11 rounded-[2px] px-4 py-3 text-center text-sm ${
-              pageNumber === pagination.page ? "bg-[#cc2222] text-white" : "border border-[#424245] bg-transparent text-[#a1a1a6]"
+              pageNumber === pagination.page ? "bg-[#cc2222] text-white" : "border border-[#424245] bg-transparent text-[#c0c0c5]"
             }`}
           >
             {pageNumber}
