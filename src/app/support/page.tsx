@@ -12,6 +12,7 @@ import {
   Users,
 } from "lucide-react";
 import GSSCHeader from "@/components/GSSCHeader";
+import Footer from "@/components/Footer";
 import { useSiteLanguage, type Locale } from "@/components/site-language";
 
 const supportIcons = [HeartHandshake, Building2, Shirt];
@@ -257,10 +258,10 @@ export default function SupportPage() {
               <h1 className="mt-6 text-4xl font-black leading-tight tracking-tight text-[#f5f5f7] sm:text-5xl lg:text-6xl">{t.title}</h1>
               <p className="mt-6 max-w-3xl text-sm leading-8 text-[#c0c0c5] sm:text-base">{t.desc}</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/support/apply" className="inline-flex h-12 items-center justify-center rounded-[2px] bg-[#cc2222] px-6 text-base font-bold text-white transition hover:bg-[#cc2222]/90">
+                <Link href="/support/apply" className="inline-flex h-[52px] w-full items-center justify-center rounded-[2px] bg-[#cc2222] px-8 text-base font-bold text-white transition hover:bg-[#cc2222]/90 sm:w-auto">
                   {t.primary}
                 </Link>
-                <Link href="/contact" className="inline-flex h-12 items-center justify-center rounded-[2px] border border-[#424245] bg-transparent px-6 text-base font-medium text-[#f5f5f7] transition hover:bg-white/5">
+                <Link href="/contact" className="inline-flex h-[52px] w-full items-center justify-center rounded-[2px] border border-[#424245] bg-transparent px-8 text-base font-medium text-[#f5f5f7] transition hover:bg-white/5 sm:w-auto">
                   {t.secondary}
                 </Link>
               </div>
@@ -364,7 +365,7 @@ export default function SupportPage() {
             <h2 className="text-3xl font-black tracking-tight text-[#f5f5f7] sm:text-4xl">{t.finalTitle}</h2>
             <p className="mt-5 max-w-2xl text-sm leading-7 text-[#c0c0c5] sm:text-base">{t.finalDesc}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/support/apply" className="inline-flex h-12 items-center justify-center gap-2 rounded-[2px] bg-[#cc2222] px-6 text-base font-bold text-white transition hover:bg-[#cc2222]/90">
+              <Link href="/support/apply" className="inline-flex h-[52px] w-full items-center justify-center gap-2 rounded-[2px] bg-[#cc2222] px-8 text-base font-bold text-white transition hover:bg-[#cc2222]/90 sm:w-auto">
                 {t.finalPrimary}
                 <ArrowRight className="h-4 w-4" />
               </Link>
@@ -372,6 +373,8 @@ export default function SupportPage() {
           </div>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

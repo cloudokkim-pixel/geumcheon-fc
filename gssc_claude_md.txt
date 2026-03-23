@@ -1,0 +1,281 @@
+# G.S.S.C 홈페이지 개발 지시서
+> 서울금천축구클럽 (Geumcheon Sport Social Coop) · geumcheon-fc.vercel.app
+
+---
+
+## 절대 원칙 — 반드시 먼저 읽을 것
+
+1. **모바일 퍼스트.** 모든 컴포넌트는 375px(모바일) 기준으로 먼저 구현하고 데스크탑으로 확장한다.
+2. **`max-width` 미디어 쿼리 사용 금지.** `min-width` 기반 작성만 허용.
+3. **카피 임의 수정 금지.** 모든 텍스트는 카피라이팅 파일(gssc_copy_0*.html)에서 가져온다.
+4. **사업자등록번호 `123-12-12345` 는 임시값.** 배포 전 실제 번호로 교체 필수.
+
+---
+
+## 프로젝트 기본 정보
+
+| 항목 | 내용 |
+|------|------|
+| 클라이언트 | 서울금천축구클럽 G.S.S.C |
+| 대표 | 천경필 / 010-4178-0207 |
+| 훈련장 | 서울특별시 관악구 조원로 56 |
+| 사이트 | https://geumcheon-fc.vercel.app |
+| 포지셔닝 | "축구 학원이 아닌 축구 매니지먼트 클럽" |
+| 대상 | 초등~고등 선수 + 학부모 |
+
+---
+
+## 기술 스택
+
+- **Framework:** Next.js 14+ (App Router)
+- **Styling:** Tailwind CSS + CSS Variables
+- **배포:** Vercel (GitHub 자동 CI/CD)
+- **CMS:** Notion Database + `@notionhq/client` (ISR revalidate: 3600)
+- **이미지:** Next.js `<Image>` + WebP + Cloudinary/Vercel Blob
+
+### 필수 패키지
+
+```bash
+npm install next-seo @vercel/analytics sharp @notionhq/client
+```
+
+---
+
+## 브랜드 컬러 — 엄격히 준수
+
+```css
+--color-red:    #cc2222;  /* CTA, 강조, 행동 유도 전용 */
+--color-gold:   #c49550;  /* 역사·정체성·실적 섹션 전용 */
+--color-white:  #f5f5f7;
+--color-bg:     #000000;
+--color-surface:#1c1c1e;
+--color-muted:  #6e6e73;
+--color-border: #2a2a2e;
+```
+
+> **Red와 Gold를 동일 섹션에 함께 쓰지 않는다.** 둘 중 하나만 선택.
+
+## 타이포그래피
+
+- **영문 헤드라인:** Barlow Condensed 800, `text-transform: uppercase`
+- **한글 본문/UI:** Pretendard 400·600·700
+- **히어로 헤드라인:** `clamp(32px, 7vw, 54px)`
+- **섹션 타이틀:** `clamp(22px, 4vw, 36px)`
+- **본문:** 15px → 16px, `line-height: 1.7`
+
+---
+
+## 디렉토리 구조
+
+```
+src/
+├── app/
+│   ├── layout.tsx               # GNB, Footer, 전역 폰트
+│   ├── page.tsx                 # 홈 (/)
+│   ├── club-introduction/page.tsx
+│   ├── program/page.tsx
+│   ├── application/page.tsx
+│   ├── gallery/page.tsx
+│   ├── support/page.tsx
+│   ├── contact/page.tsx
+│   ├── roadmap/page.tsx
+│   ├── achievements/page.tsx
+│   ├── schedule/page.tsx
+│   └── partners/page.tsx
+├── components/
+│   ├── Gnb.tsx
+│   ├── Footer.tsx
+│   ├── HeroSection.tsx
+│   ├── RoadmapInfographic.tsx
+│   └── ui/                      # 재사용 Button, Card, Badge
+├── lib/
+│   └── cms.ts                   # Notion fetch 유틸
+└── styles/
+    └── globals.css
+```
+
+---
+
+## 페이지 & 카피 파일 매핑
+
+| 라우트 | 페이지 | 카피 파일 | 우선순위 |
+|--------|--------|-----------|----------|
+| `/` | 홈 | gssc_copy_01_home.html | P1 |
+| `/club-introduction` | 클럽소개 | gssc_copy_02_club.html | P1 |
+| `/program` | 육성시스템 | gssc_copy_03_program.html | P1 |
+| `/application` | 선수모집 | gssc_copy_04_application.html | P1 |
+| `/gallery` | 갤러리 | gssc_copy_05_gallery.html | P2 |
+| `/support` | 후원 | gssc_copy_06_support.html | P2 |
+| `/contact` | 문의 | gssc_copy_07_contact.html | P2 |
+| `/roadmap` | 커리어 로드맵 | gssc_copy_08_roadmap.html | P3 |
+| `/achievements` | 진학현황 | gssc_copy_09_achievements.html | P3 |
+| `/schedule` | 경기일정 | gssc_copy_10_schedule.html | P3 |
+| `/partners` | 패밀리사이트 | gssc_copy_11_partners.html | P3 |
+
+---
+
+## 컴포넌트 구현 핵심 규칙
+
+### GNB
+- 모바일: 높이 56px, 햄버거 메뉴 (44×44px 터치 타겟), 풀스크린 오버레이
+- 데스크탑 (768px+): 높이 64px, 수평 메뉴 + CTA 버튼
+- `padding-top: env(safe-area-inset-top)` 필수 (iPhone 노치 대응)
+
+### 히어로 섹션
+- 높이: `100svh` (fallback: `100vh`)
+- 배경 영상 시: `muted playsinline autoplay` 3개 속성 필수
+- CTA 버튼: 모바일 `width: 100%`, 높이 52px
+
+### 카드 그리드
+```css
+grid-template-columns: 1fr;                          /* 모바일 */
+@media (min-width: 768px)  { repeat(2, 1fr); }      /* 태블릿 */
+@media (min-width: 1024px) { repeat(3, 1fr); }      /* 데스크탑 */
+gap: 12px → 24px;
+```
+
+### 커리어 로드맵 인포그래픽
+- 데스크탑: `grid-template-columns: 1fr 80px 1fr` (중앙 타임라인, 좌/우 트랙)
+- 모바일: `grid-template-columns: 56px 1fr` (세로 단일 컬럼)
+- 선수 트랙 `#cc2222` / 진학 트랙 `#c49550`
+- 참조: `gssc_roadmap_infographic.html`
+
+### 선수모집 신청 폼
+- 필드 높이: 48px
+- **폰트 크기: 16px 이상 필수** (iOS 자동 zoom 방지 — 절대 줄이지 말 것)
+- 레이블: placeholder 대신 필드 위 항상 표시
+- Route Handler: `src/app/api/apply/route.ts`
+
+### 경기 일정
+- 모바일: 테이블 → 카드 리스트 전환
+- 데스크탑: 기본 테이블
+
+### 푸터
+- 전화번호: `<a href="tel:01041780207">` 필수
+- 주소: 카카오맵 딥링크 연결
+- 사업자번호: `【확인 필요 — 실제 번호로 교체】`
+
+---
+
+## 모바일 필수 전역 설정 (globals.css)
+
+```css
+* { -webkit-tap-highlight-color: transparent; }
+
+a, button, [role="button"] {
+  touch-action: manipulation;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+input, select, textarea {
+  font-size: 16px; /* iOS zoom 방지 — 절대 낮추지 말 것 */
+  touch-action: manipulation;
+}
+
+.gnb {
+  padding-top: env(safe-area-inset-top);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* 호버 효과는 hover 가능 기기에서만 */
+@media (hover: hover) {
+  .btn:hover { /* hover 스타일 */ }
+}
+```
+
+---
+
+## CMS — Notion 연동
+
+```typescript
+// src/lib/cms.ts
+import { Client } from '@notionhq/client'
+const notion = new Client({ auth: process.env.NOTION_API_KEY })
+
+export async function getSchedule() {
+  const res = await notion.databases.query({
+    database_id: process.env.NOTION_DB_SCHEDULE!,
+    sorts: [{ property: '날짜', direction: 'descending' }],
+  })
+  return res.results
+}
+
+export async function getGallery() {
+  const res = await notion.databases.query({
+    database_id: process.env.NOTION_DB_GALLERY!,
+    sorts: [{ property: '날짜', direction: 'descending' }],
+  })
+  return res.results
+}
+```
+
+```typescript
+// 페이지에서 사용
+export const revalidate = 3600 // ISR 1시간 캐시
+```
+
+### 환경변수 (Vercel 대시보드에 등록)
+```
+NOTION_API_KEY=
+NOTION_DB_SCHEDULE=
+NOTION_DB_GALLERY=
+```
+
+---
+
+## SEO 설정 (layout.tsx)
+
+```typescript
+export const metadata = {
+  title: {
+    default: '서울금천축구클럽 G.S.S.C | 금천구 엘리트 유소년 축구',
+    template: '%s | G.S.S.C',
+  },
+  description: '금천구 유소년 축구클럽. 초등~K4 수직 통합 선수개발. 체계적 엘리트 훈련.',
+  keywords: ['금천구 축구클럽', '서울 유소년 축구', '축구 선수 육성', 'K4 진출', '관악구 축구'],
+  openGraph: {
+    title: '서울금천축구클럽 G.S.S.C',
+    url: 'https://geumcheon-fc.vercel.app',
+    locale: 'ko_KR',
+    type: 'website',
+  },
+  verification: {
+    google: '【Google Search Console 인증 코드】',
+    other: { 'naver-site-verification': '【네이버 서치어드바이저 코드】' },
+  },
+}
+```
+
+> **주의:** 훈련 장소는 관악구이나 클럽명은 금천. 두 지역 키워드 모두 포함. `address` 스키마는 실제 주소(관악구) 기준.
+
+---
+
+## 미완성 데이터 — 리더옥님 확인 대기
+
+개발 중 아래 항목은 `【확인 필요】` 플레이스홀더로 마크업에 삽입할 것.
+데이터 확정 시 해당 위치만 교체.
+
+- [ ] 코치진 이력 + 지도 철학 → `copy_02_club` S5
+- [ ] 연령별 훈련 시간·요일·월 회비 → `copy_03_program` S5, `copy_04_application` S2
+- [ ] K4 진출 선수 수 + 대학 진학 실적 → `copy_09_achievements`, `roadmap_infographic`
+- [ ] 파트너 기관 목록 → `copy_11_partners` S2
+- [ ] 인스타그램 계정 → `copy_07_contact` S2
+- [ ] **사업자등록번호 (현재 임시: `123-12-12345`) → 배포 전 전체 교체**
+
+---
+
+## 배포 전 최종 체크리스트
+
+- [ ] 사업자등록번호 실제 번호로 교체
+- [ ] 실기기 테스트: iPhone SE(375px) + Android 360px
+- [ ] 320px 최소 너비 가로 스크롤 없음 확인
+- [ ] Lighthouse 모바일 90+ (Performance, Accessibility, SEO)
+- [ ] iPhone safe-area (노치/Dynamic Island) 겹침 없음
+- [ ] 푸터 `tel:` 링크 · 카카오맵 딥링크 실기기 동작 확인
+- [ ] 신청 폼 제출 → 대표 이메일 수신 확인
+- [ ] Google Search Console 사이트 등록 + sitemap 제출
+- [ ] 네이버 서치어드바이저 사이트 등록 + sitemap 제출
+- [ ] Vercel Analytics 활성화
+- [ ] Notion CMS 데이터 추가 → 사이트 반영 확인

@@ -49,8 +49,8 @@ export default function GSSCHeader() {
   }, [localeOpen]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#222] bg-[rgba(0,0,0,0.92)] backdrop-blur-xl">
-      <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <header className="gnb sticky top-0 z-50 border-b border-[#222] bg-[rgba(0,0,0,0.92)] backdrop-blur-xl">
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 md:h-16 lg:px-8">
         <a href="/" className="flex items-center gap-3 sm:gap-4">
           <div className="relative h-10 w-10 overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_10px_25px_rgba(0,0,0,0.22)] sm:h-12 sm:w-12">
             <img src={logoSrc} alt={header.clubName} className="h-full w-full object-cover" />

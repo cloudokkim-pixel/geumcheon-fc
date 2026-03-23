@@ -1,497 +1,340 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import {
-  CalendarDays,
-  ChevronRight,
-  Dumbbell,
-  GraduationCap,
-  MapPin,
-  Phone,
-  ShieldCheck,
-  Star,
-  Trophy,
-  Users,
-} from "lucide-react";
-import { homepageGalleryCopy } from "@/lib/page-copy";
+import { ChevronRight } from "lucide-react";
 import { useSiteLanguage } from "./site-language";
 import HomeGalleryPreview from "./home-gallery-preview";
-
-const logoSrc = "http://fs.arumnet.com/image/N1010BONSA/event/2023121540/%EA%B8%88%EC%B2%9C%20%EC%B6%95%EA%B5%AC%20%ED%81%B4%EB%9F%BD%20%EC%9D%B4%EB%AF%B8%EC%A7%80.png";
-const posterSrc = "http://fs.arumnet.com/image/N1010BONSA/event/2023121541/%EB%AA%A8%EC%A7%91%EA%B3%B5%EA%B3%A0%20%ED%8F%AC%EC%8A%A4%ED%84%B0_2.png";
 import GSSCHeader from "./GSSCHeader";
-
-type Program = {
-  icon: React.ComponentType<{ className?: string }>;
-};
-
-const programs: Program[] = [
-  {
-    icon: Trophy,
-  },
-  {
-    icon: ShieldCheck,
-  },
-  {
-    icon: Dumbbell,
-  },
-  {
-    icon: GraduationCap,
-  },
-];
-
-const sponsorSections = [
-  {
-    icon: Star,
-  },
-  {
-    icon: Users,
-  },
-  {
-    icon: Dumbbell,
-  },
-];
-
-function PrimaryButton({ children }: { children: React.ReactNode }) {
-  return (
-    <button className="inline-flex h-12 w-full items-center justify-center rounded-[2px] bg-[#cc2222] px-6 text-base font-bold text-white transition hover:bg-[#cc2222]/90 sm:w-[220px]">
-      {children}
-    </button>
-  );
-}
-
-function OutlineButton({ children }: { children: React.ReactNode }) {
-  return (
-    <button className="inline-flex h-12 w-full items-center justify-center rounded-[2px] border border-[#424245] bg-transparent px-6 text-base font-medium text-[#f5f5f7] transition hover:bg-white/5 sm:w-[220px]">
-      {children}
-    </button>
-  );
-}
+import Footer from "./Footer";
 
 export default function GeumcheonHomepage() {
-  const { dictionary, locale } = useSiteLanguage();
+  const { dictionary } = useSiteLanguage();
   const t = dictionary.home;
-  const pageGalleryCopy = homepageGalleryCopy[locale];
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-transparent text-[#f5f5f7]">
-
       <GSSCHeader />
 
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute left-1/2 top-8 h-[46rem] w-[46rem] -translate-x-1/2 rounded-full border border-white/5 sm:h-[54rem] sm:w-[54rem]" />
-        <div className="pointer-events-none absolute left-1/2 top-20 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full border border-white/5 sm:h-[40rem] sm:w-[40rem]" />
+      {/* ── S2 히어로 ── */}
+      <section className="relative flex h-screen h-[100svh] items-center justify-center overflow-hidden">
+        {/* 배경 — 야간 훈련 사진 (선수들이 중심에 오도록 하단 기준) */}
+        <Image
+          src="/hero-bg.jpg"
+          alt="야간 훈련"
+          fill
+          priority
+          className="object-cover"
+          style={{ objectPosition: "center 65%" }}
+          sizes="100vw"
+        />
+        {/* 텍스트 가독성 오버레이 — 하단 강하게, 상단 살짝만 */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#000] via-[#000]/60 to-[#000]/10" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#000]/50 to-transparent" />
 
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-24">
-          <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="relative z-10">
-            <div className="mb-5 inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1 text-sm text-[#c0c0c5]">
-              {t.heroBadge}
-            </div>
+        {/* 연도 워터마크 */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute bottom-8 right-4 font-['Barlow_Condensed',sans-serif] font-black uppercase leading-none text-[#c49550] opacity-[0.10] sm:right-10"
+          style={{ fontSize: "clamp(72px, 12vw, 150px)" }}
+        >
+          2015
+        </span>
 
-            <h1 className="text-4xl font-black leading-[1.02] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[5.3rem]">
-              {t.heroTitleTop}
-              <br />
-              <span className="text-[#f5f5f7]">{t.heroTitleBottom}</span>
-            </h1>
-
-            <p className="mt-6 max-w-2xl text-base leading-[1.8] text-[#c0c0c5] lg:text-lg">
-              {t.heroDesc}
-            </p>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="/application" className="w-full sm:w-[220px]">
-                <PrimaryButton>{t.heroPrimary}</PrimaryButton>
-              </a>
-              <a href="/club-introduction" className="w-full sm:w-[220px]">
-                <OutlineButton>{t.heroSecondary}</OutlineButton>
-              </a>
-            </div>
-
-            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {t.heroStats.map((item) => (
-                <div key={item.title} className="rounded-[14px] bg-[#1c1c1e] p-4">
-                  <p className="text-xl font-black tracking-[-0.02em] text-[#f5f5f7] sm:text-2xl">{item.title}</p>
-                  <p className="mt-1 text-xs text-[#888890]">{item.sub}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.1 }} className="relative z-10">
-            <div className="absolute -left-4 -top-4 h-24 w-24 rounded-full border border-white/5 sm:-left-8 sm:-top-8 sm:h-32 sm:w-32" />
-            <div className="absolute -bottom-4 -right-4 h-20 w-20 rounded-full border border-white/5 sm:-bottom-8 sm:-right-8 sm:h-28 sm:w-28" />
-
-            <div className="overflow-hidden rounded-[14px] border border-white/10 bg-[#1c1c1e] p-2 shadow-[0_30px_80px_rgba(0,0,0,0.45)] sm:p-3">
-              <div className="grid gap-3 lg:grid-cols-[0.42fr_0.58fr]">
-                <div className="rounded-[10px] border border-white/10 bg-[#000]/30 p-5">
-                  <div className="relative mx-auto h-20 w-20 overflow-hidden rounded-2xl border border-white/10 bg-black">
-                    <Image src={logoSrc} alt={dictionary.header.clubName} fill className="object-cover" sizes="80px" />
-                  </div>
-                  <p className="mt-5 text-center text-xs uppercase tracking-[0.32em] text-[#cc2222]">{t.clubIdentityLabel}</p>
-                  <p className="mt-3 text-center text-sm leading-6 text-[#c0c0c5]">
-                    {t.clubIdentityDesc}
-                  </p>
-                  <div className="mt-5 rounded-[8px] border border-white/10 bg-black/30 p-4 text-center">
-                    <p className="text-2xl font-black text-[#f5f5f7]">2015</p>
-                    <p className="mt-1 text-xs text-[#888890]">{t.clubStarted}</p>
-                  </div>
-                </div>
-
-                <div className="relative min-h-[24rem] overflow-hidden rounded-[10px] border border-white/10">
-                  <Image src={posterSrc} alt={t.recruitTitle} fill className="object-cover object-top" sizes="(max-width: 1024px) 100vw, 50vw" />
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="relative -mt-2 px-4 pb-10 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {t.summaryCards.map((item, index) => {
-            const icons = [CalendarDays, Users, MapPin, Phone];
-            const Icon = icons[index];
-            return (
-              <div key={item.label} className="rounded-[14px] bg-[#1c1c1e] p-5 shadow-xl">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-[#f5f5f7]">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-[#888890]">{item.label}</p>
-                    <p className="mt-1 text-base font-bold leading-6 text-[#f5f5f7]">{item.value}</p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      <section id="about" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <div className="mb-8 flex flex-col gap-4 lg:mb-10 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.aboutLabel}</p>
-            <h2 className="mt-3 text-3xl font-black tracking-[-0.03em] text-[#f5f5f7] sm:text-4xl lg:text-5xl">{t.aboutTitle}</h2>
-          </div>
-          <p className="max-w-2xl text-sm leading-7 text-[#c0c0c5] sm:text-base">
-            {t.aboutDesc}
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* 섹션 라벨 */}
+          <p className="mb-5 text-sm font-bold uppercase tracking-[0.18em] text-[#cc2222]">
+            {t.heroLabel}
           </p>
-        </div>
 
-        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="overflow-hidden rounded-[14px] bg-[#1c1c1e]">
-            <div className="p-6 sm:p-8">
-              <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.clubIdentityLabel}</p>
-              <h3 className="mt-3 text-2xl font-black text-[#f5f5f7] sm:text-3xl">{t.aboutIdentityTitle}</h3>
-              <p className="mt-4 text-sm leading-7 text-[#c0c0c5] sm:text-base">
-                {t.aboutIdentityDesc}
-              </p>
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                {t.aboutFacts.map((fact) => (
-                  <div key={fact.key} className="rounded-[8px] border border-white/10 bg-[#111] p-4">
-                    <p className="text-xs text-[#888890]">{fact.key}</p>
-                    <p className="mt-1 text-lg font-black text-[#f5f5f7]">{fact.value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          {/* 헤드라인 3줄 */}
+          <h1
+            className="font-['Barlow_Condensed',sans-serif] font-black uppercase leading-[1.0] tracking-tight"
+            style={{ fontSize: "clamp(40px, 10vw, 86px)" }}
+          >
+            <span className="block text-[#f5f5f7]">{t.heroLine1}</span>
+            <span className="block text-[#cc2222]">{t.heroLine2}</span>
+            <span className="block text-[#f5f5f7]">{t.heroLine3}</span>
+          </h1>
 
-          <div className="grid gap-6 sm:grid-cols-2">
-            {t.aboutFeatures.map((item, index) => {
-              const icons = [Trophy, Users, MapPin, GraduationCap];
-              const Icon = icons[index];
-              return (
-                <div key={item.title} className="rounded-[14px] bg-[#1c1c1e]">
-                  <div className="p-6 sm:p-7">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/10 text-[#f5f5f7]">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="mt-5 text-xl font-bold text-[#f5f5f7]">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-[#c0c0c5]">{item.desc}</p>
-                  </div>
-                </div>
-              );
-            })}
+          {/* 서브 카피 */}
+          <p className="mt-6 max-w-lg text-base leading-[1.8] text-[#c0c0c5] sm:text-lg">
+            {t.heroDesc}
+          </p>
+
+          {/* CTA 버튼 */}
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="/application"
+              className="inline-flex h-[52px] w-full items-center justify-center rounded-[2px] bg-[#cc2222] px-8 text-base font-bold text-white transition hover:bg-[#cc2222]/90 sm:w-auto"
+            >
+              {t.heroPrimary}
+            </a>
+            <a
+              href="/club-introduction"
+              className="inline-flex h-[52px] w-full items-center justify-center rounded-[2px] border border-[#424245] bg-transparent px-8 text-base font-medium text-[#f5f5f7] transition hover:bg-white/5 sm:w-auto"
+            >
+              {t.heroSecondary}
+            </a>
           </div>
         </div>
       </section>
 
-      <section id="program" className="relative border-t border-[#222] py-16 sm:py-20">
+      {/* ── S3 통계 바 ── */}
+      <section className="border-y border-[#222] bg-[#0d0d0d]">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-y divide-[#222] lg:grid-cols-4 lg:divide-y-0">
+          {t.stats.map((item) => (
+            <div key={item.num} className="px-6 py-7 sm:px-8 sm:py-8">
+              <p
+                className="font-['Barlow_Condensed',sans-serif] font-black uppercase leading-none text-[#f5f5f7]"
+                style={{ fontSize: "clamp(24px, 4vw, 36px)" }}
+              >
+                {item.num}
+              </p>
+              <p className="mt-2 text-sm font-semibold text-[#c0c0c5]">{item.label}</p>
+              <p className="mt-1 text-xs text-[#6e6e73]">{item.sub}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── S4 파이프라인 ── */}
+      <section className="border-b border-[#222] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* 섹션 라벨 */}
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#cc2222]">
+            {t.pipelineLabel}
+          </p>
+
+          {/* 타이틀 */}
+          <h2
+            className="font-['Barlow_Condensed',sans-serif] font-black uppercase leading-[1.05]"
+            style={{ fontSize: "clamp(28px, 5vw, 54px)" }}
+          >
+            <span className="block text-[#f5f5f7]">{t.pipelineLine1}</span>
+            <span className="block text-[#cc2222]">{t.pipelineLine2}</span>
+          </h2>
+          <p className="mt-4 text-base text-[#c0c0c5]">{t.pipelineDesc}</p>
+
+          {/* 5단계 카드 — 모바일: 세로 스크롤 / 데스크탑: 가로 */}
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            {t.pipelineSteps.map((step, i) => (
+              <div
+                key={step.name}
+                className={`relative flex-1 rounded-[10px] p-5 ${
+                  step.sepia
+                    ? "bg-[#1a1208] border border-[#3a2800]/60"
+                    : "bg-[#1c1c1e] border border-[#222]"
+                }`}
+              >
+                {/* 화살표 — 모바일 하단, 데스크탑 우측 */}
+                {i < t.pipelineSteps.length - 1 && (
+                  <span
+                    aria-hidden
+                    className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[#cc2222] sm:hidden"
+                  >
+                    ↓
+                  </span>
+                )}
+                <p
+                  className={`text-xs font-bold uppercase tracking-[0.08em] ${
+                    step.sepia ? "text-[#c49550]" : "text-[#cc2222]"
+                  }`}
+                >
+                  {step.age}
+                </p>
+                <p className="mt-2 text-base font-black text-[#f5f5f7]">{step.name}</p>
+                <p className="mt-1 text-sm leading-[1.6] text-[#888890]">{step.point}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* 화살표 연결 — 데스크탑 */}
+          <div className="mt-3 hidden items-center sm:flex">
+            {t.pipelineSteps.map((_, i) => (
+              <div key={i} className="flex flex-1 items-center">
+                <div className="h-px flex-1 bg-[#2a2a2a]" />
+                {i < t.pipelineSteps.length - 1 && (
+                  <ChevronRight className="h-4 w-4 shrink-0 text-[#cc2222]" />
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="mt-8">
+            <a
+              href="/roadmap"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#cc2222] transition hover:opacity-80"
+            >
+              → {t.pipelineCta}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── S5 클럽 아이덴티티 ── */}
+      <section className="border-b border-[#222] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#cc2222]">
+            {t.identityLabel}
+          </p>
+          <h2
+            className="font-['Barlow_Condensed',sans-serif] font-black uppercase leading-[1.05]"
+            style={{ fontSize: "clamp(28px, 5vw, 54px)" }}
+          >
+            <span className="block text-[#f5f5f7]">{t.identityTitle1}</span>
+            <span className="block text-[#cc2222]">{t.identityTitle2}</span>
+          </h2>
+          <p className="mt-5 max-w-2xl text-base leading-[1.8] text-[#c0c0c5]">
+            {t.identityDesc}
+          </p>
+
+          {/* 핵심 가치 3개 */}
+          <div className="mt-10 grid gap-5 sm:grid-cols-3">
+            {t.identityValues.map((v) => (
+              <div
+                key={v.num}
+                className="rounded-[14px] border border-[#222] bg-[#1c1c1e] p-7"
+              >
+                <p className="text-xs font-bold uppercase tracking-[0.1em] text-[#cc2222]">{v.num}</p>
+                <p className="mt-4 text-lg font-black text-[#f5f5f7]">{v.title}</p>
+                <p className="mt-3 text-sm leading-[1.8] text-[#888890]">{v.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8">
+            <a
+              href="/club-introduction"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#cc2222] transition hover:opacity-80"
+            >
+              → {t.identityCta}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── S6 훈련 시스템 프리뷰 ── */}
+      <section className="border-b border-[#222] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#cc2222]">
+            {t.trainingLabel}
+          </p>
+          <h2
+            className="font-['Barlow_Condensed',sans-serif] font-black uppercase leading-[1.05]"
+            style={{ fontSize: "clamp(28px, 5vw, 54px)" }}
+          >
+            <span className="block text-[#f5f5f7]">{t.trainingTitle1}</span>
+            <span className="block text-[#cc2222]">{t.trainingTitle2}</span>
+          </h2>
+          <p className="mt-5 max-w-2xl text-base leading-[1.8] text-[#c0c0c5]">
+            {t.trainingDesc}
+          </p>
+
+          {/* 4개 카드 */}
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {t.trainingPrograms.map((prog) => (
+              <div
+                key={prog.num}
+                className="rounded-[14px] border-t-[3px] border-t-[#cc2222] bg-[#1c1c1e] p-6"
+              >
+                <p className="text-xs font-bold uppercase tracking-[0.1em] text-[#cc2222]">{prog.num}</p>
+                <p className="mt-4 text-base font-black text-[#f5f5f7]">{prog.title}</p>
+                <p className="mt-3 text-sm leading-[1.8] text-[#888890]">{prog.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8">
+            <a
+              href="/program"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#cc2222] transition hover:opacity-80"
+            >
+              → {t.trainingCta}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── S7 선수 모집 CTA (레드 배경) ── */}
+      <section className="bg-[#cc2222] py-14 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <h2
+                className="font-['Barlow_Condensed',sans-serif] font-black uppercase leading-[1.05] text-white"
+                style={{ fontSize: "clamp(28px, 5vw, 48px)" }}
+              >
+                {t.recruitTitle}
+              </h2>
+              <p className="mt-3 text-base font-medium text-white/80">{t.recruitDesc}</p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a
+                href="/application"
+                className="inline-flex h-[52px] w-full items-center justify-center rounded-[2px] bg-white px-8 text-base font-bold text-[#cc2222] transition hover:bg-white/90 sm:w-auto"
+              >
+                {t.recruitButton}
+              </a>
+              <a
+                href="tel:01041780207"
+                className="inline-flex h-[52px] w-full items-center justify-center rounded-[2px] border border-white/40 bg-transparent px-8 text-base font-semibold text-white transition hover:bg-white/10 sm:w-auto"
+              >
+                {t.recruitPhone}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── S8 갤러리 미리보기 ── */}
+      <section className="border-b border-[#222] py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.programLabel}</p>
-              <h2 className="mt-3 text-3xl font-black tracking-[-0.03em] text-[#f5f5f7] sm:text-4xl lg:text-5xl">{t.programTitle}</h2>
-            </div>
-            <p className="max-w-2xl text-sm leading-7 text-[#c0c0c5] sm:text-base">
-              {t.programDesc}
-            </p>
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="overflow-hidden rounded-[14px] bg-[#1c1c1e] p-4 sm:p-5">
-              <div className="flex h-full flex-col justify-between rounded-[10px] border border-white/10 bg-transparent p-6">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.28em] text-[#cc2222]">{t.programOverviewLabel}</p>
-                  <h3 className="mt-3 text-2xl font-black text-[#f5f5f7] sm:text-3xl">{t.programOverviewTitle}</h3>
-                  <p className="mt-4 text-sm leading-7 text-[#c0c0c5] sm:text-base">
-                    {t.programOverviewDesc}
-                  </p>
-                </div>
-                <div className="mt-8 rounded-[8px] border border-white/10 bg-black/25 p-5">
-                  <p className="flex items-center gap-2 text-sm font-semibold text-[#f5f5f7]">
-                    <Star className="h-4 w-4 text-[#888890]" /> {t.programPointsTitle}
-                  </p>
-                  <ul className="mt-3 space-y-2 text-sm leading-6 text-[#c0c0c5]">
-                    {t.programPoints.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid gap-5 sm:grid-cols-2">
-              {programs.map((item, index) => {
-                const Icon = item.icon;
-                const program = t.programs[index];
-                return (
-                  <div key={program.title} className="rounded-[14px] bg-[#1c1c1e]">
-                    <div className="p-6 sm:p-7">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-[#f5f5f7]">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <h3 className="mt-5 text-xl font-bold text-[#f5f5f7]">{program.title}</h3>
-                      <p className="mt-3 text-sm leading-6 text-[#c0c0c5]">{program.desc}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="recruit" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <div className="grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-10">
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-[#cc2222]">{t.recruitLabel}</p>
-            <h2 className="mt-3 text-3xl font-black tracking-[-0.03em] text-[#f5f5f7] sm:text-4xl lg:text-5xl">{t.recruitTitle}</h2>
-            <p className="mt-5 max-w-xl text-sm leading-7 text-[#c0c0c5] sm:text-base">
-              {t.recruitDesc}
-            </p>
-
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {t.recruitInfo.map((item) => (
-                <div key={item.label} className="rounded-[14px] bg-[#1c1c1e] p-5">
-                  <p className="text-sm text-[#888890]">{item.label}</p>
-                  <p className="mt-2 text-sm font-semibold leading-6 text-[#f5f5f7]">{item.value}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="/application">
-                <PrimaryButton>{t.recruitPrimary}</PrimaryButton>
-              </a>
-              <OutlineButton>{t.recruitSecondary}</OutlineButton>
-            </div>
-          </div>
-
-          <div className="overflow-hidden rounded-[14px] border border-white/10 bg-[#1c1c1e] p-2 shadow-[0_28px_70px_rgba(0,0,0,0.4)] sm:p-3">
-            <div className="relative aspect-[4/5] min-h-[24rem] overflow-hidden rounded-[10px] border border-white/10 bg-[#000]">
-              <Image src={posterSrc} alt={t.recruitTitle} fill className="object-contain object-center" sizes="(max-width: 1024px) 100vw, 50vw" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="gallery" className="relative border-t border-[#222] py-16 sm:py-20">
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 flex flex-col gap-6 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-3xl">
-              <p className="text-sm uppercase tracking-[0.32em] text-[#cc2222]">{pageGalleryCopy.label}</p>
-              <h2 className="mt-3 text-4xl font-black tracking-tight text-[#f5f5f7] sm:text-5xl lg:text-6xl">{pageGalleryCopy.title}</h2>
-              <p className="mt-5 max-w-2xl text-sm leading-7 text-[#c0c0c5] sm:text-base">
-                {pageGalleryCopy.desc}
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#cc2222]">
+                {t.galleryLabel}
               </p>
+              <h2
+                className="font-['Barlow_Condensed',sans-serif] font-black uppercase leading-[1.0]"
+                style={{ fontSize: "clamp(28px, 5vw, 54px)" }}
+              >
+                <span className="text-[#f5f5f7]">{t.galleryTitle1} </span>
+                <span className="text-[#cc2222]">{t.galleryTitle2}</span>
+              </h2>
             </div>
-
             <a
               href="/gallery"
-              className="inline-flex h-12 items-center justify-center rounded-[2px] border border-[#424245] bg-transparent px-8 text-sm font-semibold text-[#f5f5f7] transition hover:bg-white/5 sm:h-14 sm:px-10"
+              className="inline-flex h-12 items-center justify-center self-start rounded-[2px] border border-[#424245] bg-transparent px-8 text-sm font-semibold text-[#f5f5f7] transition hover:bg-white/5 lg:self-auto"
             >
-              {pageGalleryCopy.cta}
+              {t.galleryCta}
             </a>
           </div>
-
           <HomeGalleryPreview />
         </div>
       </section>
 
-      <section id="sponsor" className="relative overflow-hidden border-t border-[#222] py-16 sm:py-20">
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm uppercase tracking-[0.32em] text-[#cc2222]">{t.sponsorLabel}</p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-[#f5f5f7] sm:text-5xl lg:text-6xl">{t.sponsorTitle}</h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#c0c0c5] sm:text-base">
-              {t.sponsorDesc}
+      {/* ── S9 클럽 약속 (세피아) ── */}
+      <section className="border-b border-[#222] bg-[#0d0d0d] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-[14px] border-l-4 border-[#c49550] bg-[#1a1208] px-8 py-10 sm:px-12 sm:py-14">
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#c49550]">
+              {t.promiseLabel}
             </p>
-          </div>
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {sponsorSections.map((section, index) => {
-              const Icon = section.icon;
-              const sponsor = t.sponsors[index];
-
-              return (
-                <article
-                  key={sponsor.title}
-                  className="rounded-[14px] bg-[#1c1c1e] p-6 sm:p-7"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-[#f5f5f7]">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="mt-6 text-2xl font-black text-[#f5f5f7]">{sponsor.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-[#c0c0c5]">{sponsor.desc}</p>
-                </article>
-              );
-            })}
-          </div>
-
-          <div className="mt-8 flex justify-center lg:justify-center">
-            <motion.a
-              href="/support/apply"
-              initial={{ scale: 1 }}
-              animate={{ scale: [1, 1.015, 1] }}
-              transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
-              className="group inline-flex h-14 items-center justify-center gap-3 rounded-[2px] bg-[#cc2222] px-10 text-base font-black tracking-[-0.02em] text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[#cc2222]/90 sm:min-w-[300px] sm:px-16"
+            <blockquote
+              className="mt-6 font-['Barlow_Condensed',sans-serif] font-black uppercase leading-[1.1] text-[#f5f5f7]"
+              style={{ fontSize: "clamp(24px, 4vw, 44px)" }}
             >
-              <span>{t.sponsorCta}</span>
-              <ChevronRight className="h-4 w-4 transition duration-200 group-hover:translate-x-1" />
-            </motion.a>
+              <span className="block">"{t.promiseLine1}</span>
+              <span className="block">{t.promiseLine2}</span>
+              <span className="block text-[#c49550]">{t.promiseLine3}"</span>
+            </blockquote>
+            <p className="mt-6 max-w-xl text-base leading-[1.8] text-[#a1a1a6]">{t.promiseDesc}</p>
           </div>
         </div>
       </section>
 
-      <section id="contact" className="relative overflow-hidden border-t border-[#222] py-16 sm:py-20">
-        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-[1fr_0.92fr]">
-            <div className="min-w-0 rounded-[14px] bg-[#1c1c1e] p-8 sm:p-10">
-              <p className="text-sm uppercase tracking-[0.32em] text-[#cc2222]">{t.contactLabel}</p>
-              <h2 className="mt-4 text-4xl font-black tracking-tight text-[#f5f5f7] sm:text-5xl">{t.contactTitle}</h2>
-              <p className="mt-5 max-w-xl text-sm leading-7 text-[#c0c0c5] sm:text-base">
-                {t.contactDesc}
-              </p>
-
-              <div className="mt-10 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[8px] border border-white/10 bg-black/20 p-6">
-                  <div className="flex items-center gap-4 sm:block">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#f5f5f7]">
-                      <Phone className="h-5 w-5" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-sm text-[#888890] sm:mt-5">{t.contactCards[0].label}</p>
-                      <p className="mt-2 max-w-full text-[1.05rem] font-bold leading-none tracking-[-0.04em] text-[#f5f5f7] sm:text-[1.15rem] lg:text-[1.22rem]">
-                        {t.contactCards[0].value}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="rounded-[8px] border border-white/10 bg-black/20 p-6">
-                  <div className="flex items-center gap-4 sm:block">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#f5f5f7]">
-                      <ChevronRight className="h-5 w-5" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-sm text-[#888890] sm:mt-5">{t.contactCards[1].label}</p>
-                      <p className="mt-2 max-w-full break-keep text-[1.25rem] font-bold leading-none tracking-[-0.03em] text-[#f5f5f7] sm:text-[1.4rem]">
-                        {t.contactCards[1].value}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a href="/application" className="sm:flex-1">
-                  <button className="inline-flex h-12 w-full items-center justify-center rounded-[2px] bg-[#cc2222] px-6 text-base font-bold text-white transition hover:bg-[#cc2222]/90">
-                    {t.contactPrimary}
-                  </button>
-                </a>
-                <a href="/contact" className="sm:flex-1">
-                  <button className="inline-flex h-12 w-full items-center justify-center rounded-[2px] border border-[#424245] bg-transparent px-6 text-base font-medium text-[#f5f5f7] transition hover:bg-white/5">
-                    {t.contactSecondary}
-                  </button>
-                </a>
-              </div>
-            </div>
-
-            <div className="min-w-0 flex h-full flex-col rounded-[14px] bg-[#1c1c1e] p-8 sm:p-10">
-              <p className="text-sm uppercase tracking-[0.32em] text-[#cc2222]">{t.promiseLabel}</p>
-              <h3 className="mt-4 max-w-[560px] text-[1.95rem] font-black tracking-[-0.05em] leading-[1.14] text-[#f5f5f7] sm:text-[2.2rem] sm:leading-[1.12] md:text-[2.35rem] lg:text-[2.15rem] lg:leading-[1.08] xl:max-w-[600px] xl:text-[2.55rem]">
-                <span className="block break-keep">{t.promiseTitleLines[0]}</span>
-                <span className="mt-1 block break-keep sm:mt-2">{t.promiseTitleLines[1]}</span>
-              </h3>
-              <p className="mt-8 max-w-[520px] text-sm leading-8 text-[#c0c0c5] sm:text-base">
-                {t.promiseDesc}
-              </p>
-
-              <div className="mt-auto pt-14">
-                <div className="rounded-[8px] border border-white/10 bg-black/20 p-5">
-                  <div className="flex items-center gap-4">
-                    <div className="relative h-14 w-14 overflow-hidden rounded-xl border border-white/10 bg-black">
-                      <Image src={logoSrc} alt={dictionary.header.clubName} fill className="object-cover" sizes="56px" />
-                    </div>
-                    <div>
-                      <p className="text-lg font-bold text-[#f5f5f7]">{dictionary.header.clubName}</p>
-                      <p className="text-sm text-[#888890]">{dictionary.header.clubNameEn}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer className="border-t border-[#222] bg-[#000000]">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <a href="/" className="flex items-center gap-4">
-              <div className="relative h-12 w-12 overflow-hidden rounded-xl border border-white/10 bg-black">
-                <Image src={logoSrc} alt={dictionary.header.clubName} fill className="object-cover" sizes="48px" />
-              </div>
-              <div>
-                <p className="text-lg font-black text-[#f5f5f7]">{dictionary.header.clubName}</p>
-                <p className="text-xs uppercase tracking-[0.28em] text-[#888890]">{dictionary.header.clubNameEn}</p>
-              </div>
-            </a>
-
-            <nav className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-[#c0c0c5] sm:gap-x-8">
-              {t.footerNav.map((item) => (
-                <a key={`${item.href}-${item.label}-footer`} href={item.href} className="transition hover:text-[#f5f5f7]">{item.label}</a>
-              ))}
-            </nav>
-          </div>
-
-          <div className="mt-6 flex items-center justify-between gap-4 border-t border-[#222] pt-4 text-xs text-[#888890]">
-            <span>{t.footerCopyright}</span>
-            <a
-              href="/admin/login"
-              aria-label="관리자 페이지"
-              title="관리자 페이지"
-              className="inline-flex h-8 w-8 items-center justify-center rounded-full text-white/18 transition hover:bg-white/5 hover:text-white/42"
-            >
-              <ShieldCheck className="h-3.5 w-3.5" />
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

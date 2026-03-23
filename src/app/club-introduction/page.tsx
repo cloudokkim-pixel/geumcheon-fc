@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import GSSCHeader from "@/components/GSSCHeader";
+import Footer from "@/components/Footer";
 import { useSiteLanguage, type Locale } from "@/components/site-language";
 
 const logoSrc =
@@ -261,7 +262,7 @@ export default function GSSCIntroPage() {
             <div className="rounded-[14px] border border-white/10 bg-[#1c1c1e] p-4 shadow-2xl">
               <div className="flex h-[420px] w-[320px] items-center justify-center rounded-[10px] border border-white/10 bg-[#000] text-center">
                 <div>
-                  <div className="mb-3 text-xs uppercase tracking-[0.5em] text-[#cc2222]">G.S.S.C</div>
+                  <div className="mb-3 text-xs uppercase tracking-[0.5em] text-[#cc2222]">G.C.S.C</div>
                   <div className="text-2xl font-black tracking-wide">{dictionary.header.clubName}</div>
                   <div className="mt-6 flex justify-center">
                     <div className="relative h-[240px] w-[240px]">
@@ -301,7 +302,7 @@ export default function GSSCIntroPage() {
             <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#cc2222]">{copy.aboutLabel}</div>
             <h2 className="text-3xl font-black text-[#f5f5f7] md:text-4xl">{copy.aboutTitle}</h2>
           </div>
-          <div className="hidden text-sm text-[#888890] md:block">Since 2015 • G.S.S.C</div>
+          <div className="hidden text-sm text-[#888890] md:block">Since 2015 • G.C.S.C</div>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -380,9 +381,25 @@ export default function GSSCIntroPage() {
                 </div>
               ))}
             </div>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="/application"
+                className="inline-flex h-[52px] w-full items-center justify-center rounded-[2px] bg-[#cc2222] px-6 text-base font-bold text-white transition hover:bg-[#cc2222]/90 sm:w-auto sm:px-10"
+              >
+                선수 등록 신청
+              </a>
+              <a
+                href="/contact"
+                className="inline-flex h-[52px] w-full items-center justify-center rounded-[2px] border border-[#424245] bg-transparent px-6 text-base font-medium text-[#f5f5f7] transition hover:bg-white/5 sm:w-auto sm:px-10"
+              >
+                문의하기
+              </a>
+            </div>
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }
