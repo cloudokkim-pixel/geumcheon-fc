@@ -537,7 +537,7 @@ export default function ClubIntroductionPage() {
                 {/* 프로필 사진 */}
                 <div className="mb-5 h-14 w-14 overflow-hidden rounded-full bg-[#2a2a2a]">
                   {i === 0 ? (
-                    <Image src="/staff/coach-cheon.jpg" alt={coach.name} width={56} height={56} className="h-full w-full object-cover object-top" />
+                    <Image src="/staff/coach-cheon.png" alt={coach.name} width={56} height={56} className="h-full w-full object-cover object-top" />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center text-[10px] text-[#555]">Photo</div>
                   )}
