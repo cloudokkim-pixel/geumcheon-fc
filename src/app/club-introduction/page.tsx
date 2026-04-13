@@ -99,7 +99,7 @@ const copy: Record<Locale, ClubIntroCopy> = {
     coachSub: "G.S.S.C의 지도자는 가르치는 사람이 아닙니다. 선수의 길을 함께 설계하는 파트너입니다.",
     coaches: [
       {
-        name: "청경헌",
+        name: "천경필",
         role: "대표 · 감독",
         career: "전 ○○대학교 축구부 · AFC 라이선스 보유",
         philosophy: "\"결과보다 과정을, 기술보다 태도를 먼저 봅니다\"",
@@ -188,7 +188,7 @@ const copy: Record<Locale, ClubIntroCopy> = {
     coachSub: "Our coaches are not teachers. They are partners who design the player's path together.",
     coaches: [
       {
-        name: "Cheong Gyeong-heon",
+        name: "Cheon Gyeong-pil",
         role: "Director · Head Coach",
         career: "Former ○○ University FC · AFC License holder",
         philosophy: "\"Process over results. Attitude before technique.\"",
@@ -277,7 +277,7 @@ const copy: Record<Locale, ClubIntroCopy> = {
     coachSub: "G.S.S.Cの指導者は教える人ではありません。選手の道を共に設計するパートナーです。",
     coaches: [
       {
-        name: "チョン・ギョンホン",
+        name: "チョン・ギョンピル",
         role: "代表 · 監督",
         career: "元○○大学サッカー部 · AFCライセンス保有",
         philosophy: "\"結果より過程を、技術より姿勢を先に見ます\"",
@@ -366,7 +366,7 @@ const copy: Record<Locale, ClubIntroCopy> = {
     coachSub: "G.S.S.C的教练不是传授者，而是与球员共同规划道路的伙伴。",
     coaches: [
       {
-        name: "郑庆宪",
+        name: "千庆弼",
         role: "代表 · 主教练",
         career: "前○○大学足球队 · AFC执照持有者",
         philosophy: "\"过程重于结果，态度先于技术\"",
@@ -534,9 +534,13 @@ export default function ClubIntroductionPage() {
           <div className="grid gap-4 sm:grid-cols-3">
             {t.coaches.map((coach, i) => (
               <div key={i} className="rounded-[4px] bg-[#1c1c1e] px-5 py-6">
-                {/* 프로필 사진 플레이스홀더 */}
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#2a2a2a] text-[10px] text-[#555]">
-                  Photo
+                {/* 프로필 사진 */}
+                <div className="mb-5 h-14 w-14 overflow-hidden rounded-full bg-[#2a2a2a]">
+                  {i === 0 ? (
+                    <Image src="/staff/coach-cheon.jpg" alt={coach.name} width={56} height={56} className="h-full w-full object-cover object-top" />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center text-[10px] text-[#555]">Photo</div>
+                  )}
                 </div>
                 <p className="mb-1 text-sm font-bold text-[#f5f5f7]">{coach.name}</p>
                 <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.06em] text-[#cc2222]">{coach.role}</p>
