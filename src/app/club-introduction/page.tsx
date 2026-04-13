@@ -5,396 +5,601 @@ import GSSCHeader from "@/components/GSSCHeader";
 import Footer from "@/components/Footer";
 import { useSiteLanguage, type Locale } from "@/components/site-language";
 
-const logoSrc =
-  "http://fs.arumnet.com/image/N1010BONSA/event/2023121540/%EA%B8%88%EC%B2%9C%20%EC%B6%95%EA%B5%AC%20%ED%81%B4%EB%9F%BD%20%EC%9D%B4%EB%AF%B8%EC%A7%80.png";
+type CoachData = {
+  name: string;
+  role: string;
+  career: string;
+  philosophy: string;
+};
 
-const clubIntroCopy: Record<
-  Locale,
-  {
-    badge: string;
-    heroTitle: [string, string];
-    heroDesc: string;
-    primary: string;
-    secondary: string;
-    aboutLabel: string;
-    aboutTitle: string;
-    sections: Array<{ title: string; text: string }>;
-    programLabel: string;
-    programTitle: string;
-    programs: string[];
-    reasonsLabel: string;
-    reasonsTitle: string;
-    reasons: string[];
-    highlight: string;
-    showcaseTitle: string;
-    showcaseDesc: string;
-    contactLabel: string;
-    contactTitle: string;
-    contactDesc: string;
-    contactCards: Array<[string, string]>;
-  }
-> = {
+type ClubIntroCopy = {
+  heroLabel: string;
+  heroTitle: [string, string];
+  heroSub: string;
+  mvLabel: string;
+  mission: { tag: string; title: [string, string]; sub: string };
+  vision: { tag: string; title: string; sub: string };
+  valuesLabel: string;
+  valuesTitle: [string, string];
+  values: Array<{ num: string; title: string; body: string }>;
+  posLabel: string;
+  posTitle: [string, string];
+  posSub: string;
+  posRows: Array<{ themName: string; themText: string; usText: string }>;
+  coachLabel: string;
+  coachTitle: [string, string];
+  coachSub: string;
+  coaches: CoachData[];
+  activityLabel: string;
+  activityTitle: [string, string];
+  activityCaptions: [string, string, string];
+  activityCta: string;
+  promiseLabel: string;
+  promiseText: [string, string, string];
+  promiseSub: string;
+};
+
+const copy: Record<Locale, ClubIntroCopy> = {
   ko: {
-    badge: "GEUMCHEON SPORT SOCIAL COOP",
-    heroTitle: ["축구로 성장하고", "팀으로 완성되는 클럽"],
-    heroDesc:
-      "금천축구클럽은 기본기, 전술 이해, 체력, 태도까지 함께 성장시키는 육성형 축구 클럽입니다. 선수 한 명 한 명이 자신의 가능성을 넓히고 다음 단계로 나아갈 수 있도록 안정적인 훈련 환경을 제공합니다.",
-    primary: "클럽 소개 보기",
-    secondary: "문의 섹션 이동",
-    aboutLabel: "About Club",
-    aboutTitle: "클럽 소개",
-    sections: [
+    heroLabel: "About · Since 2015 · G.S.S.C",
+    heroTitle: ["축구 팀이 아니라", "축구 매니지먼트 클럽"],
+    heroSub: "2015년 창단, 서울 서남권 기반. 선수의 커리어 전체를 설계하고 끝까지 성장시키는 클럽입니다.",
+    mvLabel: "Mission & Vision · G.S.S.C",
+    mission: {
+      tag: "Mission — 우리는 왜 존재하는가",
+      title: ["선수를 키우는 곳이 아니라,", "선수의 길을 설계하는 시스템"],
+      sub: "단순 훈련 서비스가 아닌, 선수의 커리어 전체를 설계하고 성장시키는 매니지먼트 클럽입니다.",
+    },
+    vision: {
+      tag: "Vision — 10년 후 우리의 모습",
+      title: "G.S.S.C 출신 선수가 K리그와 해외 무대에서 뛰는 것이 당연한 클럽",
+      sub: "2035년까지 서울 서남권에서 가장 많은 선수를 성인 무대로 배출하는 유소년 통합형 선수개발 클럽.",
+    },
+    valuesLabel: "Core Values · G.S.S.C",
+    valuesTitle: ["우리가 지키는", "세 가지 약속"],
+    values: [
       {
-        title: "클럽 개요",
-        text: "금천축구클럽은 축구를 통해 성장, 협동, 책임감을 배우는 팀 중심의 훈련 문화를 지향합니다. 선수들이 기술뿐 아니라 태도와 루틴까지 함께 다질 수 있도록 운영합니다.",
+        num: "핵심 가치 01",
+        title: "끝까지 성장시킨다",
+        body: "유소년부터 성인 무대까지. 중간에 멈추지 않는 선수의 성장 경로를 만드는 것이 우리의 약속입니다.",
       },
       {
-        title: "운영 방향",
-        text: "기본기 완성, 경기 경험, 인성 교육, 진학 연계를 균형 있게 설계하여 선수 각자의 현재 수준과 목표에 맞는 성장 계획을 제공합니다.",
+        num: "핵심 가치 02",
+        title: "시스템으로 성장한다",
+        body: "개인 코치의 능력이 아닌, 클럽 전체의 일관된 프레임워크로 선수를 성장시킵니다.",
       },
       {
-        title: "핵심 가치",
-        text: "Discipline, Respect, Teamwork, Challenge를 중심에 두고 훈련과 경기 안에서 책임감 있는 태도와 스포츠맨십을 실천합니다.",
+        num: "핵심 가치 03",
+        title: "재능을 낭비하지 않는다",
+        body: "상위 1%가 아닌 상위 20~40%의 선수들. 시스템이 있어서 묻혀있는 재능을 발굴하고 키웁니다.",
       },
     ],
-    programLabel: "Training Program",
-    programTitle: "훈련 프로그램",
-    programs: [
-      "기본기 훈련: 패스, 드리블, 볼 컨트롤, 방향 전환 훈련",
-      "개인 전술: 포지션 이해, 1:1 대응, 판단 속도 향상",
-      "팀 전술: 빌드업, 수비 조직, 전환 플레이",
-      "실전 운영: 연습 경기, 대회 참가 중심의 경기 경험",
+    posLabel: "Why G.S.S.C · Positioning",
+    posTitle: ["다른 곳과", "무엇이 다른가"],
+    posSub: "훈련만 하는 곳은 많습니다. G.S.S.C는 다릅니다.",
+    posRows: [
+      {
+        themName: "한국 축구부",
+        themText: "팀을 위해 선수를 씁니다",
+        usText: "선수를 위해 팀을 운영합니다",
+      },
+      {
+        themName: "K리그 유스팀",
+        themText: "선택된 상위 1%의 길입니다",
+        usText: "성장할 상위 20~40%의 길입니다",
+      },
+      {
+        themName: "민간 아카데미",
+        themText: "훈련에서 끝납니다",
+        usText: "성인 무대까지 이어집니다",
+      },
     ],
-    reasonsLabel: "Why GSSC",
-    reasonsTitle: "선택 이유",
-    reasons: [
-      "선수 성장 중심의 체계적인 훈련",
-      "훈련과 경기 경험의 균형 있는 운영",
-      "태도와 팀워크를 함께 강조하는 지도 철학",
-      "진학과 장기 성장 방향까지 함께 보는 코칭",
+    coachLabel: "Coaching Staff · G.S.S.C",
+    coachTitle: ["선수의 곁에서", "함께하는 사람들"],
+    coachSub: "G.S.S.C의 지도자는 가르치는 사람이 아닙니다. 선수의 길을 함께 설계하는 파트너입니다.",
+    coaches: [
+      {
+        name: "청경헌",
+        role: "대표 · 감독",
+        career: "전 ○○대학교 축구부 · AFC 라이선스 보유",
+        philosophy: "\"결과보다 과정을, 기술보다 태도를 먼저 봅니다\"",
+      },
+      {
+        name: "코치명 준비 중",
+        role: "코치",
+        career: "이력 준비 중",
+        philosophy: "\"지도 철학 준비 중\"",
+      },
+      {
+        name: "코치명 준비 중",
+        role: "코치",
+        career: "이력 준비 중",
+        philosophy: "\"지도 철학 준비 중\"",
+      },
     ],
-    highlight:
-      "향후 운영 단계에서는 U12/U15 소개, 지도 철학, 실제 활동 사진, SNS 연동 영역을 더하면 완성도가 더욱 높아집니다.",
-    showcaseTitle: "활동 스케치",
-    showcaseDesc: "훈련, 경기, 대회, 팀 활동 장면을 실제 사진으로 보여주는 영역입니다.",
-    contactLabel: "Contact",
-    contactTitle: "입단 문의 / 클럽 안내",
-    contactDesc:
-      "운영 중인 연락처, 카카오톡 채널, 인스타그램 주소, 훈련 장소, 모집 대상 정보를 이 섹션에 배치해 빠르게 문의를 받을 수 있습니다.",
-    contactCards: [
-      ["훈련 지역", "서울 금천구"],
-      ["운영 채널", "Instagram / KakaoTalk"],
-      ["문의 안내", "연락처 정보 입력"],
+    activityLabel: "Activity · G.S.S.C",
+    activityTitle: ["매일의 훈련이", "선수를 만든다"],
+    activityCaptions: [
+      "훈련 — 반복이 실력이 된다",
+      "경기 — 배운 것을 증명하는 자리",
+      "성장 — 어제보다 나은 오늘",
     ],
+    activityCta: "갤러리 전체 보기",
+    promiseLabel: "Club Promise · Since 2015",
+    promiseText: ["첫 번째 공부터", "마지막 계약서까지,", "G.S.S.C가 함께합니다"],
+    promiseSub: "유소년부터 프로 계약까지. 선수의 모든 단계를 클럽이 함께 설계하고 성장시킵니다.",
   },
   en: {
-    badge: "GEUMCHEON SPORT SOCIAL COOP",
-    heroTitle: ["Grow through football", "be completed as a team"],
-    heroDesc:
-      "Geumcheon Soccer Club is a development-focused football club that grows fundamentals, tactical understanding, physical strength, and attitude together. We provide a stable environment where each player can expand their potential and prepare for the next stage.",
-    primary: "Explore the Club",
-    secondary: "Jump to Contact",
-    aboutLabel: "About Club",
-    aboutTitle: "Club Introduction",
-    sections: [
+    heroLabel: "About · Since 2015 · G.S.S.C",
+    heroTitle: ["Not just a football team —", "a football management club"],
+    heroSub: "Founded in 2015, based in southwestern Seoul. A club that designs and develops each player's entire career.",
+    mvLabel: "Mission & Vision · G.S.S.C",
+    mission: {
+      tag: "Mission — Why we exist",
+      title: ["Not a place to develop players,", "but a system that designs their path"],
+      sub: "More than training services — a management club that designs and grows each player's entire career.",
+    },
+    vision: {
+      tag: "Vision — Where we'll be in 10 years",
+      title: "A club where G.S.S.C alumni playing in the K-League and overseas is simply expected",
+      sub: "By 2035, the leading integrated youth development club in southwestern Seoul — producing the most players at the senior level.",
+    },
+    valuesLabel: "Core Values · G.S.S.C",
+    valuesTitle: ["Three commitments", "we never break"],
+    values: [
       {
-        title: "Club Overview",
-        text: "The club values a team-first training culture where players learn growth, cooperation, and responsibility through football. We help players strengthen both technique and daily discipline.",
+        num: "Core Value 01",
+        title: "We develop players all the way",
+        body: "From youth to senior level. Our promise is to build a growth path that never stops in the middle.",
       },
       {
-        title: "Operating Direction",
-        text: "We balance fundamentals, match experience, character education, and pathway support to deliver a growth plan that fits each player's stage and goal.",
+        num: "Core Value 02",
+        title: "We grow through systems",
+        body: "Not individual coaches' abilities — a consistent club-wide framework that develops every player.",
       },
       {
-        title: "Core Values",
-        text: "Discipline, Respect, Teamwork, and Challenge guide how we train, compete, and build sportsmanship every day.",
+        num: "Core Value 03",
+        title: "We never waste talent",
+        body: "Not just the top 1% — the top 20–40%. Our system finds and develops talent that would otherwise go unseen.",
       },
     ],
-    programLabel: "Training Program",
-    programTitle: "Programs",
-    programs: [
-      "Fundamentals: passing, dribbling, ball control, and directional change",
-      "Individual tactics: positional awareness, 1v1 response, and decision speed",
-      "Team tactics: build-up play, defensive organization, and transitions",
-      "Match application: practice matches and tournament experience",
+    posLabel: "Why G.S.S.C · Positioning",
+    posTitle: ["What makes us", "different"],
+    posSub: "There are many places to train. G.S.S.C is different.",
+    posRows: [
+      {
+        themName: "School football teams",
+        themText: "Players serve the team",
+        usText: "The team serves the players",
+      },
+      {
+        themName: "K-League academies",
+        themText: "A path for the top 1%",
+        usText: "A path for the top 20–40% who can grow",
+      },
+      {
+        themName: "Private academies",
+        themText: "It ends at training",
+        usText: "It continues to the senior stage",
+      },
     ],
-    reasonsLabel: "Why GSSC",
-    reasonsTitle: "Why Players Choose Us",
-    reasons: [
-      "A structured system centered on player development",
-      "Balanced operation between training and match experience",
-      "A coaching philosophy that values attitude and teamwork",
-      "Support that also looks at school advancement and long-term growth",
+    coachLabel: "Coaching Staff · G.S.S.C",
+    coachTitle: ["The people who walk", "alongside every player"],
+    coachSub: "Our coaches are not teachers. They are partners who design the player's path together.",
+    coaches: [
+      {
+        name: "Cheong Gyeong-heon",
+        role: "Director · Head Coach",
+        career: "Former ○○ University FC · AFC License holder",
+        philosophy: "\"Process over results. Attitude before technique.\"",
+      },
+      {
+        name: "Coach TBD",
+        role: "Coach",
+        career: "Career TBD",
+        philosophy: "\"Philosophy TBD\"",
+      },
+      {
+        name: "Coach TBD",
+        role: "Coach",
+        career: "Career TBD",
+        philosophy: "\"Philosophy TBD\"",
+      },
     ],
-    highlight:
-      "This page can later be expanded with U12/U15 sections, coaching philosophy, real activity photos, and social media integration.",
-    showcaseTitle: "Activity Showcase",
-    showcaseDesc: "This section is intended for real photos from training, matches, tournaments, and team activities.",
-    contactLabel: "Contact",
-    contactTitle: "Join Inquiry / Club Guide",
-    contactDesc:
-      "Place your phone number, KakaoTalk or Instagram channel, training location, and recruitment details here so families can contact the club quickly.",
-    contactCards: [
-      ["Training Area", "Geumcheon-gu, Seoul"],
-      ["Channels", "Instagram / KakaoTalk"],
-      ["Inquiry Desk", "Contact details available here"],
+    activityLabel: "Activity · G.S.S.C",
+    activityTitle: ["Daily training is", "what builds players"],
+    activityCaptions: [
+      "Training — Repetition becomes skill",
+      "Matches — The stage to prove what you've learned",
+      "Growth — Better than yesterday",
     ],
+    activityCta: "View full gallery",
+    promiseLabel: "Club Promise · Since 2015",
+    promiseText: ["From the first kick", "to the final contract,", "G.S.S.C is with you"],
+    promiseSub: "From youth to professional contract. The club designs and grows every stage of the player's journey.",
   },
   ja: {
-    badge: "GEUMCHEON SPORT SOCIAL COOP",
-    heroTitle: ["サッカーで成長し", "チームで完成するクラブ"],
-    heroDesc:
-      "クムチョンサッカークラブは、基礎技術、戦術理解、フィジカル、姿勢まで共に育てる育成型クラブです。選手一人ひとりが可能性を広げ、次の段階へ進めるよう安定したトレーニング環境を提供します。",
-    primary: "クラブ紹介を見る",
-    secondary: "お問い合わせへ移動",
-    aboutLabel: "About Club",
-    aboutTitle: "クラブ紹介",
-    sections: [
+    heroLabel: "About · Since 2015 · G.S.S.C",
+    heroTitle: ["ただのサッカーチームではなく、", "サッカーマネジメントクラブ"],
+    heroSub: "2015年創設、ソウル南西部を拠点に。選手のキャリア全体を設計し、最後まで育てるクラブです。",
+    mvLabel: "Mission & Vision · G.S.S.C",
+    mission: {
+      tag: "Mission — 私たちが存在する理由",
+      title: ["選手を育てる場所ではなく、", "選手の道を設計するシステム"],
+      sub: "単なるトレーニングサービスではなく、選手のキャリア全体を設計・育成するマネジメントクラブです。",
+    },
+    vision: {
+      tag: "Vision — 10年後の私たち",
+      title: "G.S.S.C出身選手がKリーグや海外舞台で活躍することが当然のクラブ",
+      sub: "2035年までにソウル南西部で最多の選手をシニア舞台に輩出する、ユース統合型育成クラブ。",
+    },
+    valuesLabel: "Core Values · G.S.S.C",
+    valuesTitle: ["私たちが守る", "三つの約束"],
+    values: [
       {
-        title: "クラブ概要",
-        text: "サッカーを通じて成長、協力、責任感を学ぶチーム中心のトレーニング文化を大切にしています。技術だけでなく姿勢と日々の習慣も整えます。",
+        num: "コアバリュー 01",
+        title: "最後まで育てる",
+        body: "ユースからシニア舞台まで。途中で止まらない選手の成長経路を作ることが私たちの約束です。",
       },
       {
-        title: "運営方針",
-        text: "基礎技術、試合経験、人間教育、進学サポートをバランスよく設計し、各選手の目標に合う成長計画を提供します。",
+        num: "コアバリュー 02",
+        title: "システムで成長する",
+        body: "個人コーチの力量ではなく、クラブ全体の一貫したフレームワークで選手を育成します。",
       },
       {
-        title: "中核価値",
-        text: "Discipline、Respect、Teamwork、Challenge を軸に、責任感とスポーツマンシップを日々の活動で実践します。",
+        num: "コアバリュー 03",
+        title: "才能を無駄にしない",
+        body: "上位1%ではなく上位20〜40%の選手たち。システムがあるからこそ眠れる才能を発掘し育てます。",
       },
     ],
-    programLabel: "Training Program",
-    programTitle: "トレーニングプログラム",
-    programs: [
-      "基礎技術: パス、ドリブル、ボールコントロール、方向転換",
-      "個人戦術: ポジション理解、1対1対応、判断速度向上",
-      "チーム戦術: ビルドアップ、守備組織、切り替え",
-      "実戦運営: 練習試合と大会参加による経験蓄積",
+    posLabel: "Why G.S.S.C · Positioning",
+    posTitle: ["他との", "違いとは"],
+    posSub: "トレーニングだけの場所はたくさんあります。G.S.S.Cは違います。",
+    posRows: [
+      {
+        themName: "学校サッカー部",
+        themText: "チームのために選手を使います",
+        usText: "選手のためにチームを運営します",
+      },
+      {
+        themName: "Kリーグユース",
+        themText: "選ばれた上位1%の道です",
+        usText: "成長できる上位20〜40%の道です",
+      },
+      {
+        themName: "民間アカデミー",
+        themText: "トレーニングで終わります",
+        usText: "シニア舞台まで続きます",
+      },
     ],
-    reasonsLabel: "Why GSSC",
-    reasonsTitle: "選ばれる理由",
-    reasons: [
-      "選手の成長を中心に据えた体系的な指導",
-      "練習と試合経験のバランスある運営",
-      "姿勢とチームワークも重視する指導哲学",
-      "進学と長期成長まで見据えたサポート",
+    coachLabel: "Coaching Staff · G.S.S.C",
+    coachTitle: ["選手のそばで", "共に歩む人たち"],
+    coachSub: "G.S.S.Cの指導者は教える人ではありません。選手の道を共に設計するパートナーです。",
+    coaches: [
+      {
+        name: "チョン・ギョンホン",
+        role: "代表 · 監督",
+        career: "元○○大学サッカー部 · AFCライセンス保有",
+        philosophy: "\"結果より過程を、技術より姿勢を先に見ます\"",
+      },
+      {
+        name: "コーチ名 準備中",
+        role: "コーチ",
+        career: "経歴 準備中",
+        philosophy: "\"指導哲学 準備中\"",
+      },
+      {
+        name: "コーチ名 準備中",
+        role: "コーチ",
+        career: "経歴 準備中",
+        philosophy: "\"指導哲学 準備中\"",
+      },
     ],
-    highlight:
-      "今後は U12/U15 紹介、指導哲学、実際の活動写真、SNS 連携を加えることでさらに完成度が高まります。",
-    showcaseTitle: "活動スケッチ",
-    showcaseDesc: "練習、試合、大会、チーム活動の様子を実際の写真で見せるエリアです。",
-    contactLabel: "Contact",
-    contactTitle: "入団相談 / クラブ案内",
-    contactDesc:
-      "連絡先、カカオトーク、Instagram、練習場所、募集案内を配置し、保護者や選手がすぐに相談できるようにします。",
-    contactCards: [
-      ["練習地域", "ソウル特別市 衿川区"],
-      ["運営チャンネル", "Instagram / KakaoTalk"],
-      ["お問い合わせ", "連絡先情報を掲載"],
+    activityLabel: "Activity · G.S.S.C",
+    activityTitle: ["日々のトレーニングが", "選手を作る"],
+    activityCaptions: [
+      "トレーニング — 反復が実力になる",
+      "試合 — 学んだことを証明する場",
+      "成長 — 昨日より上の今日",
     ],
+    activityCta: "ギャラリー全体を見る",
+    promiseLabel: "Club Promise · Since 2015",
+    promiseText: ["最初のボールから", "最後の契約書まで、", "G.S.S.Cが共にいます"],
+    promiseSub: "ユースからプロ契約まで。選手のすべての段階をクラブが共に設計し育成します。",
   },
   zh: {
-    badge: "GEUMCHEON SPORT SOCIAL COOP",
-    heroTitle: ["通过足球成长", "以团队完成自我"],
-    heroDesc:
-      "金泉足球俱乐部是一家重视基础、战术理解、体能与态度共同成长的青训俱乐部。我们为每位球员提供稳定的训练环境，帮助他们拓展潜力并迈向下一阶段。",
-    primary: "查看俱乐部介绍",
-    secondary: "前往咨询区域",
-    aboutLabel: "About Club",
-    aboutTitle: "俱乐部介绍",
-    sections: [
+    heroLabel: "About · Since 2015 · G.S.S.C",
+    heroTitle: ["不只是足球队，", "更是足球管理俱乐部"],
+    heroSub: "2015年创立，立足首尔西南部。一个全程规划并陪伴球员职业生涯成长的俱乐部。",
+    mvLabel: "Mission & Vision · G.S.S.C",
+    mission: {
+      tag: "Mission — 我们为何存在",
+      title: ["不是培养球员的地方，", "而是规划球员道路的系统"],
+      sub: "不仅仅是训练服务，而是全程规划并成就球员职业生涯的管理型俱乐部。",
+    },
+    vision: {
+      tag: "Vision — 十年后的我们",
+      title: "G.S.S.C出身的球员驰骋K联赛与海外赛场，理所当然",
+      sub: "到2035年，成为首尔西南部向职业赛场输送最多球员的青训综合型俱乐部。",
+    },
+    valuesLabel: "Core Values · G.S.S.C",
+    valuesTitle: ["我们坚守的", "三个承诺"],
+    values: [
       {
-        title: "俱乐部概况",
-        text: "我们重视以团队为中心的训练文化，让球员通过足球学习成长、合作与责任感，同时培养技术与日常习惯。",
+        num: "核心价值 01",
+        title: "陪伴到最后",
+        body: "从青训到职业赛场。我们的承诺是为每位球员构建永不中断的成长路径。",
       },
       {
-        title: "运营方向",
-        text: "以基础技术、比赛经验、品格教育和升学支持为核心，为不同阶段的球员提供平衡的成长方案。",
+        num: "核心价值 02",
+        title: "以系统促成长",
+        body: "不依赖个别教练的能力，而是用俱乐部整体的一贯框架培养每一位球员。",
       },
       {
-        title: "核心价值",
-        text: "Discipline、Respect、Teamwork、Challenge 是我们的核心价值，并体现在日常训练与比赛中。",
+        num: "核心价值 03",
+        title: "不浪费任何才华",
+        body: "不只关注前1%，而是前20〜40%的球员。我们的系统发掘并培育被埋没的才华。",
       },
     ],
-    programLabel: "Training Program",
-    programTitle: "训练项目",
-    programs: [
-      "基础训练：传球、盘带、控球与变向",
-      "个人战术：位置理解、一对一应对、判断速度提升",
-      "团队战术：后场组织、防守结构、攻防转换",
-      "实战运营：训练赛与比赛参赛经验",
+    posLabel: "Why G.S.S.C · Positioning",
+    posTitle: ["与其他地方", "有何不同"],
+    posSub: "提供训练的地方很多。G.S.S.C不一样。",
+    posRows: [
+      {
+        themName: "学校足球队",
+        themText: "为了球队而使用球员",
+        usText: "为了球员而运营球队",
+      },
+      {
+        themName: "K联赛青训队",
+        themText: "只有顶尖1%才能走的路",
+        usText: "有成长潜力的前20〜40%的路",
+      },
+      {
+        themName: "私立学院",
+        themText: "止步于训练",
+        usText: "延续到职业赛场",
+      },
     ],
-    reasonsLabel: "Why GSSC",
-    reasonsTitle: "选择我们的理由",
-    reasons: [
-      "以球员成长为中心的系统训练",
-      "训练与比赛经验保持平衡",
-      "重视态度与团队合作的指导理念",
-      "兼顾升学与长期成长方向的支持",
+    coachLabel: "Coaching Staff · G.S.S.C",
+    coachTitle: ["陪伴在球员身旁的", "那些人"],
+    coachSub: "G.S.S.C的教练不是传授者，而是与球员共同规划道路的伙伴。",
+    coaches: [
+      {
+        name: "郑庆宪",
+        role: "代表 · 主教练",
+        career: "前○○大学足球队 · AFC执照持有者",
+        philosophy: "\"过程重于结果，态度先于技术\"",
+      },
+      {
+        name: "教练名 准备中",
+        role: "教练",
+        career: "履历准备中",
+        philosophy: "\"执教理念准备中\"",
+      },
+      {
+        name: "教练名 准备中",
+        role: "教练",
+        career: "履历准备中",
+        philosophy: "\"执教理念准备中\"",
+      },
     ],
-    highlight:
-      "后续还可以加入 U12/U15 介绍、指导理念、真实活动照片以及社交媒体联动内容，让页面更加完整。",
-    showcaseTitle: "活动展示",
-    showcaseDesc: "这里适合展示训练、比赛、大会和团队活动的真实照片。",
-    contactLabel: "Contact",
-    contactTitle: "入队咨询 / 俱乐部说明",
-    contactDesc:
-      "可在此放置联系电话、KakaoTalk、Instagram、训练地点和招生信息，方便家长与球员快速联系。",
-    contactCards: [
-      ["训练地区", "首尔特别市 衿川区"],
-      ["运营渠道", "Instagram / KakaoTalk"],
-      ["咨询方式", "可在此填写联系方式"],
+    activityLabel: "Activity · G.S.S.C",
+    activityTitle: ["每天的训练", "成就球员"],
+    activityCaptions: [
+      "训练 — 重复成就实力",
+      "比赛 — 证明所学的舞台",
+      "成长 — 今天胜过昨天",
     ],
+    activityCta: "查看完整图库",
+    promiseLabel: "Club Promise · Since 2015",
+    promiseText: ["从第一脚球", "到最后一份合同，", "G.S.S.C与你同行"],
+    promiseSub: "从青训到职业合同。俱乐部陪伴球员走过每一个阶段，共同规划与成长。",
   },
 };
 
-export default function GSSCIntroPage() {
-  const { locale, dictionary } = useSiteLanguage();
-  const copy = clubIntroCopy[locale];
+const activityImages = [
+  "/gallery/gallery1.jpg",
+  "/gallery/gallery2.jpg",
+  "/gallery/gallery3.jpg",
+];
+
+export default function ClubIntroductionPage() {
+  const { locale } = useSiteLanguage();
+  const t = copy[locale];
 
   return (
     <div className="min-h-screen bg-transparent text-[#f5f5f7]">
       <GSSCHeader />
 
-      <section className="relative overflow-hidden border-b border-[#222]">
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-[420px_1fr] md:px-10 md:py-24">
-          <div className="flex items-center justify-center">
-            <div className="rounded-[14px] border border-white/10 bg-[#1c1c1e] p-4 shadow-2xl">
-              <div className="flex h-[420px] w-[320px] items-center justify-center rounded-[10px] border border-white/10 bg-[#000] text-center">
-                <div>
-                  <div className="mb-3 text-xs uppercase tracking-[0.5em] text-[#cc2222]">G.C.S.C</div>
-                  <div className="text-2xl font-black tracking-wide">{dictionary.header.clubName}</div>
-                  <div className="mt-6 flex justify-center">
-                    <div className="relative h-[240px] w-[240px]">
-                      <Image src={logoSrc} alt={dictionary.header.clubName} fill className="object-contain" sizes="240px" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+      {/* ── S1 Hero ── */}
+      <section className="border-b border-[#222] py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="mb-5 text-sm font-bold uppercase tracking-[0.18em] text-[#cc2222]">{t.heroLabel}</p>
+          <h1
+            className="font-['Barlow_Condensed',sans-serif] font-black uppercase leading-[1.05] tracking-tight"
+            style={{ fontSize: "clamp(36px, 7vw, 72px)" }}
+          >
+            <span className="block text-[#f5f5f7]">{t.heroTitle[0]}</span>
+            <span className="block text-[#cc2222]">{t.heroTitle[1]}</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-base leading-[1.8] text-[#c0c0c5] sm:text-lg">{t.heroSub}</p>
+        </div>
+      </section>
+
+      {/* ── S2 Mission / Vision ── */}
+      <section className="border-b border-[#222] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="mb-8 text-sm font-bold uppercase tracking-[0.18em] text-[#cc2222]">{t.mvLabel}</p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {/* Mission */}
+            <div className="rounded-[4px] border-l-[3px] border-[#cc2222] bg-[#1c1c1e] px-6 py-6">
+              <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.1em] text-[#cc2222]">{t.mission.tag}</p>
+              <p
+                className="font-['Barlow_Condensed',sans-serif] font-black leading-[1.15] text-[#f5f5f7]"
+                style={{ fontSize: "clamp(18px, 2.5vw, 24px)" }}
+              >
+                {t.mission.title[0]}
+                <br />
+                {t.mission.title[1]}
+              </p>
+              <p className="mt-4 text-sm leading-[1.8] text-[#a1a1a6]">{t.mission.sub}</p>
+            </div>
+            {/* Vision */}
+            <div className="rounded-[4px] border-l-[3px] border-[#c49550] bg-[#1a1208] px-6 py-6">
+              <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.1em] text-[#c49550]">{t.vision.tag}</p>
+              <p
+                className="font-['Barlow_Condensed',sans-serif] font-black leading-[1.15] text-[#f5f5f7]"
+                style={{ fontSize: "clamp(18px, 2.5vw, 24px)" }}
+              >
+                {t.vision.title}
+              </p>
+              <p className="mt-4 text-sm leading-[1.8] text-[#a1a1a6]">{t.vision.sub}</p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="flex flex-col justify-center">
-            <div className="mb-4 inline-flex w-fit items-center rounded-full border border-white/15 bg-white/5 px-4 py-1 text-sm text-[#c0c0c5]">
-              {copy.badge}
-            </div>
-            <h1 className="max-w-3xl text-4xl font-black leading-tight md:text-6xl">
-              {copy.heroTitle[0]}
+      {/* ── S3 Core Values ── */}
+      <section className="border-b border-[#222] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-[#cc2222]">{t.valuesLabel}</p>
+          <h2
+            className="mb-10 font-['Barlow_Condensed',sans-serif] font-black uppercase leading-[1.05]"
+            style={{ fontSize: "clamp(28px, 5vw, 48px)" }}
+          >
+            <span className="text-[#f5f5f7]">{t.valuesTitle[0]}</span>
+            <br />
+            <span className="text-[#cc2222]">{t.valuesTitle[1]}</span>
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {t.values.map((v) => (
+              <div key={v.num} className="rounded-[4px] bg-[#1c1c1e] px-5 py-6">
+                <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.08em] text-[#cc2222]">{v.num}</p>
+                <p className="mb-3 text-base font-bold text-[#f5f5f7]">{v.title}</p>
+                <p className="text-sm leading-[1.7] text-[#6e6e73]">{v.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── S4 Positioning ── */}
+      <section className="border-b border-[#222] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-[#cc2222]">{t.posLabel}</p>
+          <h2
+            className="mb-2 font-['Barlow_Condensed',sans-serif] font-black uppercase leading-[1.05]"
+            style={{ fontSize: "clamp(28px, 5vw, 48px)" }}
+          >
+            <span className="text-[#f5f5f7]">{t.posTitle[0]}</span>
+            <br />
+            <span className="text-[#cc2222]">{t.posTitle[1]}</span>
+          </h2>
+          <p className="mb-10 text-sm text-[#6e6e73]">{t.posSub}</p>
+          <div className="flex flex-col gap-3">
+            {t.posRows.map((row) => (
+              <div key={row.themName} className="grid grid-cols-[1fr_28px_1fr] items-center gap-3 sm:gap-4">
+                {/* 경쟁 */}
+                <div className="rounded-[3px] bg-[#161616] px-4 py-4">
+                  <p className="mb-2 text-[10px] tracking-[0.04em] text-[#555]">{row.themName}</p>
+                  <p className="text-sm leading-[1.5] text-[#6e6e73]">{row.themText}</p>
+                </div>
+                {/* 화살표 */}
+                <div className="text-center text-lg text-[#cc2222]">→</div>
+                {/* G.S.S.C */}
+                <div className="rounded-[3px] border-l-2 border-[#cc2222] bg-[#1c1c1e] px-4 py-4">
+                  <p className="mb-2 text-[10px] tracking-[0.04em] text-[#888890]">G.S.S.C</p>
+                  <p className="text-sm font-medium leading-[1.5] text-[#f5f5f7]">{row.usText}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── S5 Coach Profile ── */}
+      <section className="border-b border-[#222] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-[#cc2222]">{t.coachLabel}</p>
+          <h2
+            className="mb-2 font-['Barlow_Condensed',sans-serif] font-black uppercase leading-[1.05]"
+            style={{ fontSize: "clamp(28px, 5vw, 48px)" }}
+          >
+            <span className="text-[#f5f5f7]">{t.coachTitle[0]}</span>
+            <br />
+            <span className="text-[#cc2222]">{t.coachTitle[1]}</span>
+          </h2>
+          <p className="mb-10 text-sm leading-[1.8] text-[#6e6e73]">{t.coachSub}</p>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {t.coaches.map((coach, i) => (
+              <div key={i} className="rounded-[4px] bg-[#1c1c1e] px-5 py-6">
+                {/* 프로필 사진 플레이스홀더 */}
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#2a2a2a] text-[10px] text-[#555]">
+                  Photo
+                </div>
+                <p className="mb-1 text-sm font-bold text-[#f5f5f7]">{coach.name}</p>
+                <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.06em] text-[#cc2222]">{coach.role}</p>
+                <p className="mb-3 text-[11px] leading-[1.6] text-[#6e6e73]">{coach.career}</p>
+                <p className="text-[11px] italic leading-[1.6] text-[#a1a1a6]">{coach.philosophy}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── S6 Activity Photos ── */}
+      <section className="border-b border-[#222] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-[#cc2222]">{t.activityLabel}</p>
+          <h2
+            className="mb-10 font-['Barlow_Condensed',sans-serif] font-black uppercase leading-[1.05]"
+            style={{ fontSize: "clamp(28px, 5vw, 48px)" }}
+          >
+            <span className="text-[#f5f5f7]">{t.activityTitle[0]}</span>
+            <br />
+            <span className="text-[#cc2222]">{t.activityTitle[1]}</span>
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {activityImages.map((src, i) => (
+              <div key={i} className="overflow-hidden rounded-[4px] bg-[#1c1c1e]">
+                <div className="relative h-52 w-full">
+                  <Image src={src} alt={t.activityCaptions[i]} fill className="object-cover" sizes="(max-width:768px) 100vw, 33vw" />
+                </div>
+                <div className="px-4 py-4">
+                  <p className="text-sm font-medium text-[#c0c0c5]">{t.activityCaptions[i]}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8">
+            <a
+              href="/gallery"
+              className="inline-flex h-11 items-center gap-2 rounded-[2px] border border-[#424245] bg-transparent px-6 text-sm font-semibold text-[#f5f5f7] transition hover:bg-white/5"
+            >
+              {t.activityCta}
+              <span className="text-[#cc2222]">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── S7 Club Promise ── */}
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-[4px] border-l-[3px] border-[#c49550] bg-[#1a1208] px-8 py-10 sm:px-10">
+            <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.1em] text-[#c49550]">{t.promiseLabel}</p>
+            <p
+              className="font-['Barlow_Condensed',sans-serif] font-black leading-[1.15] text-[#f5f5f7]"
+              style={{ fontSize: "clamp(24px, 4vw, 40px)" }}
+            >
+              {t.promiseText[0]}
               <br />
-              {copy.heroTitle[1]}
-            </h1>
-            <p className="mt-6 max-w-2xl text-base leading-7 text-[#c0c0c5] md:text-lg">{copy.heroDesc}</p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#about" className="rounded-[2px] bg-[#cc2222] px-6 py-3 font-bold text-white transition hover:bg-[#cc2222]/90">
-                {copy.primary}
-              </a>
-              <a href="#contact" className="rounded-[2px] border border-[#424245] bg-transparent px-6 py-3 font-semibold text-[#f5f5f7] transition hover:bg-white/5">
-                {copy.secondary}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-        <div className="mb-10 flex items-end justify-between gap-6">
-          <div>
-            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#cc2222]">{copy.aboutLabel}</div>
-            <h2 className="text-3xl font-black text-[#f5f5f7] md:text-4xl">{copy.aboutTitle}</h2>
-          </div>
-          <div className="hidden text-sm text-[#888890] md:block">Since 2015 • G.C.S.C</div>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {copy.sections.map((item) => (
-            <div key={item.title} className="rounded-[14px] bg-[#1c1c1e] p-7">
-              <h3 className="mb-4 text-xl font-bold text-[#f5f5f7]">{item.title}</h3>
-              <p className="text-sm leading-7 text-[#c0c0c5]">{item.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="border-t border-[#222]">
-        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-[1.05fr_0.95fr] md:px-10">
-          <div className="rounded-[14px] bg-[#1c1c1e] p-8">
-            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#cc2222]">{copy.programLabel}</div>
-            <h2 className="text-3xl font-black text-[#f5f5f7] md:text-4xl">{copy.programTitle}</h2>
-            <div className="mt-8 space-y-4">
-              {copy.programs.map((program, index) => (
-                <div key={program} className="flex gap-4 rounded-[8px] border border-white/10 bg-[#111] p-4">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center font-black text-[#cc2222]">
-                    {String(index + 1).padStart(2, '0')}
-                  </div>
-                  <div className="leading-7 text-[#c0c0c5]">{program}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-[14px] bg-[#1c1c1e] p-8">
-            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#cc2222]">{copy.reasonsLabel}</div>
-            <h2 className="text-3xl font-black text-[#f5f5f7] md:text-4xl">{copy.reasonsTitle}</h2>
-            <div className="mt-8 space-y-4">
-              {copy.reasons.map((reason) => (
-                <div key={reason} className="rounded-[8px] border border-white/10 bg-[#111] px-5 py-4 text-[#c0c0c5]">
-                  {reason}
-                </div>
-              ))}
-            </div>
-            <div className="mt-8 rounded-[8px] border border-white/10 bg-[#222] p-6 text-sm leading-7 text-[#c0c0c5]">
-              {copy.highlight}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-        <div className="grid gap-6 md:grid-cols-3">
-          {[1, 2, 3].map((item) => (
-            <div key={item} className="group overflow-hidden rounded-[14px] border border-white/10 bg-[#1c1c1e]">
-              <div className="flex h-60 items-center justify-center bg-[#000]/30 text-[#888890]">
-                {copy.showcaseTitle} {item}
-              </div>
-              <div className="p-6">
-                <div className="text-lg font-bold text-[#f5f5f7]">
-                  {copy.showcaseTitle} {item}
-                </div>
-                <p className="mt-2 text-sm leading-7 text-[#c0c0c5]">{copy.showcaseDesc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="contact" className="border-t border-[#222]">
-        <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-          <div className="rounded-[14px] bg-[#1c1c1e] p-8 md:p-10">
-            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#cc2222]">{copy.contactLabel}</div>
-            <h2 className="text-3xl font-black text-[#f5f5f7] md:text-4xl">{copy.contactTitle}</h2>
-            <p className="mt-4 max-w-2xl text-[#c0c0c5] leading-7">{copy.contactDesc}</p>
-            <div className="mt-8 grid gap-4 md:grid-cols-3">
-              {copy.contactCards.map(([label, value]) => (
-                <div key={label} className="rounded-[8px] border border-white/10 bg-[#111] p-5">
-                  <div className="text-sm text-[#888890]">{label}</div>
-                  <div className="mt-2 text-lg font-bold text-[#f5f5f7]">{value}</div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="/application"
-                className="inline-flex h-[52px] w-full items-center justify-center rounded-[2px] bg-[#cc2222] px-6 text-base font-bold text-white transition hover:bg-[#cc2222]/90 sm:w-auto sm:px-10"
-              >
-                선수 등록 신청
-              </a>
-              <a
-                href="/contact"
-                className="inline-flex h-[52px] w-full items-center justify-center rounded-[2px] border border-[#424245] bg-transparent px-6 text-base font-medium text-[#f5f5f7] transition hover:bg-white/5 sm:w-auto sm:px-10"
-              >
-                문의하기
-              </a>
-            </div>
+              {t.promiseText[1]}
+              <br />
+              {t.promiseText[2]}
+            </p>
+            <p className="mt-6 max-w-xl text-sm leading-[1.8] text-[#a1a1a6]">{t.promiseSub}</p>
           </div>
         </div>
       </section>

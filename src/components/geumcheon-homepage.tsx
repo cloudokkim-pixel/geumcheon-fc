@@ -12,8 +12,9 @@ export default function GeumcheonHomepage() {
   const t = dictionary.home;
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-transparent text-[#f5f5f7]">
+    <>
       <GSSCHeader />
+      <div className="min-h-screen overflow-x-hidden bg-transparent text-[#f5f5f7]">
 
       {/* ── S2 히어로 ── */}
       <section className="relative flex h-screen h-[100svh] items-center justify-center overflow-hidden">
@@ -336,5 +337,6 @@ export default function GeumcheonHomepage() {
 
       <Footer />
     </div>
+    </>
   );
 }
