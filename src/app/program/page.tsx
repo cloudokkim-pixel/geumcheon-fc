@@ -32,8 +32,6 @@ type ProgramCopy = {
   playbookTitle: string;
   playbook: [PlaybookCard, PlaybookCard];
   scheduleLabel: string;
-  scheduleTitle: [string, string];
-  scheduleSub: string;
   scheduleNote: string;
   ctaTitle: [string, string];
   ctaSub: string;
@@ -159,8 +157,6 @@ const copy: Record<Locale, ProgramCopy> = {
       },
     ],
     scheduleLabel: "Weekly Schedule · G.S.S.C",
-    scheduleTitle: ["주간 훈련", "일정표"],
-    scheduleSub: "연령별 탭을 선택하면 해당 주간 훈련 일정을 확인할 수 있습니다.",
     scheduleNote: "※ 실제 훈련 시간·요일은 시즌에 따라 변경될 수 있습니다. 정확한 일정은 문의해주세요.",
     ctaTitle: ["이 시스템 안에서", "성장할 준비가 됐나요?"],
     ctaSub: "지금 바로 선수 모집 신청을 시작하세요.",
@@ -284,8 +280,6 @@ const copy: Record<Locale, ProgramCopy> = {
       },
     ],
     scheduleLabel: "Weekly Schedule · G.S.S.C",
-    scheduleTitle: ["Weekly training", "schedule"],
-    scheduleSub: "Select an age group tab to view the corresponding weekly training schedule.",
     scheduleNote: "※ Actual training times and days may change by season. Contact us for accurate schedules.",
     ctaTitle: ["Ready to grow", "within this system?"],
     ctaSub: "Start your player application right now.",
@@ -409,8 +403,6 @@ const copy: Record<Locale, ProgramCopy> = {
       },
     ],
     scheduleLabel: "Weekly Schedule · G.S.S.C",
-    scheduleTitle: ["週間トレーニング", "スケジュール"],
-    scheduleSub: "年代別タブを選択すると、該当する週間トレーニングスケジュールを確認できます。",
     scheduleNote: "※ 実際のトレーニング時間・曜日はシーズンによって変更される場合があります。正確な日程はお問い合わせください。",
     ctaTitle: ["このシステムの中で", "成長する準備はできていますか？"],
     ctaSub: "今すぐ選手募集の申し込みを始めてください。",
@@ -534,8 +526,6 @@ const copy: Record<Locale, ProgramCopy> = {
       },
     ],
     scheduleLabel: "Weekly Schedule · G.S.S.C",
-    scheduleTitle: ["每周训练", "时间表"],
-    scheduleSub: "选择年龄段标签，即可查看对应的每周训练时间表。",
     scheduleNote: "※ 实际训练时间与日期可能因赛季而调整。准确时间请联系我们。",
     ctaTitle: ["准备好在这个系统中", "成长了吗？"],
     ctaSub: "立即开始球员招募申请。",
@@ -614,6 +604,25 @@ export default function ProgramPage() {
                 </div>
               ))}
             </div>
+
+            {/* 주간 훈련 일정 — 탭과 함께 변경됨 */}
+            <div className="mt-6 border-t border-[#1e1e1e] pt-5">
+              <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.1em] text-[#555]">{t.scheduleLabel}</p>
+              <div className="overflow-x-auto">
+                <div className="grid min-w-[400px] grid-cols-5 gap-2">
+                  {selected.schedule.map((slot) => (
+                    <div key={slot.day} className="overflow-hidden rounded-[3px] bg-[#1a1a1a]">
+                      <div className="bg-[#cc2222] px-2 py-1.5 text-center text-[10px] font-bold text-white">{slot.day}</div>
+                      <div className="px-2 py-3">
+                        <p className="mb-1 text-[10px] text-[#444]">{slot.time}</p>
+                        <p className="text-[11px] leading-[1.4] text-[#c0c0c5]">{slot.content}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <p className="mt-3 text-[10px] text-[#333]">{t.scheduleNote}</p>
+            </div>
           </div>
         </div>
       </section>
@@ -668,40 +677,7 @@ export default function ProgramPage() {
         </div>
       </section>
 
-      {/* ── S5 Training Schedule ── */}
-      <section className="border-b border-[#222] py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-[#cc2222]">{t.scheduleLabel}</p>
-          <h2
-            className="mb-2 font-['Barlow_Condensed',sans-serif] font-black uppercase leading-[1.05]"
-            style={{ fontSize: "clamp(28px, 5vw, 48px)" }}
-          >
-            <span className="text-[#f5f5f7]">{t.scheduleTitle[0]}</span>
-            <br />
-            <span className="text-[#cc2222]">{t.scheduleTitle[1]}</span>
-          </h2>
-          <p className="mb-8 text-sm text-[#6e6e73]">{t.scheduleSub}</p>
-
-          {/* 선택된 연령의 스케줄 */}
-          <div className="overflow-x-auto">
-            <div className="grid min-w-[480px] grid-cols-5 gap-2">
-              {selected.schedule.map((slot) => (
-                <div key={slot.day} className="overflow-hidden rounded-[3px] bg-[#1c1c1e]">
-                  <div className="bg-[#cc2222] px-3 py-2 text-center text-[11px] font-bold text-white">{slot.day}</div>
-                  <div className="px-3 py-3">
-                    <p className="mb-1 text-[10px] text-[#555]">{slot.time}</p>
-                    <p className="text-[11px] leading-[1.4] text-[#c0c0c5]">{slot.content}</p>
-                    <p className="mt-1 text-[10px] font-bold text-[#cc2222]">{selected.name}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <p className="mt-4 text-[11px] text-[#444]">{t.scheduleNote}</p>
-        </div>
-      </section>
-
-      {/* ── S6 Recruit CTA ── */}
+      {/* ── S5 Recruit CTA ── */}
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-[4px] border-l-[3px] border-[#cc2222] bg-[#1a0808] px-8 py-10 sm:px-10">
