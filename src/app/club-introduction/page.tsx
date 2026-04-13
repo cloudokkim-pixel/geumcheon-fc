@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import GSSCHeader from "@/components/GSSCHeader";
 import Footer from "@/components/Footer";
 import { useSiteLanguage, type Locale } from "@/components/site-language";
@@ -32,7 +33,7 @@ type ClubIntroCopy = {
   coaches: CoachData[];
   activityLabel: string;
   activityTitle: [string, string];
-  activityCaptions: [string, string, string];
+  activityCaptions: [string, string, string, string];
   activityCta: string;
   promiseLabel: string;
   promiseText: [string, string, string];
@@ -122,7 +123,8 @@ const copy: Record<Locale, ClubIntroCopy> = {
     activityCaptions: [
       "훈련 — 반복이 실력이 된다",
       "경기 — 배운 것을 증명하는 자리",
-      "성장 — 어제보다 나은 오늘",
+      "행사 — 함께 만드는 기억",
+      "기타 — 클럽의 모든 순간",
     ],
     activityCta: "갤러리 전체 보기",
     promiseLabel: "Club Promise · Since 2015",
@@ -211,7 +213,8 @@ const copy: Record<Locale, ClubIntroCopy> = {
     activityCaptions: [
       "Training — Repetition becomes skill",
       "Matches — The stage to prove what you've learned",
-      "Growth — Better than yesterday",
+      "Events — Memories made together",
+      "Others — Every moment of the club",
     ],
     activityCta: "View full gallery",
     promiseLabel: "Club Promise · Since 2015",
@@ -300,7 +303,8 @@ const copy: Record<Locale, ClubIntroCopy> = {
     activityCaptions: [
       "トレーニング — 反復が実力になる",
       "試合 — 学んだことを証明する場",
-      "成長 — 昨日より上の今日",
+      "イベント — 共に作る思い出",
+      "その他 — クラブのすべての瞬間",
     ],
     activityCta: "ギャラリー全体を見る",
     promiseLabel: "Club Promise · Since 2015",
@@ -389,7 +393,8 @@ const copy: Record<Locale, ClubIntroCopy> = {
     activityCaptions: [
       "训练 — 重复成就实力",
       "比赛 — 证明所学的舞台",
-      "成长 — 今天胜过昨天",
+      "活动 — 共同创造的记忆",
+      "其他 — 俱乐部的每个瞬间",
     ],
     activityCta: "查看完整图库",
     promiseLabel: "Club Promise · Since 2015",
@@ -398,15 +403,36 @@ const copy: Record<Locale, ClubIntroCopy> = {
   },
 };
 
-const activityImages = [
-  "/gallery/gallery1.jpg",
-  "/gallery/gallery2.jpg",
-  "/gallery/gallery3.jpg",
-];
+const ACTIVITY_CATEGORIES = [
+  { key: "training", href: "/gallery?category=training" },
+  { key: "match",    href: "/gallery?category=match" },
+  { key: "event",    href: "/gallery?category=event" },
+  { key: "etc",      href: "/gallery?category=etc" },
+] as const;
+
+type CategoryKey = (typeof ACTIVITY_CATEGORIES)[number]["key"];
+type PhotoMap = Record<CategoryKey, string | null>;
 
 export default function ClubIntroductionPage() {
   const { locale } = useSiteLanguage();
   const t = copy[locale];
+
+  const [photos, setPhotos] = useState<PhotoMap>({ training: null, match: null, event: null, etc: null });
+
+  useEffect(() => {
+    Promise.all(
+      ACTIVITY_CATEGORIES.map(({ key }) =>
+        fetch(`/api/gallery?pageSize=1&category=${key}`)
+          .then((r) => r.json())
+          .then((data) => ({ key, url: (data.items?.[0]?.thumbnailUrl as string | null | undefined) ?? null }))
+          .catch(() => ({ key, url: null }))
+      )
+    ).then((results) => {
+      const map = {} as PhotoMap;
+      for (const { key, url } of results) map[key] = url;
+      setPhotos(map);
+    });
+  }, []);
 
   return (
     <div className="min-h-screen bg-transparent text-[#f5f5f7]">
@@ -533,19 +559,22 @@ export default function ClubIntroductionPage() {
           <p className="mb-10 text-sm leading-[1.8] text-[#6e6e73]">{t.coachSub}</p>
           <div className="grid gap-4 sm:grid-cols-3">
             {t.coaches.map((coach, i) => (
-              <div key={i} className="rounded-[4px] bg-[#1c1c1e] px-5 py-6">
+              <div key={i} className="flex overflow-hidden rounded-[4px] bg-[#1c1c1e]">
                 {/* 프로필 사진 */}
-                <div className="mb-5 h-14 w-14 overflow-hidden rounded-full bg-[#2a2a2a]">
+                <div className="relative w-28 shrink-0 sm:w-32">
                   {i === 0 ? (
-                    <Image src="/staff/coach-cheon.png" alt={coach.name} width={56} height={56} className="h-full w-full object-cover object-top" />
+                    <Image src="/staff/coach-cheon.png" alt={coach.name} fill className="object-cover object-top" sizes="128px" />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center text-[10px] text-[#555]">Photo</div>
+                    <div className="flex h-full w-full items-center justify-center bg-[#2a2a2a] text-[10px] text-[#555]">Photo</div>
                   )}
                 </div>
-                <p className="mb-1 text-sm font-bold text-[#f5f5f7]">{coach.name}</p>
-                <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.06em] text-[#cc2222]">{coach.role}</p>
-                <p className="mb-3 text-[11px] leading-[1.6] text-[#6e6e73]">{coach.career}</p>
-                <p className="text-[11px] italic leading-[1.6] text-[#a1a1a6]">{coach.philosophy}</p>
+                {/* 정보 */}
+                <div className="flex flex-col justify-center px-4 py-5">
+                  <p className="mb-1 text-sm font-bold text-[#f5f5f7]">{coach.name}</p>
+                  <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.06em] text-[#cc2222]">{coach.role}</p>
+                  <p className="mb-2 text-[11px] leading-[1.6] text-[#6e6e73]">{coach.career}</p>
+                  <p className="text-[11px] italic leading-[1.6] text-[#a1a1a6]">{coach.philosophy}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -564,17 +593,30 @@ export default function ClubIntroductionPage() {
             <br />
             <span className="text-[#cc2222]">{t.activityTitle[1]}</span>
           </h2>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {activityImages.map((src, i) => (
-              <div key={i} className="overflow-hidden rounded-[4px] bg-[#1c1c1e]">
-                <div className="relative h-52 w-full">
-                  <Image src={src} alt={t.activityCaptions[i]} fill className="object-cover" sizes="(max-width:768px) 100vw, 33vw" />
-                </div>
-                <div className="px-4 py-4">
-                  <p className="text-sm font-medium text-[#c0c0c5]">{t.activityCaptions[i]}</p>
-                </div>
-              </div>
-            ))}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {ACTIVITY_CATEGORIES.map(({ key, href }, i) => {
+              const imgUrl = photos[key];
+              return (
+                <a key={key} href={href} className="group overflow-hidden rounded-[4px] bg-[#1c1c1e] transition hover:ring-1 hover:ring-[#cc2222]">
+                  <div className="relative h-48 w-full bg-[#2a2a2a]">
+                    {imgUrl ? (
+                      <Image
+                        src={imgUrl}
+                        alt={t.activityCaptions[i]}
+                        fill
+                        className="object-cover transition group-hover:scale-[1.03]"
+                        sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
+                      />
+                    ) : (
+                      <div className="flex h-full items-center justify-center text-[11px] text-[#444]">No image</div>
+                    )}
+                  </div>
+                  <div className="px-4 py-3">
+                    <p className="text-sm font-medium text-[#c0c0c5]">{t.activityCaptions[i]}</p>
+                  </div>
+                </a>
+              );
+            })}
           </div>
           <div className="mt-8">
             <a
