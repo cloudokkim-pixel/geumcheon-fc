@@ -42,12 +42,12 @@ const copy: Record<Locale, ProgramCopy> = {
   ko: {
     heroLabel: "Training System · G.S.S.C",
     heroTitle: ["훈련부터 진학까지,", "단계별 육성 시스템"],
-    heroSub: "이등부부터 고등까지, 연령별로 다른 기준으로 훈련합니다.\nG.S.S.C의 플레이북은 선수가 아닌 시스템이 성장을 보장합니다.",
+    heroSub: "초등부부터 고등까지, 연령별로 다른 기준으로 훈련합니다.\nG.S.S.C의 플레이북은 선수가 아닌 시스템이 성장을 보장합니다.",
     ageLabel: "연령별 단계",
     ageGroups: [
       {
         ageRange: "U6 – U12",
-        name: "이등부",
+        name: "초등부",
         goalLine: "기본기와 즐거움",
         detail: {
           goalLabel: "훈련 목표",

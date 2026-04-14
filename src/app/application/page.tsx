@@ -61,12 +61,12 @@ const copy: Record<Locale, ApplicationCopy> = {
   ko: {
     heroLabel: "Recruitment",
     heroTitle: "선수의 길,\n지금 시작하세요",
-    heroSub: "이등부 · 중등부 · 고등부 · 성인부 전 연령 모집 중",
+    heroSub: "초등부 · 중등부 · 고등부 · 성인부 전 연령 모집 중",
     ageReqLabel: "Age Requirements",
     ageReqTitle: "연령별 모집 안내",
     ageGroups: [
       {
-        label: "이등부",
+        label: "초등부",
         ageRange: "U6 – U12",
         items: [
           { label: "모집 대상", value: "초등학교 1–6학년 (만 6–12세)" },
@@ -137,7 +137,7 @@ const copy: Record<Locale, ApplicationCopy> = {
       trainingExp: "예) 풋살 2년, 학교 축구부 1년 (없으면 '없음')",
       message: "문의 내용을 자유롭게 적어 주세요 (선택)",
     },
-    ageGroupOptions: ["이등부 (U6–U12)", "중등부 (U13–U15)", "고등부 (U16–U18)", "성인부·K4 (U19+)"],
+    ageGroupOptions: ["초등부 (U6–U12)", "중등부 (U13–U15)", "고등부 (U16–U18)", "성인부·K4 (U19+)"],
     submit: "입단 신청하기",
     submitting: "제출 중...",
     successTitle: "신청이 완료되었습니다",
@@ -160,8 +160,8 @@ const copy: Record<Locale, ApplicationCopy> = {
         a: "개인 사정에 따라 중도 하차는 가능합니다. 다만 팀 운영 특성상 사전에 담당 코치에게 미리 알려주시면 감사하겠습니다.",
       },
       {
-        q: "축구 경험이 없어도 이등부 입단이 가능한가요?",
-        a: "이등부(U6–U12)는 기초부터 가르치는 연령부로, 경험이 없어도 지원 가능합니다. 열정과 성실한 자세가 가장 중요합니다.",
+        q: "축구 경험이 없어도 초등부 입단이 가능한가요?",
+        a: "초등부(U6–U12)는 기초부터 가르치는 연령부로, 경험이 없어도 지원 가능합니다. 열정과 성실한 자세가 가장 중요합니다.",
       },
       {
         q: "부모님이 매 훈련을 동반해야 하나요?",
