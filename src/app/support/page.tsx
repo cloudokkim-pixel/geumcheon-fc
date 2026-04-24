@@ -238,7 +238,7 @@ export default function SupportPage() {
                 </p>
                 <p className="text-sm text-[#6e6e73]">
                   <a href="tel:01041780207" className="font-semibold text-[#f5f5f7]">010-4178-0207</a>
-                  {" "}(천경락 대표)
+                  {" "}(천경필 대표)
                 </p>
                 <button
                   onClick={() => setStatus("idle")}
@@ -341,7 +341,7 @@ export default function SupportPage() {
                   <a href="tel:01041780207" className="font-semibold text-[#f5f5f7] hover:text-white">
                     010-4178-0207
                   </a>{" "}
-                  <span className="text-[#444]">(천경락 대표)</span>
+                  <span className="text-[#444]">(천경필 대표)</span>
                 </p>
               </form>
             )}
