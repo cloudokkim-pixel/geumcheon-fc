@@ -15,6 +15,8 @@ export type GalleryCategory =
   | "event"
   | "etc";
 
+export type GalleryAgeGroup = "elementary" | "middle" | "high" | "adult";
+
 export type GalleryPostStatus = "draft" | "private" | "published";
 
 export type GalleryListItem = {

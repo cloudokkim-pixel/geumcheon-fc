@@ -61,7 +61,7 @@ export default function GSSCHeader() {
           </div>
         </a>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-4 lg:flex">
           {header.nav.map((item) => (
             <a
               key={`${item.href}-${item.label}`}

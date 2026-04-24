@@ -131,8 +131,8 @@ export const galleryPageCopy: Record<
   {
     title: string;
     desc: string;
-    helper: string;
     all: string;
+    ageAll: string;
     searchPlaceholder: string;
     search: string;
     noImageTitle: string;
@@ -142,47 +142,47 @@ export const galleryPageCopy: Record<
 > = {
   ko: {
     title: "갤러리",
-    desc: "금천축구클럽의 훈련, 경기, 행사, 기타 기록을 한 곳에서 모아볼 수 있도록 정리한 갤러리입니다.",
-    helper: "카테고리 필터와 검색을 통해 원하는 장면을 빠르게 찾을 수 있습니다.",
+    desc: "훈련과 경기, 그 모든 순간을 기록합니다.",
     all: "전체",
-    searchPlaceholder: "제목 검색",
+    ageAll: "전체",
+    searchPlaceholder: "사진 제목으로 검색하세요",
     search: "검색",
     noImageTitle: "등록된 이미지가 없습니다",
     noImageDesc: "썸네일 없이 게시된 갤러리입니다",
-    empty: "조건에 맞는 게시글이 없습니다.",
+    empty: "아직 등록된 사진이 없습니다. 경기나 훈련 후 사진을 업로드하면 이곳에 표시됩니다.",
   },
   en: {
     title: "Gallery",
-    desc: "Browse training, matches, events, and other club records in one place.",
-    helper: "Use category filters and search to quickly find the moments you want.",
+    desc: "Every training and match, captured.",
     all: "All",
-    searchPlaceholder: "Search title",
+    ageAll: "All",
+    searchPlaceholder: "Search by photo title",
     search: "Search",
     noImageTitle: "No image uploaded",
     noImageDesc: "This gallery was posted without a thumbnail",
-    empty: "No posts match your current filters.",
+    empty: "No photos yet. Upload after a match or training session to see them here.",
   },
   ja: {
     title: "ギャラリー",
-    desc: "トレーニング、試合、行事、そのほかの記録を一つにまとめたギャラリーです。",
-    helper: "カテゴリーフィルターと検索で見たい場面をすばやく探せます。",
+    desc: "トレーニングと試合、すべての瞬間を記録します。",
     all: "すべて",
-    searchPlaceholder: "タイトル検索",
+    ageAll: "すべて",
+    searchPlaceholder: "タイトルで検索",
     search: "検索",
     noImageTitle: "登録された画像がありません",
     noImageDesc: "サムネイルなしで投稿されたギャラリーです",
-    empty: "条件に合う投稿がありません。",
+    empty: "まだ写真がありません。試合や練習後にアップロードするとここに表示されます。",
   },
   zh: {
     title: "相册",
-    desc: "这里汇集了训练、比赛、活动以及其他俱乐部记录。",
-    helper: "可通过分类筛选和搜索快速找到想看的内容。",
+    desc: "记录训练与比赛的每一个瞬间。",
     all: "全部",
-    searchPlaceholder: "搜索标题",
+    ageAll: "全部",
+    searchPlaceholder: "按照片标题搜索",
     search: "搜索",
     noImageTitle: "没有已上传图片",
     noImageDesc: "这是一个没有缩略图的相册内容",
-    empty: "没有符合当前条件的内容。",
+    empty: "暂无照片。比赛或训练后上传即可在此显示。",
   },
 };
 

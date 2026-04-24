@@ -1,89 +1,82 @@
 /**
- * Notion CMS 연동 유틸
- *
- * 환경변수 설정 후 아래 함수들이 실제 Notion DB에서 데이터를 가져옵니다.
- *
- * 필요한 환경변수 (Vercel 대시보드 등록):
- *   NOTION_API_KEY=
- *   NOTION_DB_SCHEDULE=
- *   NOTION_DB_GALLERY=
+ * 경기 일정 데이터 레이어
+ * 추후 Supabase 또는 Notion CMS 연동 시 getSchedule() 교체
  */
+
+export type AgeGroup = "elementary" | "middle" | "high" | "adult";
+export type ScheduleType = "match" | "training" | "tournament";
 
 export type ScheduleItem = {
   id: string;
-  date: string;        // "YYYY-MM-DD"
-  time: string;        // "HH:MM"
-  homeTeam: string;
-  awayTeam: string;
+  date: string;     // "YYYY-MM-DD"
+  time: string;     // "HH:MM"
+  title: string;
   location: string;
-  competition: string;
-  result?: string;     // "2:1" 등 종료 후 입력
-  status: "upcoming" | "done" | "cancelled";
+  ageGroup: AgeGroup;
+  type: ScheduleType;
 };
 
 /* ──────────────────────────────────────────
-   Notion 연동 (환경변수 세팅 후 주석 해제)
-────────────────────────────────────────── */
-// import { Client } from '@notionhq/client'
-// const notion = new Client({ auth: process.env.NOTION_API_KEY })
-//
-// export async function getSchedule(): Promise<ScheduleItem[]> {
-//   const res = await notion.databases.query({
-//     database_id: process.env.NOTION_DB_SCHEDULE!,
-//     sorts: [{ property: '날짜', direction: 'descending' }],
-//   })
-//   return res.results.map((page: any) => ({
-//     id: page.id,
-//     date: page.properties['날짜']?.date?.start ?? '',
-//     time: page.properties['시간']?.rich_text?.[0]?.plain_text ?? '',
-//     homeTeam: page.properties['홈팀']?.title?.[0]?.plain_text ?? '',
-//     awayTeam: page.properties['원정팀']?.rich_text?.[0]?.plain_text ?? '',
-//     location: page.properties['장소']?.rich_text?.[0]?.plain_text ?? '',
-//     competition: page.properties['대회']?.select?.name ?? '',
-//     result: page.properties['결과']?.rich_text?.[0]?.plain_text ?? undefined,
-//     status: page.properties['상태']?.select?.name ?? 'upcoming',
-//   }))
-// }
-
-/* ──────────────────────────────────────────
-   목 데이터 (Notion 연동 전 사용)
+   목 데이터 (관리자가 실제 데이터로 교체)
 ────────────────────────────────────────── */
 const mockSchedule: ScheduleItem[] = [
   {
     id: "1",
-    date: "2025-04-05",
-    time: "14:00",
-    homeTeam: "서울금천축구클럽",
-    awayTeam: "【확인 필요】",
-    location: "서울특별시 관악구 조원로 56",
-    competition: "【확인 필요】",
-    status: "upcoming",
+    date: "2026-04-26",
+    time: "10:00",
+    title: "주말리그 3라운드",
+    location: "관악구 조원로 56",
+    ageGroup: "middle",
+    type: "match",
   },
   {
     id: "2",
-    date: "2025-03-22",
-    time: "10:00",
-    homeTeam: "【확인 필요】",
-    awayTeam: "서울금천축구클럽",
-    location: "【확인 필요】",
-    competition: "【확인 필요】",
-    result: "【확인 필요】",
-    status: "done",
+    date: "2026-04-26",
+    time: "13:00",
+    title: "주말리그 3라운드",
+    location: "관악구 조원로 56",
+    ageGroup: "elementary",
+    type: "match",
   },
   {
     id: "3",
-    date: "2025-03-15",
-    time: "15:00",
-    homeTeam: "서울금천축구클럽",
-    awayTeam: "【확인 필요】",
-    location: "서울특별시 관악구 조원로 56",
-    competition: "【확인 필요】",
-    result: "【확인 필요】",
-    status: "done",
+    date: "2026-04-28",
+    time: "17:00",
+    title: "정기 훈련",
+    location: "관악구 조원로 56",
+    ageGroup: "high",
+    type: "training",
+  },
+  {
+    id: "4",
+    date: "2026-04-29",
+    time: "17:00",
+    title: "정기 훈련",
+    location: "관악구 조원로 56",
+    ageGroup: "elementary",
+    type: "training",
+  },
+  {
+    id: "5",
+    date: "2026-05-03",
+    time: "10:00",
+    title: "주말리그 4라운드",
+    location: "관악구 조원로 56",
+    ageGroup: "high",
+    type: "match",
+  },
+  {
+    id: "6",
+    date: "2026-05-10",
+    time: "09:00",
+    title: "서울시장배 축구대회",
+    location: "【대회 장소 입력】",
+    ageGroup: "middle",
+    type: "tournament",
   },
 ];
 
 export async function getSchedule(): Promise<ScheduleItem[]> {
-  // TODO: Notion 연동 시 위 주석 코드로 교체
+  // TODO: Supabase 연동 시 이 함수를 교체
   return mockSchedule;
 }

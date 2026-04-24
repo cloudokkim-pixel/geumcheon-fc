@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
 type ContactBody = {
-  inquiryTitle?: string;
   name?: string;
   contact?: string;
+  inquiryType?: string;
   detail?: string;
 };
 
@@ -16,18 +16,18 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "잘못된 요청입니다." }, { status: 400 });
   }
 
-  const { inquiryTitle, name, contact, detail } = body;
+  const { name, contact, inquiryType } = body;
 
-  if (!inquiryTitle?.trim() || !name?.trim() || !contact?.trim() || !detail?.trim()) {
+  if (!name?.trim() || !contact?.trim() || !inquiryType?.trim()) {
     return NextResponse.json({ error: "필수 항목을 모두 입력해 주세요." }, { status: 422 });
   }
 
   // 이메일 발송 — nodemailer / Resend 연동 시 활성화
   console.log("[contact]", {
-    inquiryTitle: inquiryTitle.trim(),
     name: name.trim(),
     contact: contact.trim(),
-    detail: detail.trim(),
+    inquiryType: inquiryType.trim(),
+    detail: body.detail?.trim() ?? "",
     submittedAt: new Date().toISOString(),
   });
 

@@ -8,6 +8,7 @@ import {
 import { isMissingSupabaseEnvError } from "@/lib/supabase/env";
 import type {
   GalleryAdminListItem,
+  GalleryAgeGroup,
   GalleryCategory,
   GalleryDetail,
   GalleryImage,
@@ -20,6 +21,7 @@ type GalleryListParams = {
   pageSize?: number;
   category?: GalleryCategory | null;
   search?: string | null;
+  ageGroup?: GalleryAgeGroup | null;
 };
 
 type GalleryImageInput = {
@@ -359,6 +361,7 @@ export async function listPublicGalleries(params: GalleryListParams = {}) {
   const from = (page - 1) * pageSize;
 
   const keyword = params.search?.trim();
+  const ageGroup = params.ageGroup;
   const galleryQuery: Record<string, string | number | boolean | null | undefined> = {
     select: "id,title,slug,category,thumbnail_image_id,published_at,created_at,status,is_public,is_deleted",
     status: "eq.published",
@@ -373,8 +376,23 @@ export async function listPublicGalleries(params: GalleryListParams = {}) {
     galleryQuery.category = `eq.${params.category}`;
   }
 
-  if (keyword) {
+  if (keyword && ageGroup) {
+    const ek = escapeLikeValue(keyword);
+    if (ageGroup === "middle") {
+      galleryQuery.and = `(title.ilike.*${ek}*,or(title.ilike.*중등부*,title.ilike.*U-15*))`;
+    } else {
+      const ak = ageGroup === "elementary" ? "초등부" : ageGroup === "high" ? "고등부" : "성인부";
+      galleryQuery.and = `(title.ilike.*${ek}*,title.ilike.*${ak}*)`;
+    }
+  } else if (keyword) {
     galleryQuery.title = `ilike.*${escapeLikeValue(keyword)}*`;
+  } else if (ageGroup) {
+    if (ageGroup === "middle") {
+      galleryQuery.or = `(title.ilike.*중등부*,title.ilike.*U-15*)`;
+    } else {
+      const ak = ageGroup === "elementary" ? "초등부" : ageGroup === "high" ? "고등부" : "성인부";
+      galleryQuery.title = `ilike.*${ak}*`;
+    }
   }
 
   let items: GalleryRow[];
