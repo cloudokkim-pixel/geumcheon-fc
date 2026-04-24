@@ -53,7 +53,7 @@ function AdminLoginContent() {
       window.localStorage.removeItem(ADMIN_USERNAME_STORAGE_KEY);
     }
 
-    router.push(searchParams.get("next") || "/admin/gallery");
+    router.push(searchParams.get("next") || "/admin");
     router.refresh();
   }
 

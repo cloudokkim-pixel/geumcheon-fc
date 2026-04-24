@@ -56,6 +56,13 @@ a, button, [role="button"] {
   min-width: 44px;
 }
 
+.admin-ui a,
+.admin-ui button,
+.admin-ui [role="button"] {
+  min-height: 0;
+  min-width: 0;
+}
+
 input, select, textarea {
   font-size: 16px; /* iOS zoom 방지 — 절대 낮추지 말 것 */
   touch-action: manipulation;
