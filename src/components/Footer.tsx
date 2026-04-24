@@ -32,7 +32,7 @@ export default function Footer() {
             </div>
             <div>
               <p className="text-lg font-black text-[#f5f5f7]">{dictionary.header.clubName}</p>
-              <p className="text-xs uppercase tracking-[0.28em] text-[#888890]">G.C.S.C</p>
+              <p className="text-xs uppercase tracking-[0.28em] text-[#888890]">G.S.S.C</p>
             </div>
           </a>
 
@@ -80,7 +80,7 @@ export default function Footer() {
             </nav>
 
             <div className="flex items-center gap-3 text-xs text-[#6e6e73]">
-              <span>© {new Date().getFullYear()} 서울금천축구클럽 G.C.S.C. All rights reserved.</span>
+              <span>© {new Date().getFullYear()} 서울금천축구클럽 G.S.S.C. All rights reserved.</span>
               <a
                 href="/admin/login"
                 aria-label="관리자 페이지"

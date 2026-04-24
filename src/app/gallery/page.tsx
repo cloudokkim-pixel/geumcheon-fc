@@ -15,7 +15,7 @@ type GalleryPageProps = {
 };
 
 export const metadata: Metadata = {
-  title: "갤러리 | 서울금천축구클럽 G.C.S.C",
+  title: "갤러리 | 서울금천축구클럽 G.S.S.C",
   description: "금천축구클럽의 훈련, 경기, 행사, 기타 기록을 한 곳에서 모아볼 수 있는 갤러리입니다.",
 };
 
