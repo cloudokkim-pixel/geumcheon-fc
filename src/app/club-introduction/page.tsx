@@ -564,7 +564,7 @@ export default function ClubIntroductionPage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {t.coaches.map((coach, i) => {
               const photoSrc =
-                i === 0 ? "/staff/coach-cheon-goldpoint-256x360.png" :
+                i === 0 ? "/staff/coach-cheon-goldpoint-1024x1440.png" :
                 i === 1 ? "/staff/coach-hanseok-goldpoint-1024x1440.png" :
                 null;
               return (
