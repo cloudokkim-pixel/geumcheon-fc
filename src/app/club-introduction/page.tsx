@@ -101,22 +101,23 @@ const copy: Record<Locale, ClubIntroCopy> = {
     coaches: [
       {
         name: "천경필",
-        role: "대표 · 감독",
+        role: "대표",
         career: "전 ○○대학교 축구부 · AFC 라이선스 보유",
         philosophy: "\"결과보다 과정을, 기술보다 태도를 먼저 봅니다\"",
       },
       {
-        name: "코치명 준비 중",
-        role: "코치",
+        name: "김한석",
+        role: "감독",
         career: "이력 준비 중",
         philosophy: "\"지도 철학 준비 중\"",
       },
-      {
-        name: "코치명 준비 중",
-        role: "코치",
-        career: "이력 준비 중",
-        philosophy: "\"지도 철학 준비 중\"",
-      },
+      { name: "코치명 준비 중", role: "코치", career: "이력 준비 중", philosophy: "\"지도 철학 준비 중\"" },
+      { name: "코치명 준비 중", role: "코치", career: "이력 준비 중", philosophy: "\"지도 철학 준비 중\"" },
+      { name: "코치명 준비 중", role: "코치", career: "이력 준비 중", philosophy: "\"지도 철학 준비 중\"" },
+      { name: "코치명 준비 중", role: "코치", career: "이력 준비 중", philosophy: "\"지도 철학 준비 중\"" },
+      { name: "코치명 준비 중", role: "코치", career: "이력 준비 중", philosophy: "\"지도 철학 준비 중\"" },
+      { name: "코치명 준비 중", role: "코치", career: "이력 준비 중", philosophy: "\"지도 철학 준비 중\"" },
+      { name: "코치명 준비 중", role: "코치", career: "이력 준비 중", philosophy: "\"지도 철학 준비 중\"" },
     ],
     activityLabel: "Activity · G.C.S.C",
     activityTitle: ["매일의 훈련이", "선수를 만든다"],
@@ -191,22 +192,23 @@ const copy: Record<Locale, ClubIntroCopy> = {
     coaches: [
       {
         name: "Cheon Gyeong-pil",
-        role: "Director · Head Coach",
+        role: "Director",
         career: "Former ○○ University FC · AFC License holder",
         philosophy: "\"Process over results. Attitude before technique.\"",
       },
       {
-        name: "Coach TBD",
-        role: "Coach",
+        name: "Kim Han-seok",
+        role: "Head Coach",
         career: "Career TBD",
         philosophy: "\"Philosophy TBD\"",
       },
-      {
-        name: "Coach TBD",
-        role: "Coach",
-        career: "Career TBD",
-        philosophy: "\"Philosophy TBD\"",
-      },
+      { name: "Coach TBD", role: "Coach", career: "Career TBD", philosophy: "\"Philosophy TBD\"" },
+      { name: "Coach TBD", role: "Coach", career: "Career TBD", philosophy: "\"Philosophy TBD\"" },
+      { name: "Coach TBD", role: "Coach", career: "Career TBD", philosophy: "\"Philosophy TBD\"" },
+      { name: "Coach TBD", role: "Coach", career: "Career TBD", philosophy: "\"Philosophy TBD\"" },
+      { name: "Coach TBD", role: "Coach", career: "Career TBD", philosophy: "\"Philosophy TBD\"" },
+      { name: "Coach TBD", role: "Coach", career: "Career TBD", philosophy: "\"Philosophy TBD\"" },
+      { name: "Coach TBD", role: "Coach", career: "Career TBD", philosophy: "\"Philosophy TBD\"" },
     ],
     activityLabel: "Activity · G.C.S.C",
     activityTitle: ["Daily training is", "what builds players"],
@@ -281,22 +283,23 @@ const copy: Record<Locale, ClubIntroCopy> = {
     coaches: [
       {
         name: "チョン・ギョンピル",
-        role: "代表 · 監督",
+        role: "代表",
         career: "元○○大学サッカー部 · AFCライセンス保有",
         philosophy: "\"結果より過程を、技術より姿勢を先に見ます\"",
       },
       {
-        name: "コーチ名 準備中",
-        role: "コーチ",
+        name: "キム・ハンソク",
+        role: "監督",
         career: "経歴 準備中",
         philosophy: "\"指導哲学 準備中\"",
       },
-      {
-        name: "コーチ名 準備中",
-        role: "コーチ",
-        career: "経歴 準備中",
-        philosophy: "\"指導哲学 準備中\"",
-      },
+      { name: "コーチ名 準備中", role: "コーチ", career: "経歴 準備中", philosophy: "\"指導哲学 準備中\"" },
+      { name: "コーチ名 準備中", role: "コーチ", career: "経歴 準備中", philosophy: "\"指導哲学 準備中\"" },
+      { name: "コーチ名 準備中", role: "コーチ", career: "経歴 準備中", philosophy: "\"指導哲学 準備中\"" },
+      { name: "コーチ名 準備中", role: "コーチ", career: "経歴 準備中", philosophy: "\"指導哲学 準備中\"" },
+      { name: "コーチ名 準備中", role: "コーチ", career: "経歴 準備中", philosophy: "\"指導哲学 準備中\"" },
+      { name: "コーチ名 準備中", role: "コーチ", career: "経歴 準備中", philosophy: "\"指導哲学 準備中\"" },
+      { name: "コーチ名 準備中", role: "コーチ", career: "経歴 準備中", philosophy: "\"指導哲学 準備中\"" },
     ],
     activityLabel: "Activity · G.C.S.C",
     activityTitle: ["日々のトレーニングが", "選手を作る"],
@@ -371,22 +374,23 @@ const copy: Record<Locale, ClubIntroCopy> = {
     coaches: [
       {
         name: "千庆弼",
-        role: "代表 · 主教练",
+        role: "代表",
         career: "前○○大学足球队 · AFC执照持有者",
         philosophy: "\"过程重于结果，态度先于技术\"",
       },
       {
-        name: "教练名 准备中",
-        role: "教练",
+        name: "金汉石",
+        role: "主教练",
         career: "履历准备中",
         philosophy: "\"执教理念准备中\"",
       },
-      {
-        name: "教练名 准备中",
-        role: "教练",
-        career: "履历准备中",
-        philosophy: "\"执教理念准备中\"",
-      },
+      { name: "教练名 准备中", role: "教练", career: "履历准备中", philosophy: "\"执教理念准备中\"" },
+      { name: "教练名 准备中", role: "教练", career: "履历准备中", philosophy: "\"执教理念准备中\"" },
+      { name: "教练名 准备中", role: "教练", career: "履历准备中", philosophy: "\"执教理念准备中\"" },
+      { name: "教练名 准备中", role: "教练", career: "履历准备中", philosophy: "\"执教理念准备中\"" },
+      { name: "教练名 准备中", role: "教练", career: "履历准备中", philosophy: "\"执教理念准备中\"" },
+      { name: "教练名 准备中", role: "教练", career: "履历准备中", philosophy: "\"执教理念准备中\"" },
+      { name: "教练名 准备中", role: "教练", career: "履历准备中", philosophy: "\"执教理念准备中\"" },
     ],
     activityLabel: "Activity · G.C.S.C",
     activityTitle: ["每天的训练", "成就球员"],
@@ -557,26 +561,34 @@ export default function ClubIntroductionPage() {
             <span className="text-[#cc2222]">{t.coachTitle[1]}</span>
           </h2>
           <p className="mb-10 text-sm leading-[1.8] text-[#6e6e73]">{t.coachSub}</p>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {t.coaches.map((coach, i) => (
-              <div key={i} className="flex overflow-hidden rounded-[4px] bg-[#1c1c1e]">
-                {/* 프로필 사진 */}
-                <div className="relative w-28 shrink-0 sm:w-32">
-                  {i === 0 ? (
-                    <Image src="/staff/coach-cheon.png" alt={coach.name} fill className="object-cover object-top" sizes="128px" />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-[#2a2a2a] text-[10px] text-[#555]">Photo</div>
-                  )}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {t.coaches.map((coach, i) => {
+              const photoSrc =
+                i === 0 ? "/staff/coach-cheon-goldpoint-256x360.png" :
+                i === 1 ? "/staff/coach-hanseok-goldpoint-1024x1440.png" :
+                null;
+              return (
+                <div key={i} className="flex overflow-hidden rounded-[4px] bg-[#1c1c1e]">
+                  {/* 프로필 사진 + 로고 배경 */}
+                  <div className="relative w-28 shrink-0 bg-[#232323] sm:w-32">
+                    {/* 배경 로고 워터마크 — 사진 뒤 */}
+                    <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center opacity-[0.18]">
+                      <Image src="/gallery/gclogo.png" alt="" width={96} height={96} className="object-contain" />
+                    </div>
+                    {photoSrc ? (
+                      <Image src={photoSrc} alt={coach.name} fill className="z-10 object-cover object-top" sizes="128px" />
+                    ) : null}
+                  </div>
+                  {/* 정보 */}
+                  <div className="flex flex-col px-4 py-5">
+                    <p className="mb-1 min-h-[1.25rem] text-sm font-bold text-[#f5f5f7]">{coach.name}</p>
+                    <p className="mb-3 min-h-[1rem] text-[10px] font-bold uppercase tracking-[0.06em] text-[#cc2222]">{coach.role}</p>
+                    <p className="mb-2 min-h-[2.75rem] text-[11px] leading-[1.6] text-[#6e6e73]">{coach.career}</p>
+                    <p className="min-h-[2.25rem] text-[11px] italic leading-[1.6] text-[#a1a1a6]">{coach.philosophy}</p>
+                  </div>
                 </div>
-                {/* 정보 */}
-                <div className="flex flex-col justify-center px-4 py-5">
-                  <p className="mb-1 text-sm font-bold text-[#f5f5f7]">{coach.name}</p>
-                  <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.06em] text-[#cc2222]">{coach.role}</p>
-                  <p className="mb-2 text-[11px] leading-[1.6] text-[#6e6e73]">{coach.career}</p>
-                  <p className="text-[11px] italic leading-[1.6] text-[#a1a1a6]">{coach.philosophy}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
