@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import GSSCHeader from "@/components/GSSCHeader";
+﻿import type { Metadata } from "next";
+import GCSCHeader from "@/components/GCSCHeader";
 import Footer from "@/components/Footer";
 import { ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "커리어 로드맵 | 서울금천축구클럽 G.S.S.C",
-  description: "초등부부터 K4 데뷔, 프로·대학까지 G.S.S.C가 설계한 단계별 성장 경로를 확인하세요.",
+  title: "커리어 로드맵 | 서울금천축구클럽 G.C.S.C",
+  description: "초등부부터 K4 데뷔, 프로·대학까지 G.C.S.C가 설계한 단계별 성장 경로를 확인하세요.",
 };
 
 const pipelineStages = [
@@ -60,14 +60,14 @@ const careerRoutes = [
   {
     tag: "프로 진출 루트",
     title: "K4 → K3 → K리그",
-    desc: "G.S.S.C K4팀에서 성인 무대를 시작해 상위 리그로 단계적 진출. 스카우트 네트워크와 에이전트 파트너십을 통해 이적을 지원합니다.",
+    desc: "G.C.S.C K4팀에서 성인 무대를 시작해 상위 리그로 단계적 진출. 스카우트 네트워크와 에이전트 파트너십을 통해 이적을 지원합니다.",
     borderColor: "#cc2222",
     tagColor: "#cc2222",
   },
   {
     tag: "대학 진학 루트",
     title: "체육특기자 → 협력 대학",
-    desc: "G.S.S.C 협력 대학 체육특기자 전형 연계. 진학 목표 설계부터 포트폴리오 준비까지 클럽이 함께합니다.",
+    desc: "G.C.S.C 협력 대학 체육특기자 전형 연계. 진학 목표 설계부터 포트폴리오 준비까지 클럽이 함께합니다.",
     borderColor: "#c49550",
     tagColor: "#c49550",
   },
@@ -83,13 +83,13 @@ const careerRoutes = [
 export default function RoadmapPage() {
   return (
     <div className="min-h-screen bg-transparent text-[#f5f5f7]">
-      <GSSCHeader />
+      <GCSCHeader />
 
       {/* S1: 히어로 */}
       <section className="border-b border-[#222] py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="font-['Barlow_Condensed',sans-serif] text-sm font-bold uppercase tracking-[0.15em] text-[#cc2222]">
-            Career Roadmap · G.S.S.C
+            Career Roadmap · G.C.S.C
           </p>
           <h1 className="mt-3 font-['Barlow_Condensed',sans-serif] text-[clamp(2.5rem,8vw,4rem)] font-black uppercase leading-[1.0] tracking-tight text-[#f5f5f7]">
             CAREER ROADMAP
@@ -100,7 +100,7 @@ export default function RoadmapPage() {
           </p>
           <p className="mt-5 max-w-2xl text-base leading-[1.7] text-[#c0c0c5]">
             초등 입단부터 K4 데뷔, 프로·대학까지.<br className="hidden sm:block" />
-            G.S.S.C가 설계한 선수의 길을 한눈에 확인하세요.
+            G.C.S.C가 설계한 선수의 길을 한눈에 확인하세요.
           </p>
         </div>
       </section>
@@ -109,7 +109,7 @@ export default function RoadmapPage() {
       <section className="border-b border-[#222] py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="font-['Barlow_Condensed',sans-serif] text-xs font-bold uppercase tracking-[0.15em] text-[#cc2222]">
-            Pipeline · G.S.S.C
+            Pipeline · G.C.S.C
           </p>
           <h2 className="mt-2 font-['Barlow_Condensed',sans-serif] text-[clamp(1.75rem,5vw,2.5rem)] font-black leading-[1.1] text-[#f5f5f7]">
             하나로 연결된{" "}
@@ -170,7 +170,7 @@ export default function RoadmapPage() {
             <span className="text-[#cc2222]">무엇을 하는가</span>
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-[1.7] text-[#c0c0c5]">
-            단계마다 목표가 다릅니다. G.S.S.C는 연령별로 다른 기준으로 선수를 성장시킵니다.
+            단계마다 목표가 다릅니다. G.C.S.C는 연령별로 다른 기준으로 선수를 성장시킵니다.
           </p>
 
           <div className="mt-8 overflow-x-auto pb-2">
@@ -224,7 +224,7 @@ export default function RoadmapPage() {
             <span className="text-[#cc2222]">세 가지 길</span>
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-[1.7] text-[#c0c0c5]">
-            프로만이 답이 아닙니다. G.S.S.C는 세 가지 출구를 함께 설계합니다.
+            프로만이 답이 아닙니다. G.C.S.C는 세 가지 출구를 함께 설계합니다.
           </p>
 
           <div className="mt-8 grid gap-5 sm:grid-cols-3">

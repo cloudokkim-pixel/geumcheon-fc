@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>G.S.S.C 개발 지시서 통합본</title>
+<title>G.C.S.C 개발 지시서 통합본</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
 <style>
@@ -130,11 +130,11 @@ pre .tag { color: #cc2222; }
 
 <!-- ===== 커버 ===== -->
 <div class="cover">
-  <div class="cover-label">G.S.S.C — Developer Instruction v1.0</div>
+  <div class="cover-label">G.C.S.C — Developer Instruction v1.0</div>
   <div class="cover-title">개발 <span>지시서</span><br>통합본</div>
   <div class="cover-sub">VS Code Claude Code에게 전달하는 개발 실행 지시서. 브랜드 가이드·와이어프레임·카피라이팅·모바일 가이드를 하나로 통합. 이 문서 하나로 전체 사이트 구현 가능.</div>
   <div class="cover-meta">
-    <div class="cover-meta-item"><strong>클라이언트</strong> 서울금천축구클럽 G.S.S.C</div>
+    <div class="cover-meta-item"><strong>클라이언트</strong> 서울금천축구클럽 G.C.S.C</div>
     <div class="cover-meta-item"><strong>사이트</strong> <code>geumcheon-fc.vercel.app</code></div>
     <div class="cover-meta-item"><strong>스택</strong> Next.js · Vercel · Tailwind CSS</div>
     <div class="cover-meta-item"><strong>우선원칙</strong> 모바일 퍼스트 반응형</div>
@@ -169,7 +169,7 @@ pre .tag { color: #cc2222; }
     <div class="card">
       <div class="card-title">클라이언트 정보</div>
       <div class="card-body">
-        <strong>클럽명:</strong> 서울금천축구클럽 (G.S.S.C)<br>
+        <strong>클럽명:</strong> 서울금천축구클럽 (G.C.S.C)<br>
         <strong>영문명:</strong> Geumcheon Sport Social Coop<br>
         <strong>대표:</strong> 천경필<br>
         <strong>전화:</strong> <code>010-4178-0207</code><br>
@@ -209,7 +209,7 @@ pre .tag { color: #cc2222; }
     <div class="card">
       <div class="card-title"><span class="badge badge-blue">Framework</span> Next.js 14+ (App Router)</div>
       <div class="card-body">
-        <code>npx create-next-app@latest gssc --typescript --tailwind --app</code><br><br>
+        <code>npx create-next-app@latest GCSC --typescript --tailwind --app</code><br><br>
         App Router 사용. Pages Router 사용 금지.<br>
         <code>src/</code> 디렉토리 구조 사용.
       </div>
@@ -225,7 +225,7 @@ pre .tag { color: #cc2222; }
   </div>
 
   <div class="sub-heading">디렉토리 구조</div>
-  <pre><span class="val">gssc/</span>
+  <pre><span class="val">GCSC/</span>
 ├── <span class="str">src/</span>
 │   ├── <span class="str">app/</span>
 │   │   ├── <span class="kw">layout.tsx</span>          <span class="cm"># 루트 레이아웃 (GNB, Footer, 전역 폰트)</span>
@@ -424,67 +424,67 @@ pre .tag { color: #cc2222; }
       <tr>
         <td>/</td>
         <td>홈</td>
-        <td>gssc_copy_01_home.html</td>
+        <td>GCSC_copy_01_home.html</td>
         <td><span class="badge badge-red">P1 최우선</span></td>
       </tr>
       <tr>
         <td>/club-introduction</td>
         <td>클럽소개</td>
-        <td>gssc_copy_02_club.html</td>
+        <td>GCSC_copy_02_club.html</td>
         <td><span class="badge badge-red">P1</span></td>
       </tr>
       <tr>
         <td>/program</td>
         <td>육성시스템</td>
-        <td>gssc_copy_03_program.html</td>
+        <td>GCSC_copy_03_program.html</td>
         <td><span class="badge badge-red">P1</span></td>
       </tr>
       <tr>
         <td>/application</td>
         <td>선수모집</td>
-        <td>gssc_copy_04_application.html</td>
+        <td>GCSC_copy_04_application.html</td>
         <td><span class="badge badge-red">P1</span></td>
       </tr>
       <tr>
         <td>/gallery</td>
         <td>갤러리</td>
-        <td>gssc_copy_05_gallery.html</td>
+        <td>GCSC_copy_05_gallery.html</td>
         <td><span class="badge badge-gold">P2</span></td>
       </tr>
       <tr>
         <td>/support</td>
         <td>후원</td>
-        <td>gssc_copy_06_support.html</td>
+        <td>GCSC_copy_06_support.html</td>
         <td><span class="badge badge-gold">P2</span></td>
       </tr>
       <tr>
         <td>/contact</td>
         <td>문의</td>
-        <td>gssc_copy_07_contact.html</td>
+        <td>GCSC_copy_07_contact.html</td>
         <td><span class="badge badge-gold">P2</span></td>
       </tr>
       <tr>
         <td>/roadmap</td>
         <td>커리어 로드맵</td>
-        <td>gssc_copy_08_roadmap.html</td>
+        <td>GCSC_copy_08_roadmap.html</td>
         <td><span class="badge badge-gray">P3</span></td>
       </tr>
       <tr>
         <td>/achievements</td>
         <td>진학현황</td>
-        <td>gssc_copy_09_achievements.html</td>
+        <td>GCSC_copy_09_achievements.html</td>
         <td><span class="badge badge-gray">P3</span></td>
       </tr>
       <tr>
         <td>/schedule</td>
         <td>경기일정</td>
-        <td>gssc_copy_10_schedule.html</td>
+        <td>GCSC_copy_10_schedule.html</td>
         <td><span class="badge badge-gray">P3</span></td>
       </tr>
       <tr>
         <td>/partners</td>
         <td>패밀리사이트</td>
-        <td>gssc_copy_11_partners.html</td>
+        <td>GCSC_copy_11_partners.html</td>
         <td><span class="badge badge-gray">P3</span></td>
       </tr>
     </tbody>
@@ -513,7 +513,7 @@ pre .tag { color: #cc2222; }
     <div class="card-body">
       <strong>모바일 (기본값):</strong><br>
       - 높이 56px, 배경 #000, 상단 fixed<br>
-      - 좌: G.S.S.C 로고 텍스트 (Barlow 800)<br>
+      - 좌: G.C.S.C 로고 텍스트 (Barlow 800)<br>
       - 우: 햄버거 아이콘 버튼 (44×44px 터치 타겟)<br>
       - 탭 시 풀스크린 오버레이 메뉴 (배경 #000, 메뉴 항목 세로 나열)<br>
       - iOS safe-area: <code>padding-top: env(safe-area-inset-top)</code><br><br>
@@ -537,7 +537,7 @@ pre .tag { color: #cc2222; }
       - Eyebrow → 메인 헤드라인 → 서브카피 → CTA 버튼(들) 순서<br>
       - CTA 버튼: 모바일 <code>width:100%</code>, 높이 <code>52px</code>, 배경 #cc2222<br>
       - 헤드라인: <code>clamp(32px, 7vw, 54px)</code> Barlow 800 uppercase<br>
-      - 카피 출처: gssc_copy_01_home.html S1 섹션
+      - 카피 출처: GCSC_copy_01_home.html S1 섹션
     </div>
   </div>
 
@@ -565,7 +565,7 @@ pre .tag { color: #cc2222; }
       <code>grid-template-columns: 56px 1fr</code> — 좌측 타임라인 축 + 우측 카드<br>
       두 트랙 카드를 순서대로 아래로 쌓음 (선수→진학→선수→진학 교대 또는 블록 단위)<br><br>
       <strong>색상:</strong> 선수 트랙 #cc2222 / 진학 트랙 #c49550<br>
-      <strong>참고 파일:</strong> gssc_roadmap_infographic.html (이미 완성된 HTML 참조)
+      <strong>참고 파일:</strong> GCSC_roadmap_infographic.html (이미 완성된 HTML 참조)
     </div>
   </div>
 
@@ -679,7 +679,7 @@ pre .tag { color: #cc2222; }
   <div class="sec-title">모바일 퍼스트 구현 규칙</div>
 
   <div class="sec-desc">
-    상세 내용은 gssc_mobile_guide.html 참조. 여기서는 Claude Code가 즉시 실행할 핵심 규칙만 정리합니다.
+    상세 내용은 GCSC_mobile_guide.html 참조. 여기서는 Claude Code가 즉시 실행할 핵심 규칙만 정리합니다.
   </div>
 
   <div class="sub-heading">작성 순서 — 반드시 이 순서를 지킬 것</div>
@@ -823,14 +823,14 @@ pre .tag { color: #cc2222; }
   <div class="sub-heading">페이지별 메타데이터 (Next.js Metadata API)</div>
   <pre><span class="cm">// src/app/layout.tsx — 기본 메타데이터</span>
 <span class="kw">export const</span> metadata = {
-  title: { default: <span class="str">'서울금천축구클럽 G.S.S.C | 금천구 엘리트 유소년 축구'</span>, template: <span class="str">'%s | G.S.S.C'</span> },
+  title: { default: <span class="str">'서울금천축구클럽 G.C.S.C | 금천구 엘리트 유소년 축구'</span>, template: <span class="str">'%s | G.C.S.C'</span> },
   description: <span class="str">'금천구 유소년 축구클럽. 초등~K4 수직 통합 선수개발. 체계적 엘리트 훈련.'</span>,
   keywords: [<span class="str">'금천구 축구클럽'</span>, <span class="str">'서울 유소년 축구'</span>, <span class="str">'축구 선수 육성'</span>, <span class="str">'K4 진출'</span>, <span class="str">'관악구 축구'</span>],
   openGraph: {
-    title: <span class="str">'서울금천축구클럽 G.S.S.C'</span>,
+    title: <span class="str">'서울금천축구클럽 G.C.S.C'</span>,
     description: <span class="str">'금천구 유소년 축구클럽. 초등~K4 수직 통합 선수개발.'</span>,
     url: <span class="str">'https://geumcheon-fc.vercel.app'</span>,
-    siteName: <span class="str">'G.S.S.C'</span>,
+    siteName: <span class="str">'G.C.S.C'</span>,
     locale: <span class="str">'ko_KR'</span>,
     type: <span class="str">'website'</span>,
   },

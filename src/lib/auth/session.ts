@@ -1,4 +1,4 @@
-import { createHmac, timingSafeEqual } from "crypto";
+﻿import { createHmac, timingSafeEqual } from "crypto";
 import { cookies } from "next/headers";
 
 type AdminSessionPayload = {
@@ -7,7 +7,7 @@ type AdminSessionPayload = {
   exp: number;
 };
 
-const sessionCookieName = "gssc_admin_session";
+const sessionCookieName = "GCSC_admin_session";
 
 function getSessionSecret() {
   return process.env.ADMIN_SESSION_SECRET || "dev-only-admin-session-secret-change-me";

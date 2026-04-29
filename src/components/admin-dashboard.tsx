@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -169,7 +169,7 @@ export default function AdminDashboard() {
           <div className="flex flex-col md:flex-row md:items-stretch">
             <div className="border-b border-[#e8e8e8] pb-4 md:flex md:flex-col md:justify-center md:border-b-0 md:border-r md:pb-0 md:pr-7">
               <p className="font-['Barlow_Condensed',sans-serif] text-[10px] font-bold uppercase tracking-[0.18em] text-[#cc2222]">
-                Since 2015 · G.S.S.C
+                Since 2015 · G.C.S.C
               </p>
               <div className="mt-1.5 font-['Barlow_Condensed',sans-serif] text-[64px] font-black leading-none tracking-[-3px] text-black">
                 {days.toLocaleString()}

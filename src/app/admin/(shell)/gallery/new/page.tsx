@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import AdminGalleryForm from "@/components/admin-gallery-form";
 
-export const metadata: Metadata = { title: "새 갤러리 등록 | G.S.S.C Admin" };
+export const metadata: Metadata = { title: "새 갤러리 등록 | G.C.S.C Admin" };
 
 export default function AdminGalleryNewPage() {
   return (

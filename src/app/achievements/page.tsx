@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import GSSCHeader from "@/components/GSSCHeader";
+﻿import type { Metadata } from "next";
+import GCSCHeader from "@/components/GCSCHeader";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "진학현황 | 서울금천축구클럽 G.S.S.C",
-  description: "G.S.S.C 출신 선수들의 대학 진학, K4 진출, 대회 수상 실적을 확인하세요.",
+  title: "진학현황 | 서울금천축구클럽 G.C.S.C",
+  description: "G.C.S.C 출신 선수들의 대학 진학, K4 진출, 대회 수상 실적을 확인하세요.",
 };
 
 type AchievementRow = {
@@ -55,13 +55,13 @@ const badgeLabel: Record<AchievementRow["category"], string> = {
 export default function AchievementsPage() {
   return (
     <div className="min-h-screen bg-transparent text-[#f5f5f7]">
-      <GSSCHeader />
+      <GCSCHeader />
 
       {/* S1: 히어로 */}
       <section className="border-b border-[#222] py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="font-['Barlow_Condensed',sans-serif] text-sm font-bold uppercase tracking-[0.15em] text-[#cc2222]">
-            Achievements · G.S.S.C · Since 2015
+            Achievements · G.C.S.C · Since 2015
           </p>
           <h1 className="mt-3 font-['Barlow_Condensed',sans-serif] text-[clamp(2.5rem,8vw,4rem)] font-black uppercase leading-[1.0] tracking-tight text-[#f5f5f7]">
             ACHIEVEMENTS
@@ -71,7 +71,7 @@ export default function AchievementsPage() {
             <span className="text-[#cc2222]">데이터로 증명합니다</span>
           </p>
           <p className="mt-4 max-w-2xl text-base leading-[1.7] text-[#c0c0c5]">
-            G.S.S.C 출신 선수들의 대학 진학, K4 진출, 대회 성적 현황.<br className="hidden sm:block" />
+            G.C.S.C 출신 선수들의 대학 진학, K4 진출, 대회 성적 현황.<br className="hidden sm:block" />
             매년 업데이트됩니다.
           </p>
         </div>
@@ -209,7 +209,7 @@ export default function AchievementsPage() {
               당신입니다
             </h2>
             <p className="mt-4 text-sm leading-[1.7] text-white/80">
-              지금 G.S.S.C와 함께 이 기록을 만들어가세요.
+              지금 G.C.S.C와 함께 이 기록을 만들어가세요.
             </p>
             <div className="mt-8">
               <a

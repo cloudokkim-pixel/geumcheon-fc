@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import GSSCHeader from "@/components/GSSCHeader";
+import GCSCHeader from "@/components/GCSCHeader";
 import GalleryDetailContent from "@/components/gallery-detail-content";
 import { getPublicGalleryBySlug } from "@/lib/gallery/store";
 
@@ -19,7 +19,7 @@ export default async function GalleryDetailPage({ params }: GalleryDetailPagePro
 
   return (
     <div className="min-h-screen bg-transparent text-[#f5f5f7]">
-      <GSSCHeader />
+      <GCSCHeader />
       <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
         <GalleryDetailContent item={data.item} previous={data.previous} next={data.next} />
       </main>

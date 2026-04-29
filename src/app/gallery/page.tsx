@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import GSSCHeader from "@/components/GSSCHeader";
+﻿import type { Metadata } from "next";
+import GCSCHeader from "@/components/GCSCHeader";
 import Footer from "@/components/Footer";
 import GalleryPageContent from "@/components/gallery-page-content";
 import { parseAgeGroup, parseCategory, parsePositiveNumber } from "@/lib/gallery/api";
@@ -15,7 +15,7 @@ type GalleryPageProps = {
 };
 
 export const metadata: Metadata = {
-  title: "갤러리 | 서울금천축구클럽 G.S.S.C",
+  title: "갤러리 | 서울금천축구클럽 G.C.S.C",
   description: "금천축구클럽의 훈련, 경기, 행사, 기타 기록을 한 곳에서 모아볼 수 있는 갤러리입니다.",
 };
 
@@ -34,12 +34,12 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
 
   return (
     <div className="min-h-screen bg-transparent text-[#f5f5f7]">
-      <GSSCHeader />
+      <GCSCHeader />
 
       <section className="border-b border-[#222] py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="font-['Barlow_Condensed',sans-serif] text-sm font-bold uppercase tracking-[0.15em] text-[#cc2222]">
-            Gallery · G.S.S.C
+            Gallery · G.C.S.C
           </p>
           <h1 className="mt-3 font-['Barlow_Condensed',sans-serif] text-[clamp(2.5rem,8vw,4rem)] font-black uppercase leading-[1.0] tracking-tight text-[#f5f5f7]">
             GALLERY

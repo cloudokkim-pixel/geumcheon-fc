@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { listAdminGalleries } from "@/lib/gallery/store";
 import { getGalleryCategoryLabel } from "@/lib/gallery/mock-data";
 
-export const metadata: Metadata = { title: "갤러리 관리 | G.S.S.C Admin" };
+export const metadata: Metadata = { title: "갤러리 관리 | G.C.S.C Admin" };
 
 const STATUS_LABELS: Record<string, string> = {
   published: "공개",

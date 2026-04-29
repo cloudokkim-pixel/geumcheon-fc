@@ -1,4 +1,4 @@
-# G.S.S.C 홈페이지 개발 지시서
+﻿# G.C.S.C 홈페이지 개발 지시서
 > 서울금천축구클럽 (Geumcheon Sport Social Coop) · geumcheon-fc.vercel.app
 
 ---
@@ -7,7 +7,7 @@
 
 1. **모바일 퍼스트.** 모든 컴포넌트는 375px(모바일) 기준으로 먼저 구현하고 데스크탑으로 확장한다.
 2. **`max-width` 미디어 쿼리 사용 금지.** `min-width` 기반 작성만 허용.
-3. **카피 임의 수정 금지.** 모든 텍스트는 카피라이팅 파일(gssc_copy_0*.html)에서 가져온다.
+3. **카피 임의 수정 금지.** 모든 텍스트는 카피라이팅 파일(GCSC_copy_0*.html)에서 가져온다.
 4. **사업자등록번호 `123-12-12345` 는 임시값.** 배포 전 실제 번호로 교체 필수.
 
 ---
@@ -16,7 +16,7 @@
 
 | 항목 | 내용 |
 |------|------|
-| 클라이언트 | 서울금천축구클럽 G.S.S.C |
+| 클라이언트 | 서울금천축구클럽 G.C.S.C |
 | 대표 | 천경필 / 010-4178-0207 |
 | 훈련장 | 서울특별시 관악구 조원로 56 |
 | 사이트 | https://geumcheon-fc.vercel.app |
@@ -100,17 +100,17 @@ src/
 
 | 라우트 | 페이지 | 카피 파일 | 우선순위 |
 |--------|--------|-----------|----------|
-| `/` | 홈 | gssc_copy_01_home.html | P1 |
-| `/club-introduction` | 클럽소개 | gssc_copy_02_club.html | P1 |
-| `/program` | 육성시스템 | gssc_copy_03_program.html | P1 |
-| `/application` | 선수모집 | gssc_copy_04_application.html | P1 |
-| `/gallery` | 갤러리 | gssc_copy_05_gallery.html | P2 |
-| `/support` | 후원 | gssc_copy_06_support.html | P2 |
-| `/contact` | 문의 | gssc_copy_07_contact.html | P2 |
-| `/roadmap` | 커리어 로드맵 | gssc_copy_08_roadmap.html | P3 |
-| `/achievements` | 진학현황 | gssc_copy_09_achievements.html | P3 |
-| `/schedule` | 경기일정 | gssc_copy_10_schedule.html | P3 |
-| `/partners` | 패밀리사이트 | gssc_copy_11_partners.html | P3 |
+| `/` | 홈 | GCSC_copy_01_home.html | P1 |
+| `/club-introduction` | 클럽소개 | GCSC_copy_02_club.html | P1 |
+| `/program` | 육성시스템 | GCSC_copy_03_program.html | P1 |
+| `/application` | 선수모집 | GCSC_copy_04_application.html | P1 |
+| `/gallery` | 갤러리 | GCSC_copy_05_gallery.html | P2 |
+| `/support` | 후원 | GCSC_copy_06_support.html | P2 |
+| `/contact` | 문의 | GCSC_copy_07_contact.html | P2 |
+| `/roadmap` | 커리어 로드맵 | GCSC_copy_08_roadmap.html | P3 |
+| `/achievements` | 진학현황 | GCSC_copy_09_achievements.html | P3 |
+| `/schedule` | 경기일정 | GCSC_copy_10_schedule.html | P3 |
+| `/partners` | 패밀리사이트 | GCSC_copy_11_partners.html | P3 |
 
 ---
 
@@ -138,7 +138,7 @@ gap: 12px → 24px;
 - 데스크탑: `grid-template-columns: 1fr 80px 1fr` (중앙 타임라인, 좌/우 트랙)
 - 모바일: `grid-template-columns: 56px 1fr` (세로 단일 컬럼)
 - 선수 트랙 `#cc2222` / 진학 트랙 `#c49550`
-- 참조: `gssc_roadmap_infographic.html`
+- 참조: `GCSC_roadmap_infographic.html`
 
 ### 선수모집 신청 폼
 - 필드 높이: 48px
@@ -230,13 +230,13 @@ NOTION_DB_GALLERY=
 ```typescript
 export const metadata = {
   title: {
-    default: '서울금천축구클럽 G.S.S.C | 금천구 엘리트 유소년 축구',
-    template: '%s | G.S.S.C',
+    default: '서울금천축구클럽 G.C.S.C | 금천구 엘리트 유소년 축구',
+    template: '%s | G.C.S.C',
   },
   description: '금천구 유소년 축구클럽. 초등~K4 수직 통합 선수개발. 체계적 엘리트 훈련.',
   keywords: ['금천구 축구클럽', '서울 유소년 축구', '축구 선수 육성', 'K4 진출', '관악구 축구'],
   openGraph: {
-    title: '서울금천축구클럽 G.S.S.C',
+    title: '서울금천축구클럽 G.C.S.C',
     url: 'https://geumcheon-fc.vercel.app',
     locale: 'ko_KR',
     type: 'website',

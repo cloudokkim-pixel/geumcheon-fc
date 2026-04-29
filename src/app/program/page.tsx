@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
-import GSSCHeader from "@/components/GSSCHeader";
+import GCSCHeader from "@/components/GCSCHeader";
 import Footer from "@/components/Footer";
 import { useSiteLanguage, type Locale } from "@/components/site-language";
 
@@ -40,9 +40,9 @@ type ProgramCopy = {
 
 const copy: Record<Locale, ProgramCopy> = {
   ko: {
-    heroLabel: "Training System · G.S.S.C",
+    heroLabel: "Training System · G.C.S.C",
     heroTitle: ["훈련부터 진학까지,", "단계별 육성 시스템"],
-    heroSub: "초등부부터 고등까지, 연령별로 다른 기준으로 훈련합니다.\nG.S.S.C의 플레이북은 선수가 아닌 시스템이 성장을 보장합니다.",
+    heroSub: "초등부부터 고등까지, 연령별로 다른 기준으로 훈련합니다.\nG.C.S.C의 플레이북은 선수가 아닌 시스템이 성장을 보장합니다.",
     ageLabel: "연령별 단계",
     ageGroups: [
       {
@@ -79,7 +79,7 @@ const copy: Record<Locale, ProgramCopy> = {
           evalLabel: "평가 기준",
           evaluation: "기술 완성도 70% · 전술 이해도 30%. 주말리그 실전 경험 병행.",
           nextLabel: "다음 단계",
-          next: "고등부 진급 또는 학교 축구부 연계 선택. G.S.S.C가 진로 옵션 함께 설계.",
+          next: "고등부 진급 또는 학교 축구부 연계 선택. G.C.S.C가 진로 옵션 함께 설계.",
         },
         schedule: [
           { day: "월", time: "17:00–19:00", content: "기본기 훈련" },
@@ -123,7 +123,7 @@ const copy: Record<Locale, ProgramCopy> = {
           evalLabel: "지원 내용",
           evaluation: "이적 상담, 에이전트 연결, 해외 진출 루트 상담 포함.",
           nextLabel: "입단 조건",
-          next: "G.S.S.C 선수단 출신 우선. 외부 선수도 테스트 후 선발.",
+          next: "G.C.S.C 선수단 출신 우선. 외부 선수도 테스트 후 선발.",
         },
         schedule: [
           { day: "월", time: "20:00–22:00", content: "전술 + 볼" },
@@ -134,15 +134,15 @@ const copy: Record<Locale, ProgramCopy> = {
         ],
       },
     ],
-    programLabel: "Training Program · G.S.S.C",
-    programTitle: ["G.S.S.C가 훈련하는", "4가지 방식"],
+    programLabel: "Training Program · G.C.S.C",
+    programTitle: ["G.C.S.C가 훈련하는", "4가지 방식"],
     programs: [
       { num: "01", title: "기본기 훈련", body: "볼 컨트롤, 패스, 퍼스트 터치, 방향 전환. 화려한 기술보다 정확한 기본기가 먼저입니다." },
       { num: "02", title: "전술 · 수비", body: "팀 전술, 수비 조직, 공간 이해. 혼자 뛰는 선수가 아닌, 팀을 이기게 하는 선수를 만듭니다." },
       { num: "03", title: "피지컬 강화", body: "스피드, 민첩성, 코어 훈련. 기술을 경기에서 실행하는 몸 상태를 만듭니다." },
       { num: "04", title: "진학 컨설팅", body: "목표 대학 설계, 진학 루트 상담, 포트폴리오 준비. 가르치기만 하는 클럽이 아닙니다." },
     ],
-    playbookLabel: "G.S.S.C Playbook — 단계별 육성 원칙",
+    playbookLabel: "G.C.S.C Playbook — 단계별 육성 원칙",
     playbookTitle: "우리는 언제 무엇을 가르치는가",
     playbook: [
       {
@@ -156,16 +156,16 @@ const copy: Record<Locale, ProgramCopy> = {
         desc: "기본기가 완성된 선수에게는 실전이 필요합니다. 경기에서 이기는 방법을 함께 고민합니다.",
       },
     ],
-    scheduleLabel: "Weekly Schedule · G.S.S.C",
+    scheduleLabel: "Weekly Schedule · G.C.S.C",
     scheduleNote: "※ 실제 훈련 시간·요일은 시즌에 따라 변경될 수 있습니다. 정확한 일정은 문의해주세요.",
     ctaTitle: ["이 시스템 안에서", "성장할 준비가 됐나요?"],
     ctaSub: "지금 바로 선수 모집 신청을 시작하세요.",
     ctaBtn: "선수 모집 신청",
   },
   en: {
-    heroLabel: "Training System · G.S.S.C",
+    heroLabel: "Training System · G.C.S.C",
     heroTitle: ["From training to career path,", "a stage-by-stage development system"],
-    heroSub: "Different standards for every age group — elementary through high school.\nG.S.S.C's playbook ensures it's the system, not individuals, that guarantees growth.",
+    heroSub: "Different standards for every age group — elementary through high school.\nG.C.S.C's playbook ensures it's the system, not individuals, that guarantees growth.",
     ageLabel: "Age Groups",
     ageGroups: [
       {
@@ -202,7 +202,7 @@ const copy: Record<Locale, ProgramCopy> = {
           evalLabel: "Evaluation",
           evaluation: "Technical completion 70% · Tactical understanding 30%. Weekend league match experience included.",
           nextLabel: "Next Stage",
-          next: "Progression to high school group or school football team connection. G.S.S.C designs pathway options together.",
+          next: "Progression to high school group or school football team connection. G.C.S.C designs pathway options together.",
         },
         schedule: [
           { day: "Mon", time: "5:00–7:00 PM", content: "Fundamentals" },
@@ -246,7 +246,7 @@ const copy: Record<Locale, ProgramCopy> = {
           evalLabel: "Support",
           evaluation: "Transfer consulting, agent connections, overseas pathway consulting included.",
           nextLabel: "Admission",
-          next: "G.S.S.C alumni prioritized. External players accepted after tryout.",
+          next: "G.C.S.C alumni prioritized. External players accepted after tryout.",
         },
         schedule: [
           { day: "Mon", time: "8:00–10:00 PM", content: "Tactics + Ball" },
@@ -257,15 +257,15 @@ const copy: Record<Locale, ProgramCopy> = {
         ],
       },
     ],
-    programLabel: "Training Program · G.S.S.C",
-    programTitle: ["Four ways", "G.S.S.C trains"],
+    programLabel: "Training Program · G.C.S.C",
+    programTitle: ["Four ways", "G.C.S.C trains"],
     programs: [
       { num: "01", title: "Fundamentals", body: "Ball control, passing, first touch, directional change. Precise fundamentals come before flashy technique." },
       { num: "02", title: "Tactics & Defence", body: "Team tactics, defensive organisation, spatial awareness. We build players who make their team win, not just individuals." },
       { num: "03", title: "Physical Conditioning", body: "Speed, agility, and core training. We build the physical state that allows technique to be executed in matches." },
       { num: "04", title: "Career Consulting", body: "University pathway design, route consulting, portfolio preparation. We're not just a club that teaches." },
     ],
-    playbookLabel: "G.S.S.C Playbook — Stage-based development principles",
+    playbookLabel: "G.C.S.C Playbook — Stage-based development principles",
     playbookTitle: "When and what do we teach",
     playbook: [
       {
@@ -279,16 +279,16 @@ const copy: Record<Locale, ProgramCopy> = {
         desc: "Players who have mastered fundamentals need real matches. We figure out how to win games together.",
       },
     ],
-    scheduleLabel: "Weekly Schedule · G.S.S.C",
+    scheduleLabel: "Weekly Schedule · G.C.S.C",
     scheduleNote: "※ Actual training times and days may change by season. Contact us for accurate schedules.",
     ctaTitle: ["Ready to grow", "within this system?"],
     ctaSub: "Start your player application right now.",
     ctaBtn: "Apply Now",
   },
   ja: {
-    heroLabel: "Training System · G.S.S.C",
+    heroLabel: "Training System · G.C.S.C",
     heroTitle: ["トレーニングから進路まで、", "段階別育成システム"],
-    heroSub: "小学生から高校生まで、年代ごとに異なる基準でトレーニングします。\nG.S.S.Cのプレイブックは、個人ではなくシステムが成長を保証します。",
+    heroSub: "小学生から高校生まで、年代ごとに異なる基準でトレーニングします。\nG.C.S.Cのプレイブックは、個人ではなくシステムが成長を保証します。",
     ageLabel: "年代別ステージ",
     ageGroups: [
       {
@@ -325,7 +325,7 @@ const copy: Record<Locale, ProgramCopy> = {
           evalLabel: "評価基準",
           evaluation: "技術完成度 70% · 戦術理解度 30%。週末リーグ実戦経験も実施。",
           nextLabel: "次のステージ",
-          next: "高校部進級または学校サッカー部との連携を選択。G.S.S.Cが進路オプションを共に設計。",
+          next: "高校部進級または学校サッカー部との連携を選択。G.C.S.Cが進路オプションを共に設計。",
         },
         schedule: [
           { day: "月", time: "17:00–19:00", content: "基礎技術トレーニング" },
@@ -369,7 +369,7 @@ const copy: Record<Locale, ProgramCopy> = {
           evalLabel: "サポート内容",
           evaluation: "移籍相談、エージェント紹介、海外進出ルート相談含む。",
           nextLabel: "入団条件",
-          next: "G.S.S.C選手団出身者優先。外部選手はテスト後に選抜。",
+          next: "G.C.S.C選手団出身者優先。外部選手はテスト後に選抜。",
         },
         schedule: [
           { day: "月", time: "20:00–22:00", content: "戦術 + ボール" },
@@ -380,15 +380,15 @@ const copy: Record<Locale, ProgramCopy> = {
         ],
       },
     ],
-    programLabel: "Training Program · G.S.S.C",
-    programTitle: ["G.S.S.Cが訓練する", "4つの方法"],
+    programLabel: "Training Program · G.C.S.C",
+    programTitle: ["G.C.S.Cが訓練する", "4つの方法"],
     programs: [
       { num: "01", title: "基礎技術トレーニング", body: "ボールコントロール、パス、ファーストタッチ、方向転換。華やかな技より正確な基礎が先です。" },
       { num: "02", title: "戦術 · 守備", body: "チーム戦術、守備組織、空間理解。個人だけでなく、チームを勝たせる選手を育てます。" },
       { num: "03", title: "フィジカル強化", body: "スピード、敏捷性、コアトレーニング。技術を試合で実行できる身体状態を作ります。" },
       { num: "04", title: "進路コンサルティング", body: "目標大学設計、進路ルート相談、ポートフォリオ準備。教えるだけのクラブではありません。" },
     ],
-    playbookLabel: "G.S.S.C Playbook — 段階別育成原則",
+    playbookLabel: "G.C.S.C Playbook — 段階別育成原則",
     playbookTitle: "いつ何を教えるか",
     playbook: [
       {
@@ -402,16 +402,16 @@ const copy: Record<Locale, ProgramCopy> = {
         desc: "基礎が完成した選手には実戦が必要です。試合に勝つ方法を一緒に考えます。",
       },
     ],
-    scheduleLabel: "Weekly Schedule · G.S.S.C",
+    scheduleLabel: "Weekly Schedule · G.C.S.C",
     scheduleNote: "※ 実際のトレーニング時間・曜日はシーズンによって変更される場合があります。正確な日程はお問い合わせください。",
     ctaTitle: ["このシステムの中で", "成長する準備はできていますか？"],
     ctaSub: "今すぐ選手募集の申し込みを始めてください。",
     ctaBtn: "選手募集申し込み",
   },
   zh: {
-    heroLabel: "Training System · G.S.S.C",
+    heroLabel: "Training System · G.C.S.C",
     heroTitle: ["从训练到升学，", "阶段式培养体系"],
-    heroSub: "从小学到高中，每个年龄段有不同的训练标准。\nG.S.S.C的战术手册确保是系统而非个人来保障成长。",
+    heroSub: "从小学到高中，每个年龄段有不同的训练标准。\nG.C.S.C的战术手册确保是系统而非个人来保障成长。",
     ageLabel: "年龄段阶段",
     ageGroups: [
       {
@@ -448,7 +448,7 @@ const copy: Record<Locale, ProgramCopy> = {
           evalLabel: "评估标准",
           evaluation: "技术完成度 70% · 战术理解度 30%。同时参加周末联赛实战。",
           nextLabel: "下一阶段",
-          next: "晋升高中部或衔接学校足球队。G.S.S.C共同设计升学选项。",
+          next: "晋升高中部或衔接学校足球队。G.C.S.C共同设计升学选项。",
         },
         schedule: [
           { day: "周一", time: "17:00–19:00", content: "基础技术训练" },
@@ -492,7 +492,7 @@ const copy: Record<Locale, ProgramCopy> = {
           evalLabel: "支持内容",
           evaluation: "转会咨询、经纪人对接、海外发展路线咨询。",
           nextLabel: "入团条件",
-          next: "G.S.S.C选手团出身优先。外部球员测试后择优录取。",
+          next: "G.C.S.C选手团出身优先。外部球员测试后择优录取。",
         },
         schedule: [
           { day: "周一", time: "20:00–22:00", content: "战术 + 球技" },
@@ -503,15 +503,15 @@ const copy: Record<Locale, ProgramCopy> = {
         ],
       },
     ],
-    programLabel: "Training Program · G.S.S.C",
-    programTitle: ["G.S.S.C训练的", "四种方式"],
+    programLabel: "Training Program · G.C.S.C",
+    programTitle: ["G.C.S.C训练的", "四种方式"],
     programs: [
       { num: "01", title: "基础技术训练", body: "控球、传球、第一脚触球、变向。精准的基础技术先于华丽的技巧。" },
       { num: "02", title: "战术 · 防守", body: "团队战术、防守组织、空间理解。培养让球队获胜的球员，而非单打独斗。" },
       { num: "03", title: "体能强化", body: "速度、敏捷性、核心训练。打造能在比赛中实现技术的身体状态。" },
       { num: "04", title: "升学咨询", body: "目标大学规划、升学路线咨询、个人档案准备。我们不只是一个教学的俱乐部。" },
     ],
-    playbookLabel: "G.S.S.C Playbook — 阶段式培养原则",
+    playbookLabel: "G.C.S.C Playbook — 阶段式培养原则",
     playbookTitle: "我们何时教什么",
     playbook: [
       {
@@ -525,7 +525,7 @@ const copy: Record<Locale, ProgramCopy> = {
         desc: "基础完善的球员需要实战。我们一起研究如何赢得比赛。",
       },
     ],
-    scheduleLabel: "Weekly Schedule · G.S.S.C",
+    scheduleLabel: "Weekly Schedule · G.C.S.C",
     scheduleNote: "※ 实际训练时间与日期可能因赛季而调整。准确时间请联系我们。",
     ctaTitle: ["准备好在这个系统中", "成长了吗？"],
     ctaSub: "立即开始球员招募申请。",
@@ -542,7 +542,7 @@ export default function ProgramPage() {
 
   return (
     <div className="min-h-screen bg-transparent text-[#f5f5f7]">
-      <GSSCHeader />
+      <GCSCHeader />
 
       {/* ── S1 Hero ── */}
       <section className="border-b border-[#222] py-16 sm:py-24">
@@ -651,7 +651,7 @@ export default function ProgramPage() {
         </div>
       </section>
 
-      {/* ── S4 G.S.S.C Playbook ── */}
+      {/* ── S4 G.C.S.C Playbook ── */}
       <section className="border-b border-[#222] py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-[4px] border-l-[3px] border-[#cc2222] bg-[#1a0808] px-6 py-6 sm:px-8 sm:py-8">

@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import React from "react";
-import GSSCHeader from "@/components/GSSCHeader";
+import GCSCHeader from "@/components/GCSCHeader";
 import Footer from "@/components/Footer";
 import { CheckCircle, FileCheck, Landmark, Megaphone, Users } from "lucide-react";
 
@@ -109,13 +109,13 @@ export default function SupportPage() {
 
   return (
     <div className="min-h-screen bg-transparent text-[#f5f5f7]">
-      <GSSCHeader />
+      <GCSCHeader />
 
       {/* S1: 히어로 */}
       <section className="border-b border-[#222] py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="font-['Barlow_Condensed',sans-serif] text-sm font-bold uppercase tracking-[0.15em] text-[#cc2222]">
-            Support · G.S.S.C · Since 2015
+            Support · G.C.S.C · Since 2015
           </p>
           <h1 className="mt-3 font-['Barlow_Condensed',sans-serif] text-[clamp(2.5rem,8vw,4rem)] font-black leading-[1.05] tracking-tight text-[#f5f5f7]">
             선수의 꿈을 함께<br />
@@ -138,7 +138,7 @@ export default function SupportPage() {
             지역 사회 기여와<br />브랜드 가치를 동시에
           </h2>
           <p className="mt-5 max-w-3xl text-sm leading-[1.9] text-[#a1a1a6]">
-            G.S.S.C는 서울 서남권을 기반으로 10년 넘게 운영 중인 진정한 축구 클럽입니다. G밸리 인근 기업의 ESG 활동과 지역 스포츠 후원을 연결하는 가장 현실적인 파트너입니다. 후원금은 기부금으로 처리돼 세금 혜택도 받으실 수 있습니다.
+            G.C.S.C는 서울 서남권을 기반으로 10년 넘게 운영 중인 진정한 축구 클럽입니다. G밸리 인근 기업의 ESG 활동과 지역 스포츠 후원을 연결하는 가장 현실적인 파트너입니다. 후원금은 기부금으로 처리돼 세금 혜택도 받으실 수 있습니다.
           </p>
           <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-5">
             {[

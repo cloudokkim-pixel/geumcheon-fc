@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AdminGalleryForm from "@/components/admin-gallery-form";
 import { getAdminGalleryById } from "@/lib/gallery/store";
 
-export const metadata: Metadata = { title: "갤러리 수정 | G.S.S.C Admin" };
+export const metadata: Metadata = { title: "갤러리 수정 | G.C.S.C Admin" };
 
 type Props = { params: { id: string } };
 

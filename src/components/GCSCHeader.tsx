@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -14,7 +14,7 @@ const localeFlags = {
   zh: { src: "https://flagcdn.com/w40/cn.png", alt: "China flag" },
 } as const;
 
-export default function GSSCHeader() {
+export default function GCSCHeader() {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [localeOpen, setLocaleOpen] = React.useState(false);
   const { locale, setLocale, locales, dictionary } = useSiteLanguage();

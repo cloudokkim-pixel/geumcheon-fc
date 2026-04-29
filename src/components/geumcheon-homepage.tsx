@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import { useSiteLanguage } from "./site-language";
 import HomeGalleryPreview from "./home-gallery-preview";
-import GSSCHeader from "./GSSCHeader";
+import GCSCHeader from "./GCSCHeader";
 import Footer from "./Footer";
 
 export default function GeumcheonHomepage() {
@@ -13,7 +13,7 @@ export default function GeumcheonHomepage() {
 
   return (
     <>
-      <GSSCHeader />
+      <GCSCHeader />
       <div className="min-h-screen overflow-x-hidden bg-transparent text-[#f5f5f7]">
 
       {/* ── S2 히어로 ── */}

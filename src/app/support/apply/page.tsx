@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import React from "react";
-import GSSCHeader from "@/components/GSSCHeader";
+import GCSCHeader from "@/components/GCSCHeader";
 import Footer from "@/components/Footer";
 import { useSiteLanguage, type Locale } from "@/components/site-language";
 import { CheckCircle } from "lucide-react";
@@ -168,7 +168,7 @@ export default function SupportApplyPage() {
 
   return (
     <div className="min-h-screen bg-transparent text-[#f5f5f7]">
-      <GSSCHeader />
+      <GCSCHeader />
 
       <section className="border-b border-[#222] py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

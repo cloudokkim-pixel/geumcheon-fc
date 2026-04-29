@@ -1,9 +1,9 @@
-"use client";
+﻿"use client";
 
 import { FormEvent, Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const ADMIN_USERNAME_STORAGE_KEY = "gssc_admin_username";
+const ADMIN_USERNAME_STORAGE_KEY = "GCSC_admin_username";
 
 function AdminLoginContent() {
   const router = useRouter();

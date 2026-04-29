@@ -1,5 +1,5 @@
-import React from "react";
-import GSSCHeader from "../../components/GSSCHeader";
+﻿import React from "react";
+import GCSCHeader from "../../components/GCSCHeader";
 
 const gallerySections = [
   {
@@ -37,7 +37,7 @@ const gallerySections = [
 export default function GallerySectionsPage() {
   return (
     <div className="min-h-screen bg-transparent text-[#f5f5f7]">
-      <GSSCHeader />
+      <GCSCHeader />
       <div className="mt-6 flex flex-col items-center justify-center px-6">
         <h1 className="mb-8 text-3xl font-bold text-[#f5f5f7]">훈련 갤러리 섹션</h1>
         <div className="grid w-full max-w-5xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">

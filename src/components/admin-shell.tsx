@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
@@ -111,7 +111,7 @@ export default function AdminShell({ username, children }: Props) {
             서울금천축구클럽
           </span>
           <span className="mt-0.5 block font-['Barlow_Condensed',sans-serif] text-[9px] font-bold uppercase tracking-[0.14em] text-[#888]">
-            G.S.S.C
+            G.C.S.C
           </span>
         </div>
         <div className="flex shrink-0 items-center gap-2.5">
@@ -155,7 +155,7 @@ export default function AdminShell({ username, children }: Props) {
             로그아웃
           </button>
           <p className="text-center font-['Barlow_Condensed',sans-serif] text-[9px] font-bold uppercase tracking-[0.14em] text-[#bbb]">
-            G.S.S.C Admin v1.0
+            G.C.S.C Admin v1.0
           </p>
         </div>
       </aside>

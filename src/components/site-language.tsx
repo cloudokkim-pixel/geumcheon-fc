@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 
@@ -84,11 +84,11 @@ const localeOptions: LocaleOption[] = [
 
 const dictionaries: Record<Locale, SiteDictionary> = {
   ko: {
-    metaTitle: "서울금천축구클럽 G.S.S.C | 금천구 엘리트 유소년 축구",
+    metaTitle: "서울금천축구클럽 G.C.S.C | 금천구 엘리트 유소년 축구",
     metaDescription: "금천구 유소년 축구클럽. 초등~K4 수직 통합 선수개발. 체계적 엘리트 훈련.",
     header: {
       clubName: "서울금천축구클럽",
-      clubNameEn: "G.S.S.C",
+      clubNameEn: "G.C.S.C",
       nav: [
         { href: "/club-introduction", label: "클럽소개" },
         { href: "/program", label: "육성시스템" },
@@ -109,7 +109,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       languageLabel: "언어 선택",
     },
     home: {
-      heroLabel: "Since 2015 · G.S.S.C",
+      heroLabel: "Since 2015 · G.C.S.C",
       heroLine1: "훈련부터 진학까지",
       heroLine2: "GEUMCHEON",
       heroLine3: "SOCCER CLUB",
@@ -122,7 +122,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         { num: "주 5회", label: "정규 훈련", sub: "실내 · 실외 병행" },
         { num: "K4", label: "리그 연계", sub: "성인 무대 직결 파이프라인" },
       ],
-      pipelineLabel: "Pipeline · G.S.S.C",
+      pipelineLabel: "Pipeline · G.C.S.C",
       pipelineLine1: "첫 번째 공부터",
       pipelineLine2: "마지막 계약서까지",
       pipelineDesc: "하나의 시스템으로 연결된 선수의 길.",
@@ -134,7 +134,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         { age: "그 다음", name: "프로 / 대학", point: "최종 목적지", sepia: true },
       ],
       pipelineCta: "커리어 로드맵 자세히 보기",
-      identityLabel: "Club Identity · G.S.S.C",
+      identityLabel: "Club Identity · G.C.S.C",
       identityTitle1: "축구 학원이 아니라",
       identityTitle2: "축구 매니지먼트 클럽",
       identityDesc: "훈련에서 끝나지 않습니다. 선수의 커리어 전체를 설계하고, 끝까지 책임집니다.",
@@ -144,7 +144,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         { num: "03", title: "재능을 낭비하지 않는다", body: "상위 1%가 아닌 상위 20~40%의 선수들. 시스템이 없어서 묻히는 재능을 발굴하고 키웁니다." },
       ],
       identityCta: "클럽 소개 자세히 보기",
-      trainingLabel: "Training System · G.S.S.C",
+      trainingLabel: "Training System · G.C.S.C",
       trainingTitle1: "단계별로 설계된",
       trainingTitle2: "육성 시스템",
       trainingDesc: "기본기부터 전술, 피지컬, 진학 연계까지. 연령별로 다른 기준으로 훈련합니다.",
@@ -159,24 +159,24 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       recruitDesc: "초등부 · 중등부 · 고등부 · 성인부 — 전 연령 모집 중",
       recruitButton: "선수 모집 신청",
       recruitPhone: "010-4178-0207",
-      galleryLabel: "Gallery · G.S.S.C",
+      galleryLabel: "Gallery · G.C.S.C",
       galleryTitle1: "현장의",
       galleryTitle2: "기록",
       galleryCta: "전체 갤러리 보기",
       promiseLabel: "Club Promise · Since 2015",
       promiseLine1: "첫 번째 공부터",
       promiseLine2: "마지막 계약서까지,",
-      promiseLine3: "G.S.S.C가 함께합니다",
+      promiseLine3: "G.C.S.C가 함께합니다",
       promiseDesc: "입단부터 프로 계약까지. 선수의 모든 단계를 클럽이 함께 설계하고 책임집니다.",
     },
   },
 
   en: {
-    metaTitle: "Geumcheon Soccer Club G.S.S.C | Elite Youth Soccer",
+    metaTitle: "Geumcheon Soccer Club G.C.S.C | Elite Youth Soccer",
     metaDescription: "Youth soccer club in Seoul. Integrated player development from elementary to K4.",
     header: {
       clubName: "Geumcheon Soccer Club",
-      clubNameEn: "G.S.S.C",
+      clubNameEn: "G.C.S.C",
       nav: [
         { href: "/club-introduction", label: "About" },
         { href: "/program", label: "Program" },
@@ -197,7 +197,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       languageLabel: "Select language",
     },
     home: {
-      heroLabel: "Since 2015 · G.S.S.C",
+      heroLabel: "Since 2015 · G.C.S.C",
       heroLine1: "From Training to Career",
       heroLine2: "GEUMCHEON",
       heroLine3: "SOCCER CLUB",
@@ -210,7 +210,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         { num: "5×/Week", label: "Regular Training", sub: "Indoor & outdoor" },
         { num: "K4", label: "League Track", sub: "Direct pipeline to adult football" },
       ],
-      pipelineLabel: "Pipeline · G.S.S.C",
+      pipelineLabel: "Pipeline · G.C.S.C",
       pipelineLine1: "From the First Ball",
       pipelineLine2: "to the Last Contract",
       pipelineDesc: "One connected system for the player's entire career.",
@@ -222,7 +222,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         { age: "Next", name: "Pro / University", point: "Final destination", sepia: true },
       ],
       pipelineCta: "View Career Roadmap",
-      identityLabel: "Club Identity · G.S.S.C",
+      identityLabel: "Club Identity · G.C.S.C",
       identityTitle1: "Not a Soccer Academy —",
       identityTitle2: "A Soccer Management Club",
       identityDesc: "We don't stop at training. We design the entire career of every player and see it through.",
@@ -232,7 +232,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         { num: "03", title: "No wasted talent", body: "Not just the top 1% — the top 20–40%. We find and develop talent that gets buried without a system." },
       ],
       identityCta: "About the Club",
-      trainingLabel: "Training System · G.S.S.C",
+      trainingLabel: "Training System · G.C.S.C",
       trainingTitle1: "A System Designed",
       trainingTitle2: "for Every Stage",
       trainingDesc: "From fundamentals to tactics, physical training, and pathway consulting — different standards for each age group.",
@@ -247,24 +247,24 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       recruitDesc: "Elementary · Middle · High · Adult — All ages currently recruiting",
       recruitButton: "Apply to Join",
       recruitPhone: "010-4178-0207",
-      galleryLabel: "Gallery · G.S.S.C",
+      galleryLabel: "Gallery · G.C.S.C",
       galleryTitle1: "On the",
       galleryTitle2: "Ground",
       galleryCta: "View Full Gallery",
       promiseLabel: "Club Promise · Since 2015",
       promiseLine1: "From the First Ball",
       promiseLine2: "to the Last Contract,",
-      promiseLine3: "G.S.S.C is with you.",
+      promiseLine3: "G.C.S.C is with you.",
       promiseDesc: "From joining to a professional contract — the club designs and owns every step of the player's journey.",
     },
   },
 
   ja: {
-    metaTitle: "金泉サッカークラブ G.S.S.C | エリートユース育成",
+    metaTitle: "金泉サッカークラブ G.C.S.C | エリートユース育成",
     metaDescription: "ソウルの少年サッカークラブ。小学生からK4まで一貫した選手育成。",
     header: {
       clubName: "金泉サッカークラブ",
-      clubNameEn: "G.S.S.C",
+      clubNameEn: "G.C.S.C",
       nav: [
         { href: "/club-introduction", label: "クラブ紹介" },
         { href: "/program", label: "育成システム" },
@@ -285,7 +285,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       languageLabel: "言語選択",
     },
     home: {
-      heroLabel: "Since 2015 · G.S.S.C",
+      heroLabel: "Since 2015 · G.C.S.C",
       heroLine1: "トレーニングから進学まで",
       heroLine2: "GEUMCHEON",
       heroLine3: "SOCCER CLUB",
@@ -298,7 +298,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         { num: "週5回", label: "定期練習", sub: "室内・室外併用" },
         { num: "K4", label: "リーグ連携", sub: "成人舞台への直結パイプライン" },
       ],
-      pipelineLabel: "Pipeline · G.S.S.C",
+      pipelineLabel: "Pipeline · G.C.S.C",
       pipelineLine1: "最初のボールから",
       pipelineLine2: "最後の契約書まで",
       pipelineDesc: "ひとつのシステムでつながる選手の道。",
@@ -310,7 +310,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         { age: "その先", name: "プロ / 大学", point: "最終目的地", sepia: true },
       ],
       pipelineCta: "キャリアロードマップを見る",
-      identityLabel: "Club Identity · G.S.S.C",
+      identityLabel: "Club Identity · G.C.S.C",
       identityTitle1: "サッカー塾ではなく、",
       identityTitle2: "サッカーマネジメントクラブ",
       identityDesc: "トレーニングで終わりません。選手のキャリア全体を設計し、最後まで責任を持ちます。",
@@ -320,7 +320,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         { num: "03", title: "才能を無駄にしない", body: "上位1%だけでなく、上位20〜40%の選手たち。システムがなくて埋もれる才能を発掘します。" },
       ],
       identityCta: "クラブ紹介を見る",
-      trainingLabel: "Training System · G.S.S.C",
+      trainingLabel: "Training System · G.C.S.C",
       trainingTitle1: "段階別に設計された",
       trainingTitle2: "育成システム",
       trainingDesc: "基礎技術から戦術、フィジカル、進学連携まで。年齢別に異なる基準で練習します。",
@@ -335,24 +335,24 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       recruitDesc: "小学部・中学部・高校部・成人部 — 全年齢募集中",
       recruitButton: "選手募集に申し込む",
       recruitPhone: "010-4178-0207",
-      galleryLabel: "Gallery · G.S.S.C",
+      galleryLabel: "Gallery · G.C.S.C",
       galleryTitle1: "現場の",
       galleryTitle2: "記録",
       galleryCta: "ギャラリー全体を見る",
       promiseLabel: "Club Promise · Since 2015",
       promiseLine1: "最初のボールから",
       promiseLine2: "最後の契約書まで、",
-      promiseLine3: "G.S.S.Cが共にいます",
+      promiseLine3: "G.C.S.Cが共にいます",
       promiseDesc: "入団からプロ契約まで。選手の全ての段階をクラブが共に設計し、責任を持ちます。",
     },
   },
 
   zh: {
-    metaTitle: "金泉足球俱乐部 G.S.S.C | 精英青少年足球",
+    metaTitle: "金泉足球俱乐部 G.C.S.C | 精英青少年足球",
     metaDescription: "首尔青少年足球俱乐部。从小学到K4联赛的垂直整合球员培养。",
     header: {
       clubName: "金泉足球俱乐部",
-      clubNameEn: "G.S.S.C",
+      clubNameEn: "G.C.S.C",
       nav: [
         { href: "/club-introduction", label: "俱乐部介绍" },
         { href: "/program", label: "培训系统" },
@@ -373,7 +373,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       languageLabel: "选择语言",
     },
     home: {
-      heroLabel: "Since 2015 · G.S.S.C",
+      heroLabel: "Since 2015 · G.C.S.C",
       heroLine1: "从训练到升学",
       heroLine2: "GEUMCHEON",
       heroLine3: "SOCCER CLUB",
@@ -386,7 +386,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         { num: "每周5次", label: "定期训练", sub: "室内·室外并行" },
         { num: "K4", label: "联赛衔接", sub: "直通成人赛场通道" },
       ],
-      pipelineLabel: "Pipeline · G.S.S.C",
+      pipelineLabel: "Pipeline · G.C.S.C",
       pipelineLine1: "从第一个球",
       pipelineLine2: "到最后一份合同",
       pipelineDesc: "一套连贯的系统，贯穿球员的整个职业生涯。",
@@ -398,7 +398,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         { age: "之后", name: "职业 / 大学", point: "最终目的地", sepia: true },
       ],
       pipelineCta: "查看职业路线图",
-      identityLabel: "Club Identity · G.S.S.C",
+      identityLabel: "Club Identity · G.C.S.C",
       identityTitle1: "不是足球培训班，",
       identityTitle2: "而是足球经纪俱乐部",
       identityDesc: "我们不止于训练。我们为每位球员规划完整的职业生涯，并全程负责到底。",
@@ -408,7 +408,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         { num: "03", title: "不浪费天赋", body: "不只关注前1%，而是前20~40%。我们发掘那些因缺乏系统而被埋没的才华。" },
       ],
       identityCta: "了解俱乐部",
-      trainingLabel: "Training System · G.S.S.C",
+      trainingLabel: "Training System · G.C.S.C",
       trainingTitle1: "分阶段设计的",
       trainingTitle2: "培训系统",
       trainingDesc: "从基础技术到战术、体能、升学衔接，根据不同年龄制定不同标准进行训练。",
@@ -423,14 +423,14 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       recruitDesc: "小学部·初中部·高中部·成人部 — 全年龄段招募中",
       recruitButton: "申请加入",
       recruitPhone: "010-4178-0207",
-      galleryLabel: "Gallery · G.S.S.C",
+      galleryLabel: "Gallery · G.C.S.C",
       galleryTitle1: "现场",
       galleryTitle2: "记录",
       galleryCta: "查看全部相册",
       promiseLabel: "Club Promise · Since 2015",
       promiseLine1: "从第一个球",
       promiseLine2: "到最后一份合同，",
-      promiseLine3: "G.S.S.C陪伴你",
+      promiseLine3: "G.C.S.C陪伴你",
       promiseDesc: "从加入到职业合同。俱乐部与你共同规划球员成长的每一个阶段，并全程负责。",
     },
   },
@@ -445,7 +445,7 @@ type SiteLanguageContextValue = {
 
 const SiteLanguageContext = React.createContext<SiteLanguageContextValue | null>(null);
 
-const STORAGE_KEY = "gssc-locale";
+const STORAGE_KEY = "GCSC-locale";
 
 export function SiteLanguageProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = React.useState<Locale>("ko");

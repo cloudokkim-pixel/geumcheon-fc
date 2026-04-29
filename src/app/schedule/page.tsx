@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import GSSCHeader from "@/components/GSSCHeader";
+﻿import type { Metadata } from "next";
+import GCSCHeader from "@/components/GCSCHeader";
 import Footer from "@/components/Footer";
 import ScheduleContent from "@/components/schedule-content";
 import { getSchedule } from "@/lib/cms";
@@ -7,8 +7,8 @@ import { getSchedule } from "@/lib/cms";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "경기일정 | 서울금천축구클럽 G.S.S.C",
-  description: "연령별 경기·훈련 일정을 확인하세요. G.S.S.C 서울금천축구클럽.",
+  title: "경기일정 | 서울금천축구클럽 G.C.S.C",
+  description: "연령별 경기·훈련 일정을 확인하세요. G.C.S.C 서울금천축구클럽.",
 };
 
 export default async function SchedulePage() {
@@ -16,13 +16,13 @@ export default async function SchedulePage() {
 
   return (
     <div className="min-h-screen bg-transparent text-[#f5f5f7]">
-      <GSSCHeader />
+      <GCSCHeader />
 
       {/* S1: 히어로 (최소화 — 바로 일정으로) */}
       <section className="border-b border-[#222] py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="font-['Barlow_Condensed',sans-serif] text-sm font-bold uppercase tracking-[0.15em] text-[#cc2222]">
-            Schedule · G.S.S.C
+            Schedule · G.C.S.C
           </p>
           <h1 className="mt-3 font-['Barlow_Condensed',sans-serif] text-[clamp(2.5rem,8vw,4rem)] font-black uppercase leading-[1.0] tracking-tight text-[#f5f5f7]">
             SCHEDULE

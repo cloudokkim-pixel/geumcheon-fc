@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import GSSCHeader from "@/components/GSSCHeader";
+﻿import type { Metadata } from "next";
+import GCSCHeader from "@/components/GCSCHeader";
 import Footer from "@/components/Footer";
 import { ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "패밀리사이트 | 서울금천축구클럽 G.S.S.C",
-  description: "G.S.S.C와 함께하는 협력 대학, 연계 구단, 파트너 기관을 소개합니다.",
+  title: "패밀리사이트 | 서울금천축구클럽 G.C.S.C",
+  description: "G.C.S.C와 함께하는 협력 대학, 연계 구단, 파트너 기관을 소개합니다.",
 };
 
 type PartnerCategory = "university" | "club" | "agent";
@@ -70,19 +70,19 @@ export default function PartnersPage() {
 
   return (
     <div className="min-h-screen bg-transparent text-[#f5f5f7]">
-      <GSSCHeader />
+      <GCSCHeader />
 
       {/* S1: 히어로 */}
       <section className="border-b border-[#222] py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="font-['Barlow_Condensed',sans-serif] text-sm font-bold uppercase tracking-[0.15em] text-[#cc2222]">
-            Partners · G.S.S.C
+            Partners · G.C.S.C
           </p>
           <h1 className="mt-3 font-['Barlow_Condensed',sans-serif] text-[clamp(2.5rem,8vw,4rem)] font-black uppercase leading-[1.0] tracking-tight text-[#f5f5f7]">
             PARTNERS
           </h1>
           <p className="mt-5 text-[clamp(1.125rem,3vw,1.5rem)] font-bold leading-[1.3] text-[#f5f5f7]">
-            G.S.S.C와{" "}
+            G.C.S.C와{" "}
             <span className="text-[#cc2222]">함께하는 파트너들</span>
           </p>
           <p className="mt-4 max-w-2xl text-base leading-[1.7] text-[#c0c0c5]">
@@ -157,7 +157,7 @@ export default function PartnersPage() {
               Partnership
             </p>
             <h2 className="mt-3 font-['Barlow_Condensed',sans-serif] text-[clamp(1.5rem,4vw,2rem)] font-black leading-[1.1] text-[#f5f5f7]">
-              G.S.S.C의 파트너가<br />
+              G.C.S.C의 파트너가<br />
               되고 싶으신가요?
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-[1.7] text-[#c0c0c5]">

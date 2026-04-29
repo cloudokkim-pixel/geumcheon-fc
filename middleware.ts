@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const sessionCookieName = "gssc_admin_session";
+const sessionCookieName = "GCSC_admin_session";
 
 function isProtectedAdminPage(pathname: string) {
   return pathname.startsWith("/admin") && pathname !== "/admin/login";

@@ -1,8 +1,8 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import GSSCHeader from "@/components/GSSCHeader";
+import GCSCHeader from "@/components/GCSCHeader";
 import Footer from "@/components/Footer";
 import { useSiteLanguage, type Locale } from "@/components/site-language";
 
@@ -42,10 +42,10 @@ type ClubIntroCopy = {
 
 const copy: Record<Locale, ClubIntroCopy> = {
   ko: {
-    heroLabel: "About · Since 2015 · G.S.S.C",
+    heroLabel: "About · Since 2015 · G.C.S.C",
     heroTitle: ["축구 팀이 아니라", "축구 매니지먼트 클럽"],
     heroSub: "2015년 창단, 서울 서남권 기반. 선수의 커리어 전체를 설계하고 끝까지 성장시키는 클럽입니다.",
-    mvLabel: "Mission & Vision · G.S.S.C",
+    mvLabel: "Mission & Vision · G.C.S.C",
     mission: {
       tag: "Mission — 우리는 왜 존재하는가",
       title: ["선수를 키우는 곳이 아니라,", "선수의 길을 설계하는 시스템"],
@@ -53,10 +53,10 @@ const copy: Record<Locale, ClubIntroCopy> = {
     },
     vision: {
       tag: "Vision — 10년 후 우리의 모습",
-      title: "G.S.S.C 출신 선수가 K리그와 해외 무대에서 뛰는 것이 당연한 클럽",
+      title: "G.C.S.C 출신 선수가 K리그와 해외 무대에서 뛰는 것이 당연한 클럽",
       sub: "2035년까지 서울 서남권에서 가장 많은 선수를 성인 무대로 배출하는 유소년 통합형 선수개발 클럽.",
     },
-    valuesLabel: "Core Values · G.S.S.C",
+    valuesLabel: "Core Values · G.C.S.C",
     valuesTitle: ["우리가 지키는", "세 가지 약속"],
     values: [
       {
@@ -75,9 +75,9 @@ const copy: Record<Locale, ClubIntroCopy> = {
         body: "상위 1%가 아닌 상위 20~40%의 선수들. 시스템이 있어서 묻혀있는 재능을 발굴하고 키웁니다.",
       },
     ],
-    posLabel: "Why G.S.S.C · Positioning",
+    posLabel: "Why G.C.S.C · Positioning",
     posTitle: ["다른 곳과", "무엇이 다른가"],
-    posSub: "훈련만 하는 곳은 많습니다. G.S.S.C는 다릅니다.",
+    posSub: "훈련만 하는 곳은 많습니다. G.C.S.C는 다릅니다.",
     posRows: [
       {
         themName: "한국 축구부",
@@ -95,9 +95,9 @@ const copy: Record<Locale, ClubIntroCopy> = {
         usText: "성인 무대까지 이어집니다",
       },
     ],
-    coachLabel: "Coaching Staff · G.S.S.C",
+    coachLabel: "Coaching Staff · G.C.S.C",
     coachTitle: ["선수의 곁에서", "함께하는 사람들"],
-    coachSub: "G.S.S.C의 지도자는 가르치는 사람이 아닙니다. 선수의 길을 함께 설계하는 파트너입니다.",
+    coachSub: "G.C.S.C의 지도자는 가르치는 사람이 아닙니다. 선수의 길을 함께 설계하는 파트너입니다.",
     coaches: [
       {
         name: "천경필",
@@ -118,7 +118,7 @@ const copy: Record<Locale, ClubIntroCopy> = {
         philosophy: "\"지도 철학 준비 중\"",
       },
     ],
-    activityLabel: "Activity · G.S.S.C",
+    activityLabel: "Activity · G.C.S.C",
     activityTitle: ["매일의 훈련이", "선수를 만든다"],
     activityCaptions: [
       "훈련 — 반복이 실력이 된다",
@@ -128,14 +128,14 @@ const copy: Record<Locale, ClubIntroCopy> = {
     ],
     activityCta: "갤러리 전체 보기",
     promiseLabel: "Club Promise · Since 2015",
-    promiseText: ["첫 번째 공부터", "마지막 계약서까지,", "G.S.S.C가 함께합니다"],
+    promiseText: ["첫 번째 공부터", "마지막 계약서까지,", "G.C.S.C가 함께합니다"],
     promiseSub: "유소년부터 프로 계약까지. 선수의 모든 단계를 클럽이 함께 설계하고 성장시킵니다.",
   },
   en: {
-    heroLabel: "About · Since 2015 · G.S.S.C",
+    heroLabel: "About · Since 2015 · G.C.S.C",
     heroTitle: ["Not just a football team —", "a football management club"],
     heroSub: "Founded in 2015, based in southwestern Seoul. A club that designs and develops each player's entire career.",
-    mvLabel: "Mission & Vision · G.S.S.C",
+    mvLabel: "Mission & Vision · G.C.S.C",
     mission: {
       tag: "Mission — Why we exist",
       title: ["Not a place to develop players,", "but a system that designs their path"],
@@ -143,10 +143,10 @@ const copy: Record<Locale, ClubIntroCopy> = {
     },
     vision: {
       tag: "Vision — Where we'll be in 10 years",
-      title: "A club where G.S.S.C alumni playing in the K-League and overseas is simply expected",
+      title: "A club where G.C.S.C alumni playing in the K-League and overseas is simply expected",
       sub: "By 2035, the leading integrated youth development club in southwestern Seoul — producing the most players at the senior level.",
     },
-    valuesLabel: "Core Values · G.S.S.C",
+    valuesLabel: "Core Values · G.C.S.C",
     valuesTitle: ["Three commitments", "we never break"],
     values: [
       {
@@ -165,9 +165,9 @@ const copy: Record<Locale, ClubIntroCopy> = {
         body: "Not just the top 1% — the top 20–40%. Our system finds and develops talent that would otherwise go unseen.",
       },
     ],
-    posLabel: "Why G.S.S.C · Positioning",
+    posLabel: "Why G.C.S.C · Positioning",
     posTitle: ["What makes us", "different"],
-    posSub: "There are many places to train. G.S.S.C is different.",
+    posSub: "There are many places to train. G.C.S.C is different.",
     posRows: [
       {
         themName: "School football teams",
@@ -185,7 +185,7 @@ const copy: Record<Locale, ClubIntroCopy> = {
         usText: "It continues to the senior stage",
       },
     ],
-    coachLabel: "Coaching Staff · G.S.S.C",
+    coachLabel: "Coaching Staff · G.C.S.C",
     coachTitle: ["The people who walk", "alongside every player"],
     coachSub: "Our coaches are not teachers. They are partners who design the player's path together.",
     coaches: [
@@ -208,7 +208,7 @@ const copy: Record<Locale, ClubIntroCopy> = {
         philosophy: "\"Philosophy TBD\"",
       },
     ],
-    activityLabel: "Activity · G.S.S.C",
+    activityLabel: "Activity · G.C.S.C",
     activityTitle: ["Daily training is", "what builds players"],
     activityCaptions: [
       "Training — Repetition becomes skill",
@@ -218,14 +218,14 @@ const copy: Record<Locale, ClubIntroCopy> = {
     ],
     activityCta: "View full gallery",
     promiseLabel: "Club Promise · Since 2015",
-    promiseText: ["From the first kick", "to the final contract,", "G.S.S.C is with you"],
+    promiseText: ["From the first kick", "to the final contract,", "G.C.S.C is with you"],
     promiseSub: "From youth to professional contract. The club designs and grows every stage of the player's journey.",
   },
   ja: {
-    heroLabel: "About · Since 2015 · G.S.S.C",
+    heroLabel: "About · Since 2015 · G.C.S.C",
     heroTitle: ["ただのサッカーチームではなく、", "サッカーマネジメントクラブ"],
     heroSub: "2015年創設、ソウル南西部を拠点に。選手のキャリア全体を設計し、最後まで育てるクラブです。",
-    mvLabel: "Mission & Vision · G.S.S.C",
+    mvLabel: "Mission & Vision · G.C.S.C",
     mission: {
       tag: "Mission — 私たちが存在する理由",
       title: ["選手を育てる場所ではなく、", "選手の道を設計するシステム"],
@@ -233,10 +233,10 @@ const copy: Record<Locale, ClubIntroCopy> = {
     },
     vision: {
       tag: "Vision — 10年後の私たち",
-      title: "G.S.S.C出身選手がKリーグや海外舞台で活躍することが当然のクラブ",
+      title: "G.C.S.C出身選手がKリーグや海外舞台で活躍することが当然のクラブ",
       sub: "2035年までにソウル南西部で最多の選手をシニア舞台に輩出する、ユース統合型育成クラブ。",
     },
-    valuesLabel: "Core Values · G.S.S.C",
+    valuesLabel: "Core Values · G.C.S.C",
     valuesTitle: ["私たちが守る", "三つの約束"],
     values: [
       {
@@ -255,9 +255,9 @@ const copy: Record<Locale, ClubIntroCopy> = {
         body: "上位1%ではなく上位20〜40%の選手たち。システムがあるからこそ眠れる才能を発掘し育てます。",
       },
     ],
-    posLabel: "Why G.S.S.C · Positioning",
+    posLabel: "Why G.C.S.C · Positioning",
     posTitle: ["他との", "違いとは"],
-    posSub: "トレーニングだけの場所はたくさんあります。G.S.S.Cは違います。",
+    posSub: "トレーニングだけの場所はたくさんあります。G.C.S.Cは違います。",
     posRows: [
       {
         themName: "学校サッカー部",
@@ -275,9 +275,9 @@ const copy: Record<Locale, ClubIntroCopy> = {
         usText: "シニア舞台まで続きます",
       },
     ],
-    coachLabel: "Coaching Staff · G.S.S.C",
+    coachLabel: "Coaching Staff · G.C.S.C",
     coachTitle: ["選手のそばで", "共に歩む人たち"],
-    coachSub: "G.S.S.Cの指導者は教える人ではありません。選手の道を共に設計するパートナーです。",
+    coachSub: "G.C.S.Cの指導者は教える人ではありません。選手の道を共に設計するパートナーです。",
     coaches: [
       {
         name: "チョン・ギョンピル",
@@ -298,7 +298,7 @@ const copy: Record<Locale, ClubIntroCopy> = {
         philosophy: "\"指導哲学 準備中\"",
       },
     ],
-    activityLabel: "Activity · G.S.S.C",
+    activityLabel: "Activity · G.C.S.C",
     activityTitle: ["日々のトレーニングが", "選手を作る"],
     activityCaptions: [
       "トレーニング — 反復が実力になる",
@@ -308,14 +308,14 @@ const copy: Record<Locale, ClubIntroCopy> = {
     ],
     activityCta: "ギャラリー全体を見る",
     promiseLabel: "Club Promise · Since 2015",
-    promiseText: ["最初のボールから", "最後の契約書まで、", "G.S.S.Cが共にいます"],
+    promiseText: ["最初のボールから", "最後の契約書まで、", "G.C.S.Cが共にいます"],
     promiseSub: "ユースからプロ契約まで。選手のすべての段階をクラブが共に設計し育成します。",
   },
   zh: {
-    heroLabel: "About · Since 2015 · G.S.S.C",
+    heroLabel: "About · Since 2015 · G.C.S.C",
     heroTitle: ["不只是足球队，", "更是足球管理俱乐部"],
     heroSub: "2015年创立，立足首尔西南部。一个全程规划并陪伴球员职业生涯成长的俱乐部。",
-    mvLabel: "Mission & Vision · G.S.S.C",
+    mvLabel: "Mission & Vision · G.C.S.C",
     mission: {
       tag: "Mission — 我们为何存在",
       title: ["不是培养球员的地方，", "而是规划球员道路的系统"],
@@ -323,10 +323,10 @@ const copy: Record<Locale, ClubIntroCopy> = {
     },
     vision: {
       tag: "Vision — 十年后的我们",
-      title: "G.S.S.C出身的球员驰骋K联赛与海外赛场，理所当然",
+      title: "G.C.S.C出身的球员驰骋K联赛与海外赛场，理所当然",
       sub: "到2035年，成为首尔西南部向职业赛场输送最多球员的青训综合型俱乐部。",
     },
-    valuesLabel: "Core Values · G.S.S.C",
+    valuesLabel: "Core Values · G.C.S.C",
     valuesTitle: ["我们坚守的", "三个承诺"],
     values: [
       {
@@ -345,9 +345,9 @@ const copy: Record<Locale, ClubIntroCopy> = {
         body: "不只关注前1%，而是前20〜40%的球员。我们的系统发掘并培育被埋没的才华。",
       },
     ],
-    posLabel: "Why G.S.S.C · Positioning",
+    posLabel: "Why G.C.S.C · Positioning",
     posTitle: ["与其他地方", "有何不同"],
-    posSub: "提供训练的地方很多。G.S.S.C不一样。",
+    posSub: "提供训练的地方很多。G.C.S.C不一样。",
     posRows: [
       {
         themName: "学校足球队",
@@ -365,9 +365,9 @@ const copy: Record<Locale, ClubIntroCopy> = {
         usText: "延续到职业赛场",
       },
     ],
-    coachLabel: "Coaching Staff · G.S.S.C",
+    coachLabel: "Coaching Staff · G.C.S.C",
     coachTitle: ["陪伴在球员身旁的", "那些人"],
-    coachSub: "G.S.S.C的教练不是传授者，而是与球员共同规划道路的伙伴。",
+    coachSub: "G.C.S.C的教练不是传授者，而是与球员共同规划道路的伙伴。",
     coaches: [
       {
         name: "千庆弼",
@@ -388,7 +388,7 @@ const copy: Record<Locale, ClubIntroCopy> = {
         philosophy: "\"执教理念准备中\"",
       },
     ],
-    activityLabel: "Activity · G.S.S.C",
+    activityLabel: "Activity · G.C.S.C",
     activityTitle: ["每天的训练", "成就球员"],
     activityCaptions: [
       "训练 — 重复成就实力",
@@ -398,7 +398,7 @@ const copy: Record<Locale, ClubIntroCopy> = {
     ],
     activityCta: "查看完整图库",
     promiseLabel: "Club Promise · Since 2015",
-    promiseText: ["从第一脚球", "到最后一份合同，", "G.S.S.C与你同行"],
+    promiseText: ["从第一脚球", "到最后一份合同，", "G.C.S.C与你同行"],
     promiseSub: "从青训到职业合同。俱乐部陪伴球员走过每一个阶段，共同规划与成长。",
   },
 };
@@ -436,7 +436,7 @@ export default function ClubIntroductionPage() {
 
   return (
     <div className="min-h-screen bg-transparent text-[#f5f5f7]">
-      <GSSCHeader />
+      <GCSCHeader />
 
       {/* ── S1 Hero ── */}
       <section className="border-b border-[#222] py-16 sm:py-24">
@@ -533,9 +533,9 @@ export default function ClubIntroductionPage() {
                 </div>
                 {/* 화살표 */}
                 <div className="text-center text-lg text-[#cc2222]">→</div>
-                {/* G.S.S.C */}
+                {/* G.C.S.C */}
                 <div className="rounded-[3px] border-l-2 border-[#cc2222] bg-[#1c1c1e] px-4 py-4">
-                  <p className="mb-2 text-[10px] tracking-[0.04em] text-[#888890]">G.S.S.C</p>
+                  <p className="mb-2 text-[10px] tracking-[0.04em] text-[#888890]">G.C.S.C</p>
                   <p className="text-sm font-medium leading-[1.5] text-[#f5f5f7]">{row.usText}</p>
                 </div>
               </div>
